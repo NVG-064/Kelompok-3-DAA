@@ -41,4 +41,24 @@ class Film {
     }
 };
 
+template <typename V>
+void printAllFilm(V& v) {
+    typename V::iterator ptr;
+    for (ptr = v.begin(); ptr != v.end(); ptr++) {
+        cout << endl;
+        ptr->print();
+        cout << endl;
+    }
+}
+template <typename V>
+void printAllFilm(V& v, int index) {
+    typename V::iterator ptr;
+    for (ptr = v.begin(); ptr != v.end(); ptr++) {
+        cout << ( index == ptr->id ? "\\/ \\/ \\/ \\/ \\/" : "" ) << endl;
+        ptr->print();
+        cout << ( index == ptr->id ? "/\\ /\\ /\\ /\\ /\\" : "" ) << endl;
+    }
+    cout << '\n';
+}
+
 #endif

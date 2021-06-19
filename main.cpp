@@ -7,51 +7,67 @@
 #define ARROW_LEFT 75
 #define ARROW_RIGHT 77
 #define ENTER 13
+#define BACKSPACE 8
 
 using namespace std;
 
+int c;
 vector<Film> vFilm;
 
-void printAllFilm(vector<Film> arr) {
-	system("cls");
-	for(int i = 0; i < arr.size(); i++){
-		arr[i].print();
-		cout << "---------------" << endl;
+void beliTiket() {
+	int index = 1;
+	for(;;){
+		system("cls");
+		printAllFilm(vFilm, index);
+		switch(c = getch()){
+			case ARROW_UP:
+				if(index-- == 1)
+					index = vFilm.size();
+				break;
+			case ARROW_DOWN:
+				if(index++ == vFilm.size())
+					index = 1;
+				break;
+			case BACKSPACE:
+				return;
+		}
 	}
 }
 
 void mainMenu() {
-	int n;
 	int index = 1;
-	do {
+	for(;;) {
 		system("cls");
 		cout << ( index == 1 ? "[1]" : " 1 " ) << "Cek Jadwal Film" << endl;
 		cout << ( index == 2 ? "[2]" : " 2 " ) << "Beli Tiket Film" << endl;
 		cout << ( index == 3 ? "[3]" : " 3 " ) << "Riwayat Pembelian" << endl;
 		cout << ( index == 4 ? "[4]" : " 4 " ) << "Top Up Saldo" << endl;
 		cout << ( index == 5 ? "[5]" : " 5 " ) << "Exit" << endl;
-		switch(n=getch()){
+		switch(c = getch()){
 			case ARROW_UP:
-				if(--index == 0)
+				if(index-- == 1)
 					index = 5;
 				break;
 			case ARROW_DOWN:
-				if(++index == 6)
+				if(index++ == 5)
 					index = 1;
 				break;
 			case ENTER:
 				switch(index) {
 					case 1:
+						system("cls");
 						printAllFilm(vFilm);
 						system("pause");
 						break;
-					
+					case 2:
+						beliTiket();
+						break;
 					case 5:
 						return;
 				}
 				break;
 		}
-	} while (true);
+	}
 }
 int main()
 {
