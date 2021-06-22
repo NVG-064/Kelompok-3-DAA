@@ -14,22 +14,66 @@ using namespace std;
 int c;
 vector<Film> vFilm;
 
+void pilihKursi(Film* pFilm) {
+	Film film = *pFilm;
+	int index1 = 0;
+	int index2 = 0;
+	int jumlahKursi = 0;
+	for(;;){
+		system("cls");
+		film.printKursi(index1, index2);
+		cout << endl;
+		cout << ( index1 == film.kursi.size() ? "[Buy]" : " Buy " ) << endl;
+		cout << " Total: Rp. " << 50000 * jumlahKursi << endl;
+		switch(c = getch()){
+			case ARROW_UP:
+				if(index1-- == 0)
+					index1 = film.kursi.size();
+				break;
+			case ARROW_DOWN:
+				if(index1++ == film.kursi.size())
+					index1 = 0;
+				break;
+			case ARROW_LEFT:
+				if(index2-- == 0)
+					index2 = film.kursi.at(0).size()-1;
+				break;
+			case ARROW_RIGHT:
+				if(index2++ == film.kursi.at(0).size()-1)
+					index2 = 0;
+				break;
+			case BACKSPACE:
+				return;
+			case ENTER:
+				if(index1 != film.kursi.size()){
+					if(!film.kursi.at(index1).at(index2)){
+						film.kursi.at(index1).at(index2)= true;
+						jumlahKursi++;
+					}
+				}
+				break;
+		}
+	}
+}
 void beliTiket() {
-	int index = 1;
+	int index = 0;
 	for(;;){
 		system("cls");
 		printAllFilm(vFilm, index);
 		switch(c = getch()){
 			case ARROW_UP:
-				if(index-- == 1)
-					index = vFilm.size();
+				if(index-- == 0)
+					index = vFilm.size()-1;
 				break;
 			case ARROW_DOWN:
-				if(index++ == vFilm.size())
-					index = 1;
+				if(index++ == vFilm.size()-1)
+					index = 0;
 				break;
 			case BACKSPACE:
 				return;
+			case ENTER:
+				pilihKursi(&vFilm.at(index));
+				break;
 		}
 	}
 }
