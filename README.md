@@ -1,17 +1,3 @@
-Ini ngetest aja ya
+Project DAA Kelompok 3
 
-
-Bener ga nih?
-
-Nah ngestuck di situ wkwkwkwk
-
-Padahal gaada yang salah wkwkwk
-
-Ini pake hotspot hp
-Github aja nyambung wkwkwk
-
-
-Coba dah kalo pake CLI kayak gimana?
-\
-
-config git?
+Program pembelian ticket bioskop
