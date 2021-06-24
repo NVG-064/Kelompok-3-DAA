@@ -9,6 +9,7 @@ using namespace std;
 struct dataPribadi{
     string nama;
     string password;
+    int curr;
 }d;
 
 void login(){
@@ -25,6 +26,10 @@ void login(){
 
     if ((nama == d.nama) && (password == d.password)){
         cout << "\nLogin berhasil! Tekan apapun untuk melanjutkan.";
+        getch();
+        system("cls");
+        cout << "\nSelamat datang " << d.nama << ". kamu mendapatkan bonus 10 koin sebagai pengguna baru";
+        d.curr = 10;
         getch();
     }
 
