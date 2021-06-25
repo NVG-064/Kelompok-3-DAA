@@ -12,43 +12,6 @@ struct dataPribadi{
     int curr;
 }d;
 
-void login(){
-    system("cls");
-    cin.ignore();
-    string nama, password;
-
-    cout << "\n\n\tLOGIN";
-    cout << "\n\nNama: ";
-    getline(cin, nama);
-
-    cout << "Password: ";
-    getline(cin, password);
-
-    if ((nama == d.nama) && (password == d.password)){
-        cout << "\nLogin berhasil! Tekan apapun untuk melanjutkan.";
-        getch();
-        system("cls");
-        cout << "\nSelamat datang " << d.nama << ". kamu mendapatkan bonus 10 koin sebagai pengguna baru";
-        d.curr = 10;
-        getch();
-    }
-
-    else if ((nama != d.nama) && (password == d.password)){
-        cout << "\nNama atau password salah!";
-        getch();
-    }
-
-    else if ((nama == d.nama) && (password != d.password)){
-        cout << "\nNama atau password salah!";
-        getch();
-    }
-
-    else {
-        cout << "\nAkun tidak ditemukan! Silahkan sign up terlebih dahulu.";
-        getch();
-    }
-}
-
 void signUp(){
     system("cls");
     cin.ignore();
@@ -73,7 +36,41 @@ void mainPage(){
         cin >> pil;
 
         if (pil == 1){
-            login();
+            system("cls");
+            cin.ignore();
+            string nama, password;
+
+            cout << "\n\n\tLOGIN";
+            cout << "\n\nNama: ";
+            getline(cin, nama);
+
+            cout << "Password: ";
+            getline(cin, password);
+
+            if ((nama == d.nama) && (password == d.password)){
+                cout << "\nLogin berhasil! Tekan apapun untuk melanjutkan.";
+                getch();
+                system("cls");
+                cout << "\nSelamat datang " << d.nama << ". kamu mendapatkan bonus 10 koin sebagai pengguna baru";
+                d.curr = 10;
+                getch();
+                break;
+            }
+
+            else if ((nama != d.nama) && (password == d.password)){
+                cout << "\nNama atau password salah!";
+                getch();
+            }
+
+            else if ((nama == d.nama) && (password != d.password)){
+                cout << "\nNama atau password salah!";
+                getch();
+            }
+
+            else {
+                cout << "\nAkun tidak ditemukan! Silahkan sign up terlebih dahulu.";
+                getch();
+            }
         }
 
         else if (pil == 2){
