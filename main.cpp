@@ -11,9 +11,7 @@
 using namespace std;
 
 string getSeatNumber(int index1, int index2, bool flag){
-	if(flag){
-		return "XX";
-	}
+	if(flag) return "XX";
 	char a = index1+'A';
 	char b = index2+'1';
 	return string() + a + b;
@@ -93,17 +91,21 @@ void printAllFilm(vector<Film> v, int index) {
     cout << '\n';
 }
 
-
+void printAllPembelian(vector<Pembelian> v) {
+    for (int i = 0; i < v.size(); i++) {
+        v.at(i).print();
+        cout << endl;
+    }
+}
 
 
 
 int c;
 int saldo = 0;
-vector<Film> vFilm;
-vector<Pembelian> vPembelian;
+vector<Film> daftarFilm;
+vector<Pembelian> daftarPembelian;
 Pembelian pembelian;
 
-// TODO: Refactor Code
 void pilihKursi(JadwalFilm* pJadwalFilm) {
 	JadwalFilm jadwalFilm = *pJadwalFilm;
 	pembelian.jamTayang = jadwalFilm.jamTayang;
@@ -113,10 +115,16 @@ void pilihKursi(JadwalFilm* pJadwalFilm) {
 	string kursiDibeli = "";
 	for(;;){
 		system("cls");
+		
+		cout << "Pilih Kursi" << endl << endl;
 		jadwalFilm.printKursi(index1, index2);
 		cout << endl;
-		cout << ( index1 == jadwalFilm.kursi.size() ? "[Buy]" : " Buy " ) << endl;
+		
+		cout << ( index1 == jadwalFilm.kursi.size() ? "[Buy]" : " Buy " ) << endl << endl;
+
+		cout << " Kursi Dibeli: " << kursiDibeli << endl;
 		cout << " Total: Rp. " << totalHarga << endl;
+		
 		switch(c = getch()){
 			case ARROW_UP:
 				if(index1-- == 0)
@@ -146,24 +154,28 @@ void pilihKursi(JadwalFilm* pJadwalFilm) {
 				}
 				else if (index1 == jadwalFilm.kursi.size()){
 					pJadwalFilm->kursi = jadwalFilm.kursi;
-					pembelian.id = vPembelian.size()+1;
+
+					pembelian.id = daftarPembelian.size()+1;
 					pembelian.kursiDibeli = kursiDibeli;
 					pembelian.totalHarga = totalHarga;
 
-					vPembelian.push_back(pembelian);
-					pembelian.print();
+					daftarPembelian.push_back(pembelian);
+
+					cout << "\nPembelian sukses!" << endl;
 					system("pause");
+					return;
 				}
 				break;
 		}
 	}
 }
-// TODO: Refactor Code
+
 void pilihJadwal(Film* film){
 	pembelian.namaFilm = film->namaFilm;
 	int index = 0;
 	for(;;){
 		system("cls");
+		cout << "Pilih Jadwal Film" << endl << endl;
 		film->printJadwal(index);
 		switch(c = getch()){
 			case ARROW_UP:
@@ -187,20 +199,21 @@ void beliTiket() {
 	int index = 0;
 	for(;;){
 		system("cls");
-		printAllFilm(vFilm, index);
+		cout << "Pilih Film" << endl << endl;
+		printAllFilm(daftarFilm, index);
 		switch(c = getch()){
 			case ARROW_UP:
 				if(index-- == 0)
-					index = vFilm.size()-1;
+					index = daftarFilm.size()-1;
 				break;
 			case ARROW_DOWN:
-				if(index++ == vFilm.size()-1)
+				if(index++ == daftarFilm.size()-1)
 					index = 0;
 				break;
 			case BACKSPACE:
 				return;
 			case ENTER:
-				pilihJadwal(&vFilm.at(index));
+				pilihJadwal(&daftarFilm.at(index));
 				break;
 		}
 	}
@@ -228,6 +241,11 @@ void mainMenu() {
 					case 1:
 						beliTiket();
 						break;
+					case 2:
+						system("cls");
+						printAllPembelian(daftarPembelian);
+						system("pause");
+						break;
 					case 4:
 						return;
 				}
@@ -235,6 +253,7 @@ void mainMenu() {
 		}
 	}
 }
+
 int main()
 {
 	string namaFilm[] = {
@@ -251,13 +270,13 @@ int main()
 		"20:00"
 	};
 	for(int i = 0; i < sizeof(namaFilm)/sizeof(namaFilm[0]); i++){
-		vector<JadwalFilm> vJF;
+		vector<JadwalFilm> daftarJadwal;
 		for(int j = 0; j < sizeof(jadwalFilm)/sizeof(jadwalFilm[0]); j++){
 			JadwalFilm jf(jadwalFilm[j]);
-			vJF.push_back(jf);
+			daftarJadwal.push_back(jf);
 		}
-		Film film(vFilm.size()+1, namaFilm[i], "13+", 120, vJF);
-		vFilm.push_back(film);
+		Film film(daftarFilm.size()+1, namaFilm[i], "13+", 120, daftarJadwal);
+		daftarFilm.push_back(film);
 	}
 	mainMenu();
 	return 0;
