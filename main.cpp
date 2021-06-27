@@ -122,7 +122,7 @@ void pilihKursi(JadwalFilm* pJadwalFilm) {
 		
 		cout << ( index1 == jadwalFilm.kursi.size() ? "[Buy]" : " Buy " ) << endl << endl;
 
-		cout << " Kursi Dibeli: " << kursiDibeli << endl;
+		cout << " Kursi: " << kursiDibeli << endl;
 		cout << " Total: Rp. " << totalHarga << endl;
 		
 		switch(c = getch()){
