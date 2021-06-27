@@ -77,8 +77,8 @@ class Pembelian {
 		cout << "ID Pembelian: " << this->id << endl;
         cout << "Nama Film: " << this->namaFilm << endl;
 		cout << "Jam Tayang: " << this->jamTayang << endl;
-		cout << "Kursi dibeli: " << this->kursiDibeli << endl;
-        cout << "Total Harga: " << this->totalHarga << endl;
+		cout << "Kursi: " << this->kursiDibeli << endl;
+        cout << "Total: Rp. " << this->totalHarga << endl;
 	}
 };
 
