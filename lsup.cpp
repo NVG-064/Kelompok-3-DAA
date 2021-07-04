@@ -19,6 +19,11 @@ struct dataPribadi{
     int curr;
 }d;
 
+struct administrator{
+    string nama = "admin";
+    string password = "admin";
+}admin;
+
 int c;
 
 void signUp(){
@@ -42,6 +47,7 @@ void mainPage(){
     string nama, password;
     for (;;){
         system("cls");
+        
         cout << "\n\tSELAMAT DATANG!\n\n";
         cout << (index == 1 ? "[1]" : " 1 ") << " Login\n";
         cout << (index == 2 ? "[2]" : " 2 ") << " Sign Up\n\n";
@@ -92,6 +98,12 @@ void mainPage(){
 
                     else if ((nama == d.nama) && (password != d.password)){
                         cout << "\nNama atau password salah!";
+                        getch();
+                        break;
+                    }
+
+                    else if ((nama == admin.nama) && (password == admin.password)){
+                        cout << "\nAnda login sebagai ADMIN.\nJika ini merupakan kesalahan, segera Logout.";
                         getch();
                         break;
                     }
