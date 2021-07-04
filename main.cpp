@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include <conio.h>
+#include <iostream>
 
 #define ARROW_UP 72
 #define ARROW_DOWN 80
@@ -9,6 +10,32 @@
 #define BACKSPACE 8
 
 using namespace std;
+
+//struct dari Data Pribadi
+struct dataPribadi{
+    string nama;
+    string password;
+    int curr;
+}d;
+
+//fungsi Sign Up
+void signUp(){
+    system("cls");
+    cin.ignore();
+    string nama, password;
+
+    cout << "\n\tSIGN UP";
+    cout << "\n\nMasukkan Nama: ";
+    getline(cin, nama);
+
+    cout << "Masukkan Password: ";
+    getline(cin, password);
+
+    d.nama = nama;
+    d.password = password;
+}
+//end of struct and user-defined function
+
 
 string getSeatNumber(int index1, int index2, bool flag){
 	if(flag) return "XX";
@@ -225,8 +252,9 @@ void mainMenu() {
 		system("cls");
 		cout << ( index == 1 ? "[1]" : " 1 " ) << "Beli Tiket Film" << endl;
 		cout << ( index == 2 ? "[2]" : " 2 " ) << "Riwayat Pembelian" << endl;
-		cout << ( index == 3 ? "[3]" : " 3 " ) << "Top Up Saldo" << endl;
-		cout << ( index == 4 ? "[4]" : " 4 " ) << "Exit" << endl;
+		cout << ( index == 3 ? "[3]" : " 3 " ) << "Top Up Saldo" << endl << endl;
+		cout << ( index == 4 ? "[4]" : " 4 " ) << "Logout" << endl;
+		//cout << ( index == 4 ? "[4]" : " 4 " ) << "Exit" << endl;
 		switch(c = getch()){
 			case ARROW_UP:
 				if(index-- == 1)
@@ -254,6 +282,61 @@ void mainMenu() {
 	}
 }
 
+//Main Page berupa Login dan Sign Up
+void mainPage(){
+    int pil;
+    do {
+        system("cls");
+        cout << "\n\tSELAMAT DATANG!\n\n1. Login\n2. Sign Up\n\nPilihan: ";
+        cin >> pil;
+
+        if (pil == 1){
+            system("cls");
+            cin.ignore();
+            string nama, password;
+
+            cout << "\n\n\tLOGIN";
+            cout << "\n\nNama: ";
+            getline(cin, nama);
+
+            cout << "Password: ";
+            getline(cin, password);
+
+            if ((nama == d.nama) && (password == d.password)){
+                cout << "\nLogin berhasil! Tekan apapun untuk melanjutkan.";
+                getch();
+                system("cls");
+                cout << "\nSelamat datang " << d.nama << ". kamu mendapatkan bonus 10 koin sebagai pengguna baru";
+                d.curr = 10;
+                getch();
+                
+				mainMenu();
+            }
+
+            else if ((nama != d.nama) && (password == d.password)){
+                cout << "\nNama atau password salah!";
+                getch();
+            }
+
+            else if ((nama == d.nama) && (password != d.password)){
+                cout << "\nNama atau password salah!";
+                getch();
+            }
+
+            else {
+                cout << "\nAkun tidak ditemukan! Silahkan sign up terlebih dahulu.";
+                getch();
+            }
+        }
+
+        else if (pil == 2){
+            signUp();
+        }
+    } while ((pil > 0) && (pil < 3));
+    
+}
+//end Main Page
+
 int main()
 {
 	string namaFilm[] = {
@@ -278,6 +361,7 @@ int main()
 		Film film(daftarFilm.size()+1, namaFilm[i], "13+", 120, daftarJadwal);
 		daftarFilm.push_back(film);
 	}
-	mainMenu();
+	mainPage();
+	//mainMenu();
 	return 0;
 }
