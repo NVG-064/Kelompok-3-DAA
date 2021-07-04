@@ -258,10 +258,10 @@ void mainMenu() {
 		switch(c = getch()){
 			case ARROW_UP:
 				if(index-- == 1)
-					index = 5;
+					index = 4;
 				break;
 			case ARROW_DOWN:
-				if(index++ == 5)
+				if(index++ == 4)
 					index = 1;
 				break;
 			case ENTER:
