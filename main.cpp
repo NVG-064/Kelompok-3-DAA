@@ -40,19 +40,6 @@ struct administrator{
     string password = "admin";
 }admin;
 
-/* BARU SETENGAH JADI
-class Admin {
-	public:
-	string username;
-	string password;
-	Admin(){}
-	Admin(string username, string password) {
-		this->username = "admin";
-		this->password = "admin";
-	}
-};
-*/
-
 User *findUsername(vector<User> *v, string username) {
 	for(int i = 0; i < v->size(); i++) {
 		if(v->at(i).username == username) {
@@ -267,6 +254,7 @@ void beliTiket() {
 void mainMenu() {
 	int index = 1;
 
+	//greetings function by time
 	time_t timeNow = time(0);
     tm *tmN = localtime(&timeNow);
     int hour = tmN->tm_hour;
@@ -291,6 +279,7 @@ void mainMenu() {
     else if ((hour >= 18) && (hour < 24)){
         greetings = "malam";
     }
+	//end of greetings
 
 	for(;;) {
 		system("cls");
@@ -298,10 +287,10 @@ void mainMenu() {
 		cout << "==================================================================================================================\n\n";
 		cout << "\t\t\thhhhhhyyhhhhhhh" << endl;
         cout << "\t\t\thhhhy-  `/hhhhh" << endl;
-        cout << "\t\t\thhhh+     yhhhh" << endl;
-        cout << "\t\t\thhhhs:.../yhhhh" << "\t\tSelamat " << greetings << "," << " (nama_pengguna_atau_admin)" << endl;
-        cout << "\t\t\thh+.`.-:-.`.+hh" << "\t\tSekarang pukul " << hour << ":" << min /* << d.nama */ << endl;
-        cout << "\t\t\thy           yh" << endl;
+        cout << "\t\t\thhhh+     yhhhh" << "\t\tSelamat " << greetings << ", " << "username_atau_admin" << endl;
+        cout << "\t\t\thhhhs:.../yhhhh" << "\t\tSekarang pukul " << hour << ":" << min << endl;
+        cout << "\t\t\thh+.`.-:-.`.+hh" << endl;
+        cout << "\t\t\thy           yh" << "\t\tSaldo kamu " << "class_saldo" << " koin" << endl;
         cout << "\t\t\tho           oh" << endl;
         cout << "\t\t\thhhhhhhhhhhhhhh" << endl << endl;
 		cout << "==================================================================================================================\n";
@@ -349,20 +338,20 @@ void signUp() {
     getline(cin, password);
 
 	if(checkString(username) || checkString(password)){
-		cout << "Username/Password tidak boleh kosong";
+		cout << "\nUsername/Password tidak boleh kosong";
 		getch();
 		return;
 	}
 
 	User *it = findUsername(&daftarUser, username);
 	if(it != NULL){
-		cout << "Username sudah terpakai";
+		cout << "\nUsername sudah terpakai";
 		getch();
 		return;
 	}
 	User user(username, password);
 	daftarUser.push_back(user);
-    cout << "Registrasi berhasil";
+    cout << "\nRegistrasi berhasil";
     getch();
 }
 
