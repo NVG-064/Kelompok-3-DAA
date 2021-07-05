@@ -251,6 +251,10 @@ void beliTiket() {
 	}
 }
 
+void adminMenu(){
+	//code here
+}
+
 void mainMenu() {
 	int index = 1;
 
@@ -382,7 +386,18 @@ void login() {
 			getch();
 		}
 		mainMenu();
-	} else {
+	} 
+	//separating admin function, need to be fixed
+	else if (username == "admin" && password == "admin"){
+	    cout << "\nLogin berhasil! Tekan apapun untuk melanjutkan.";
+	    getch();
+	    system("cls");
+	    cout << "\nAnda login sebagai Admin.\nJika ini adalah kesalahan, segera logout.";
+		getch();
+		
+		adminMenu(); 
+	} //end
+	else {
 	    cout << "\nUsername atau password salah!";
 	    getch();
 	}
