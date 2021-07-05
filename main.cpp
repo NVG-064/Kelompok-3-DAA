@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #include <conio.h>
-#include <iostream>
 
 #define ARROW_UP 72
 #define ARROW_DOWN 80
@@ -11,37 +10,37 @@
 
 using namespace std;
 
-//struct dari Data Pribadi
-struct dataPribadi{
-    string nama;
-    string password;
-    int curr;
-}d;
-
-//fungsi Sign Up
-void signUp(){
-    system("cls");
-    //cin.ignore();
-    string nama, password;
-
-    cout << "\n\tSIGN UP";
-    cout << "\n\nMasukkan Nama: ";
-    getline(cin, nama);
-
-    cout << "Masukkan Password: ";
-    getline(cin, password);
-
-    d.nama = nama;
-    d.password = password;
+bool checkString(string s){
+	return s.find_first_not_of(' ') == string::npos;
 }
-//end of struct and user-defined function
-
 
 string getSeatNumber(int index1, int index2, bool flag){
 	if(flag) return "XX";
 	char a = index1+'A';
 	char b = index2+'1';
 	return string() + a + b;
+}
+
+class User {
+	public:
+	string username;
+	string password;
+	int saldo;
+	User(){}
+	User(string username, string password) {
+		this->username = username;
+		this->password = password;
+		this->saldo = -1;
+	}
+};
+
+User *findUsername(vector<User> *v, string username) {
+	for(int i = 0; i < v->size(); i++) {
+		if(v->at(i).username == username) {
+			return &v->at(i);
+		}
+	}
+	return NULL;
 }
 
 class JadwalFilm {
@@ -128,7 +127,7 @@ void printAllPembelian(vector<Pembelian> v) {
 
 
 int c;
-int saldo = 0;
+vector<User> daftarUser;
 vector<Film> daftarFilm;
 vector<Pembelian> daftarPembelian;
 Pembelian pembelian;
@@ -254,7 +253,6 @@ void mainMenu() {
 		cout << ( index == 2 ? "[2]" : " 2 " ) << "Riwayat Pembelian" << endl;
 		cout << ( index == 3 ? "[3]" : " 3 " ) << "Top Up Saldo" << endl << endl;
 		cout << ( index == 4 ? "[4]" : " 4 " ) << "Logout" << endl;
-		//cout << ( index == 4 ? "[4]" : " 4 " ) << "Exit" << endl;
 		switch(c = getch()){
 			case ARROW_UP:
 				if(index-- == 1)
@@ -282,92 +280,69 @@ void mainMenu() {
 	}
 }
 
-//Main Page berupa Login dan Sign Up
-void mainPage(){
-    int index = 1;
-    string nama, password;
-    for (;;){
-        system("cls");
-        cout << "\n\tSELAMAT DATANG!\n\n";
-        cout << (index == 1 ? "[1]" : " 1 ") << " Login\n";
-        cout << (index == 2 ? "[2]" : " 2 ") << " Sign Up\n\n";
-        cout << (index == 3 ? "[3]" : " 3 ") << " Exit";
+void signUp() {
+    system("cls");
+    string username, password;
 
-        switch (c = getch()){
-            case ARROW_UP:
-            if (index-- == 1){
-                index = 3;
-            }
-            break;
+    cout << "\n\tSIGN UP";
+    cout << "\n\nMasukkan Username: ";
+    getline(cin, username);
 
-            case ARROW_DOWN:
-            if (index++ == 3){
-                index = 1;
-            }
-            break;
+    cout << "Masukkan Password: ";
+    getline(cin, password);
 
-            case ENTER:
-                switch (index){
+	if(checkString(username) || checkString(password)){
+		cout << "Username/Password tidak boleh kosong";
+		getch();
+		return;
+	}
 
-                    case 1:
-                    //cin.ignore();
-                    system("cls");
-
-                    cout << "\n\n\tLOGIN";
-                    cout << "\n\nNama: ";
-                    getline(cin, nama);
-
-                    cout << "Password: ";
-                    getline(cin, password);
-
-                    if ((nama == d.nama) && (password == d.password)){
-                        cout << "\nLogin berhasil! Tekan apapun untuk melanjutkan.";
-                        getch();
-                        system("cls");
-                        cout << "\nSelamat datang " << d.nama << ". kamu mendapatkan bonus 10 koin sebagai pengguna baru :) ";
-                        d.curr = 10;
-                        getch();
-
-						mainMenu();
-                        break;
-                    }
-
-                    else if ((nama != d.nama) && (password == d.password)){
-                        cout << "\nNama atau password salah!";
-                        getch();
-                        break;
-                    }
-
-                    else if ((nama == d.nama) && (password != d.password)){
-                        cout << "\nNama atau password salah!";
-                        getch();
-                        break;
-                    }
-
-                    else {
-                        cout << "\nAkun tidak ditemukan! Kamu akan berpindah ke laman Sign Up.\nTekan apa saja untuk melanjutkan.";
-                        getch();
-                    }
-
-
-
-                    case 2:
-                    signUp();
-                    break;
-
-
-
-                    case 3:
-                    return;
-                }
-        }
-    }
-    
+	User *it = findUsername(&daftarUser, username);
+	if(it != NULL){
+		cout << "Username sudah terpakai";
+		getch();
+		return;
+	}
+	User user(username, password);
+	daftarUser.push_back(user);
+    cout << "Registrasi berhasil";
+    getch();
 }
-//end Main Page
 
-int main()
-{
+void login() {
+	system("cls");	
+	string username, password;
+
+	cout << "\n\n\tLOGIN";
+	cout << "\n\nUsername: ";
+	getline(cin, username);
+
+	cout << "Password: ";
+	getline(cin, password);
+	
+	User *it = findUsername(&daftarUser, username);
+	if(it == NULL){
+		cout << "Username tidak ditemukan";
+		getch();
+		return;
+	}
+	if (username == it->username && password == it->password){
+	    cout << "\nLogin berhasil! Tekan apapun untuk melanjutkan.";
+	    getch();
+	    system("cls");
+		if(it->saldo == -1){
+	    	cout << "\nSelamat datang, " << it->username << ". kamu mendapatkan bonus 10 koin sebagai pengguna baru :) ";
+	    	it->saldo = 10;
+			getch();
+		}
+		mainMenu();
+	} else {
+	    cout << "\nUsername atau password salah!";
+	    getch();
+	}
+}
+
+void setupDummy() {
 	string namaFilm[] = {
 		"The Lord of the Rings",
 		"Inception",
@@ -390,7 +365,40 @@ int main()
 		Film film(daftarFilm.size()+1, namaFilm[i], "13+", 120, daftarJadwal);
 		daftarFilm.push_back(film);
 	}
-	mainPage();
-	//mainMenu();
+}
+
+int main() {
+	setupDummy();
+
+	int index = 1;
+    for (;;){
+        system("cls");
+        cout << "\n\tSELAMAT DATANG!\n\n";
+        cout << (index == 1 ? "[1]" : " 1 ") << " Login\n";
+        cout << (index == 2 ? "[2]" : " 2 ") << " Sign Up\n\n";
+        cout << (index == 3 ? "[3]" : " 3 ") << " Exit";
+        switch (c = getch()){
+            case ARROW_UP:
+            	if (index-- == 1)
+            	    index = 3;
+            	break;
+            case ARROW_DOWN:
+	            if (index++ == 3)
+	                index = 1;
+            	break;
+            case ENTER:
+                switch (index){
+                    case 1:
+						login();
+						break;
+                    case 2:
+                    	signUp();
+                    	break;
+                    case 3:
+                    	return 0;
+				}
+				break;
+        }
+    }
 	return 0;
 }
