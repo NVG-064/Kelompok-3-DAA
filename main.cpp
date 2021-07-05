@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include <conio.h>
+#include <ctime>
 
 #define ARROW_UP 72
 #define ARROW_DOWN 80
@@ -265,12 +266,50 @@ void beliTiket() {
 
 void mainMenu() {
 	int index = 1;
+
+	time_t timeNow = time(0);
+    tm *tmN = localtime(&timeNow);
+    int hour = tmN->tm_hour;
+    int min = tmN->tm_min;
+    string greetings;
+    if ((hour >= 0) && (hour < 3)){
+        greetings = "dini hari";
+    }
+
+    else if ((hour >= 3) && (hour < 12)){
+        greetings = "pagi";
+    }
+
+    else if ((hour >= 12) && (hour < 15)){
+        greetings = "siang";
+    }
+
+    else if ((hour >= 15) && (hour < 18)){
+        greetings = "sore";
+    }
+
+    else if ((hour >= 18) && (hour < 24)){
+        greetings = "malam";
+    }
+
 	for(;;) {
 		system("cls");
-		cout << ( index == 1 ? "[1]" : " 1 " ) << "Beli Tiket Film" << endl;
-		cout << ( index == 2 ? "[2]" : " 2 " ) << "Riwayat Pembelian" << endl;
-		cout << ( index == 3 ? "[3]" : " 3 " ) << "Top Up Saldo" << endl << endl;
-		cout << ( index == 4 ? "[4]" : " 4 " ) << "Logout" << endl;
+		cout << "==================================================================================================================\n";
+		cout << "==================================================================================================================\n\n";
+		cout << "\t\t\thhhhhhyyhhhhhhh" << endl;
+        cout << "\t\t\thhhhy-  `/hhhhh" << endl;
+        cout << "\t\t\thhhh+     yhhhh" << endl;
+        cout << "\t\t\thhhhs:.../yhhhh" << "\t\tSelamat " << greetings << "," << " (nama_pengguna_atau_admin)" << endl;
+        cout << "\t\t\thh+.`.-:-.`.+hh" << "\t\tSekarang pukul " << hour << ":" << min /* << d.nama */ << endl;
+        cout << "\t\t\thy           yh" << endl;
+        cout << "\t\t\tho           oh" << endl;
+        cout << "\t\t\thhhhhhhhhhhhhhh" << endl << endl;
+		cout << "==================================================================================================================\n";
+        cout << "==================================================================================================================\n\n";
+		cout << "\t\t\t" << ( index == 1 ? "[1]" : " 1 " ) << "Beli Tiket Film" << endl;
+		cout << "\t\t\t" << ( index == 2 ? "[2]" : " 2 " ) << "Riwayat Pembelian" << endl;
+		cout << "\t\t\t" << ( index == 3 ? "[3]" : " 3 " ) << "Top Up Saldo" << endl << endl;
+		cout << "\t\t\t" << ( index == 4 ? "[4]" : " 4 " ) << "Logout" << endl;
 		switch(c = getch()){
 			case ARROW_UP:
 				if(index-- == 1)
