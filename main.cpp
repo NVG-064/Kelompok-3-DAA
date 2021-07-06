@@ -147,7 +147,7 @@ void printAllPembelian(vector<Pembelian> v) {
 
 
 
-int c;
+int c, result;
 vector<User> daftarUser;
 vector<Film> daftarFilm;
 vector<Pembelian> daftarPembelian;
@@ -267,6 +267,106 @@ void beliTiket() {
 	}
 }
 
+void makeSure(){
+	int index3 = 1;
+
+	for (;;){
+		system("cls");
+
+		cout << "\n\t\t\t\t\tApakah Anda yakin?\n" << endl;
+	cout << "\t\t\t\t\t" << ( index3 == 1 ? "[1]" : " 1 " ) << " Ya" << endl;
+	cout << "\t\t\t\t\t" << ( index3 == 2 ? "[2]" : " 2 " ) << " Tidak" << endl;
+
+	switch(c = getch()){
+		case ARROW_UP:
+			if(index3-- == 1)
+				index3 = 2;
+			break;
+		case ARROW_DOWN:
+			if(index3++ == 2)
+				index3 = 1;
+			break;
+		case ENTER:
+			switch(index3){
+				case 1:
+					result = 1;
+					return;
+				case 2:
+					result = 0;
+					return;
+			}
+			break;
+	}
+	}
+}
+
+void topUpSaldo(){
+	int input, result, index2 = 1;
+	for (;;){
+	system("cls");
+
+	cout << "\t\t\t\t\t  `  `` ``  `  `` `` `:/oydmNNMMMMNNmdhs+:.` `` ``  `  `` ``  `  `` ``  `  " << endl;
+	cout << "\t\t\t\t\t`   `  `  `   `  `.odMMMMMMNNmh//sdmNMMMMMMmy:``  `   `  `  `   `  `  `   `" << endl;
+	cout << "\t\t\t\t\t                .yMMMMMMMd:` `+sys+.-+dMMMMMMMd:                           " << endl;
+	cout << "\t\t\t\t\t  `  `   `  `  `hMMMMMMMMm+-..-:/++sydNMMMMMMMMN``  `  `   `  `  `   `  `  " << endl;
+	cout << "\t\t\t\t\t`` ``  `  `` `` sMMMMMMMMdhyyddhhyo  ``yMMMMMMMm` `` ``  `  `` ``  `  `` ``" << endl;
+	cout << "\t\t\t\t\t  `  `   `  `  `.+mMMMMMMds/::/:::::/+yNMMMMMNs-``  `  `   `  `  `   `  `  " << endl;
+	cout << "\t\t\t\t\t                hh/+sdmNMMMMMMNssdMMMMMMNNmy/:om.                          " << endl;
+	cout << "\t\t\t\t\t`   `  `  `   ` :mMNhs++oosyyhhddhhyys+/:-.-:+++..`   `  `  `   `  `  `   `" << endl;
+	cout << "\t\t\t\t\t  `  `   `  `  `/:odNMMMNmdhhyyyyyys/-:shmNMNNNMNmhs:. `   `  `  `   `  `  " << endl;
+	cout << "\t\t\t\t\t`   `  `  `   ` yNho+oshdmNNMMMMMNs:smMMMMMNo.oNMMMMMms. `  `   `  `  `   `" << endl;
+	cout << "\t\t\t\t\t                .sNMMmdyoo++++oo/:+NMMMMMy:-```-:yNMMMMN+`                 " << endl;
+	cout << "\t\t\t\t\t  `  `   `  `  `ys/ohmNMMMMMNNNd.sMMMMMMo```ydy:`.sMMMMMMs``  `  `   `  `  " << endl;
+	cout << "\t\t\t\t\t`   `  `  `   ` +NNdyo++osyhddd//MMMMMMM:  .hmMNhmNMMMMMMM/ `   `  `  `   `" << endl;
+	cout << "\t\t\t\t\t  `  `   `  `  `::ymMMNNmdhysso`hMMMMMMMh.` `.-/sdMMMMMMMMh`  `  `   `  `  " << endl;
+	cout << "\t\t\t\t\t                hms++ohdNMMMMMm dMMMMMMMMNho/.`  `/NMMMMMMd                " << endl;
+	cout << "\t\t\t\t\t`   `  `  `   ` .hMMNdyo+++o+oo`sMMMMMMNmhhMMNmo  `yMMMMMMs `   `  `  `   `" << endl;
+	cout << "\t\t\t\t\t  `  `` ``  `  `s+/sdMMMMNNNNmmy.mMMMMMN.``+ddd/```mMMMMMm.`  `  `` ``  `  " << endl;
+	cout << "\t\t\t\t\t`   `  `  `   ` oMNho//oyhdmNMMMs-dMMMMMm+.`````./dMMMMMd-  `   `  `  `   `" << endl;
+	cout << "\t\t\t\t\t                `/dMMMNmhyso++//+/-oNMMMMMNm+ +mNMMMMMNo`                  " << endl;
+	cout << "\t\t\t\t\t  `  `   `  `  `  `-+hmMMMMMMMMMMMNy:/hNMMMMdydMMMMNh/``   `  `  `   `  `  " << endl;
+	cout << "\t\t\t\t\t`` ``  `  `` ``  `  `` `:/+ssyyhyyyso/``:+oyyyyyo/:` ``  `  `` ``  `  `` ``" << endl;
+	cout << "\n========================================================================================================================\n\n";
+	cout << "\t\t\t\t\t\tTOP UP SALDO\n" << endl; 
+	cout << "\t\t\t\t\t" << (index2 == 1 ? "[1]" : " 1 ") << " Top Up 10 koin (bonus 2 koin)" << endl;
+	cout << "\t\t\t\t\t" << (index2 == 2 ? "[2]" : " 2 ") << " Top up 20 koin (bonus 4 koin)" << endl;
+	cout << "\t\t\t\t\t" << (index2 == 3 ? "[3]" : " 3 ") << " Top up 40 koin (bonus 16 koin)" << endl;
+	cout << "\t\t\t\t\t" << (index2 == 4 ? "[4]" : " 4 ") << " Pilih manual jumlah koin" << endl << endl;
+	cout << "\t\t\t\t\t" << (index2 == 5 ? "[5]" : " 5 ") << " Kembali" << endl;
+
+	switch(c = getch()){
+		case ARROW_UP:
+			if(index2-- == 1)
+				index2 = 5;
+			break;
+		case ARROW_DOWN:
+			if(index2++ == 5)
+				index2 = 1;
+			break;
+		case ENTER:
+			switch(index2){
+				case 1:
+					makeSure();
+					if (result == 1) currentUser->saldo += 12; else cout << "\nPembayaran dibatalkan";
+					break;
+				case 2:
+					makeSure();
+					if (result == 1) currentUser->saldo += 24; else cout << "\nPembayaran dibatalkan";
+					break;
+				case 3:
+					makeSure();
+					if (result == 1) currentUser->saldo += 56; else cout << "\nPembayaran dibatalkan";
+					break;
+				case 4:
+					break;
+				case 5:
+					return;
+			}
+			break;
+	}
+	}
+}
+
 void adminMenu(){
 	//code here
 }
@@ -313,6 +413,9 @@ void mainMenu() {
 						system("cls");
 						printAllPembelian(daftarPembelian);
 						system("pause");
+						break;
+					case 3:
+						topUpSaldo();						
 						break;
 					case 4:
 						return;
