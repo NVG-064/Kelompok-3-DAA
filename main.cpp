@@ -333,8 +333,8 @@ void signUp() {
     cout << "Masukkan Password: ";
     getline(cin, password);
 
-	if(checkString(username) || checkString(password)){
-		cout << "\nUsername/Password tidak boleh kosong";
+	if(username == "admin" || checkString(username) || checkString(password)){
+		cout << "\nUsername/Password tidak valid";
 		getch();
 		return;
 	}
@@ -361,13 +361,23 @@ void login() {
 
 	cout << "Password: ";
 	getline(cin, password);
-	
+
+	if (username == "admin" && password == "admin"){
+	    system("cls");
+	    cout << "\nBerhasil login sebagai admin";
+		getch();
+		
+		adminMenu(); 
+		return;
+	}
+
 	currentUser = findUsername(&daftarUser, username);
 	if(currentUser == NULL){
 		cout << "Username tidak ditemukan";
 		getch();
 		return;
 	}
+
 	if (username == currentUser->username && password == currentUser->password){
 	    cout << "\nLogin berhasil! Tekan apapun untuk melanjutkan.";
 	    getch();
@@ -378,18 +388,7 @@ void login() {
 			getch();
 		}
 		mainMenu();
-	} 
-	//separating admin function, need to be fixed
-	else if (username == "admin" && password == "admin"){
-	    cout << "\nLogin berhasil! Tekan apapun untuk melanjutkan.";
-	    getch();
-	    system("cls");
-	    cout << "\nAnda login sebagai Admin.\nJika ini adalah kesalahan, segera logout.";
-		getch();
-		
-		adminMenu(); 
-	} //end
-	else {
+	} else {
 	    cout << "\nUsername atau password salah!";
 	    getch();
 	}
