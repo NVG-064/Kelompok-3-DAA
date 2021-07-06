@@ -15,6 +15,26 @@ bool checkString(string s){
 	return s.find_first_not_of(' ') == string::npos;
 }
 
+string getTimeState(int hour){
+    string timeState;
+    if ((hour >= 0) && (hour < 3)){
+        timeState = "dini hari";
+    }
+    else if ((hour >= 3) && (hour < 12)){
+        timeState = "pagi";
+    }
+    else if ((hour >= 12) && (hour < 15)){
+        timeState = "siang";
+    }
+    else if ((hour >= 15) && (hour < 18)){
+        timeState = "sore";
+    }
+    else if ((hour >= 18) && (hour < 24)){
+        timeState = "malam";
+    }
+    return timeState;
+}
+
 string getSeatNumber(int index1, int index2, bool flag){
 	if(flag) return "XX";
 	char a = index1+'A';
@@ -252,41 +272,17 @@ void adminMenu(){
 
 void mainMenu() {
 	int index = 1;
-
-	//greetings function by time
-	time_t timeNow = time(0);
+    time_t timeNow = time(0);
     tm *tmN = localtime(&timeNow);
     int hour = tmN->tm_hour;
     int min = tmN->tm_min;
-    string greetings;
-    if ((hour >= 0) && (hour < 3)){
-        greetings = "dini hari";
-    }
-
-    else if ((hour >= 3) && (hour < 12)){
-        greetings = "pagi";
-    }
-
-    else if ((hour >= 12) && (hour < 15)){
-        greetings = "siang";
-    }
-
-    else if ((hour >= 15) && (hour < 18)){
-        greetings = "sore";
-    }
-
-    else if ((hour >= 18) && (hour < 24)){
-        greetings = "malam";
-    }
-	//end of greetings
-
 	for(;;) {
 		system("cls");
 		cout << "==================================================================================================================\n";
 		cout << "==================================================================================================================\n\n";
 		cout << "\t\t\thhhhhhyyhhhhhhh" << endl;
         cout << "\t\t\thhhhy-  `/hhhhh" << endl;
-        cout << "\t\t\thhhh+     yhhhh" << "\t\tSelamat " << greetings << ", " << "username_atau_admin" << endl;
+        cout << "\t\t\thhhh+     yhhhh" << "\t\tSelamat " << getTimeState(hour) << ", " << "username_atau_admin" << endl;
         cout << "\t\t\thhhhs:.../yhhhh" << "\t\tSekarang pukul " << hour << ":" << min << endl;
         cout << "\t\t\thh+.`.-:-.`.+hh" << endl;
         cout << "\t\t\thy           yh" << "\t\tSaldo kamu " << "class_saldo" << " koin" << endl;
