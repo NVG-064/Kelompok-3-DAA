@@ -326,28 +326,46 @@ void signUp() {
     system("cls");
     string username, password;
 
-    cout << "\n\tSIGN UP";
-    cout << "\n\nMasukkan Username: ";
+	cout << "\t\t\t\t\thhhhhhhhhhhhhhhhhhhhhhhhhhhhhh" << endl;
+	cout << "\t\t\t\t\thhhhhhhhhhhhhhhhhhhhhhhhhhhhhh" << endl;
+	cout << "\t\t\t\t\thhhhhhhhhhy:`   .:yhhhhhhhhhhh" << endl;
+	cout << "\t\t\t\t\thhhhhhhhho         +hhhhhhhhhh" << endl;
+	cout << "\t\t\t\t\thhhhhhhhh`          shhhhhhhhh" << endl;
+	cout << "\t\t\t\t\thhhhhhhhh`          +hhhhhhhhh" << endl;
+	cout << "\t\t\t\t\thhhhhhhhh+         `yhhhhhhhhh" << endl;
+	cout << "\t\t\t\t\thhhhhhhhhho.      -yhhhhhhhhhh" << endl;
+	cout << "\t\t\t\t\thhhhhhyo/:+hyo++oyh+:/oyhhhhhh" << endl;
+	cout << "\t\t\t\t\thhhhh-      -/++/-      -hhhhh" << endl;
+	cout << "\t\t\t\t\thhhh:                    :hhhh" << endl;
+	cout << "\t\t\t\t\thhhh                      hhhh" << endl;
+	cout << "\t\t\t\t\thhho                      ohhh" << endl;
+	cout << "\t\t\t\t\thhh/                      /hhh" << endl;
+	cout << "\t\t\t\t\thhh-                      -hhh" << endl;
+	cout << "\t\t\t\t\thhhhhhhhhhhhhhhhhhhhhhhhhhhhhh" << endl;
+	cout << "\n========================================================================================================================" << endl << endl;
+
+    cout << "\n\t\t\t\t\t\tSIGN UP";
+    cout << "\n\n\t\t\t\t\tMasukkan Username: ";
     getline(cin, username);
 
-    cout << "Masukkan Password: ";
+    cout << "\t\t\t\t\tMasukkan Password: ";
     getline(cin, password);
 
 	if(username == "admin" || checkString(username) || checkString(password)){
-		cout << "\nUsername/Password tidak valid";
+		cout << "\n\t\t\t\t\tUsername/Password tidak valid";
 		getch();
 		return;
 	}
 
 	currentUser = findUsername(&daftarUser, username);
 	if(currentUser != NULL){
-		cout << "\nUsername sudah terpakai";
+		cout << "\n\t\t\t\t\tUsername sudah terpakai";
 		getch();
 		return;
 	}
 	User user(username, password);
 	daftarUser.push_back(user);
-    cout << "\nRegistrasi berhasil";
+    cout << "\n\t\t\t\t\tRegistrasi berhasil";
     getch();
 }
 
@@ -443,6 +461,7 @@ int main() {
 	int index = 1;
     for (;;){
         system("cls");
+		cout << "========================================================================================================================\n" << endl;
         cout << "...------...........+:...................................-........--------.............--..............................." << endl;
 		cout << "..odysyh:....---....Ms...----.......--...---.....---....:h:.......:Nhssyys:-...----...-y+.....---.......---.....---....." << endl;
 		cout << "..mm:-....-/sssyo-..Ms..ossyyo-.-y+osys:+syy:../sssys:.+yMys+...../Mo...-sN+.-sssyy/.:sMdso.:sssyy/../y/osyo-.-/sssyyo-." << endl;
