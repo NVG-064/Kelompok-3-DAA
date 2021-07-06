@@ -35,11 +35,6 @@ class User {
 	}
 };
 
-struct administrator{
-    string nama = "admin";
-    string password = "admin";
-}admin;
-
 User *findUsername(vector<User> *v, string username) {
 	for(int i = 0; i < v->size(); i++) {
 		if(v->at(i).username == username) {
