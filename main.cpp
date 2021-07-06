@@ -352,19 +352,37 @@ void signUp() {
 }
 
 void login() {
-	system("cls");	
+	system("cls");
 	string username, password;
 
-	cout << "\n\n\tLOGIN";
-	cout << "\n\nUsername: ";
+	cout << "\t\t\t\t\thhhhhhhhhhhhhhhhhhhhhhhhhhhhhh" << endl;
+	cout << "\t\t\t\t\thhhhhhhhhhhhhhhhhhhhhhhhhhhhhh" << endl;
+	cout << "\t\t\t\t\thhhhhhhhhhy:`   .:yhhhhhhhhhhh" << endl;
+	cout << "\t\t\t\t\thhhhhhhhho         +hhhhhhhhhh" << endl;
+	cout << "\t\t\t\t\thhhhhhhhh`          shhhhhhhhh" << endl;
+	cout << "\t\t\t\t\thhhhhhhhh`          +hhhhhhhhh" << endl;
+	cout << "\t\t\t\t\thhhhhhhhh+         `yhhhhhhhhh" << endl;
+	cout << "\t\t\t\t\thhhhhhhhhho.      -yhhhhhhhhhh" << endl;
+	cout << "\t\t\t\t\thhhhhhyo/:+hyo++oyh+:/oyhhhhhh" << endl;
+	cout << "\t\t\t\t\thhhhh-      -/++/-      -hhhhh" << endl;
+	cout << "\t\t\t\t\thhhh:                    :hhhh" << endl;
+	cout << "\t\t\t\t\thhhh                      hhhh" << endl;
+	cout << "\t\t\t\t\thhho                      ohhh" << endl;
+	cout << "\t\t\t\t\thhh/                      /hhh" << endl;
+	cout << "\t\t\t\t\thhh-                      -hhh" << endl;
+	cout << "\t\t\t\t\thhhhhhhhhhhhhhhhhhhhhhhhhhhhhh" << endl;
+	cout << "\n========================================================================================================================" << endl << endl;
+
+	cout << "\n\t\t\t\t\t\tLOGIN";
+	cout << "\n\n\t\t\t\t\tUsername: ";
 	getline(cin, username);
 
-	cout << "Password: ";
+	cout << "\t\t\t\t\tPassword: ";
 	getline(cin, password);
 
 	if (username == "admin" && password == "admin"){
 	    system("cls");
-	    cout << "\nBerhasil login sebagai admin";
+	    cout << "\n\t\t\t\t\tBerhasil login sebagai admin";
 		getch();
 		
 		adminMenu(); 
@@ -373,13 +391,13 @@ void login() {
 
 	currentUser = findUsername(&daftarUser, username);
 	if(currentUser == NULL){
-		cout << "Username tidak ditemukan";
+		cout << "\n\t\t\t\t\tUsername tidak ditemukan";
 		getch();
 		return;
 	}
 
 	if (username == currentUser->username && password == currentUser->password){
-	    cout << "\nLogin berhasil! Tekan apapun untuk melanjutkan.";
+	    cout << "\n\t\t\t\t\tLogin berhasil! Tekan apapun untuk melanjutkan.";
 	    getch();
 	    system("cls");
 		if(currentUser->saldo == -1){
@@ -389,7 +407,7 @@ void login() {
 		}
 		mainMenu();
 	} else {
-	    cout << "\nUsername atau password salah!";
+	    cout << "\n\t\t\t\t\tUsername atau password salah!";
 	    getch();
 	}
 }
