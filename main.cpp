@@ -301,7 +301,7 @@ void makeSure(){
 }
 
 void topUpSaldo(){
-	int input, result, index2 = 1;
+	int input, index2 = 1;
 	for (;;){
 	system("cls");
 
@@ -347,17 +347,40 @@ void topUpSaldo(){
 			switch(index2){
 				case 1:
 					makeSure();
-					if (result == 1) currentUser->saldo += 12; else cout << "\nPembayaran dibatalkan";
+					if (result == 1) currentUser->saldo += 12;
+					else {
+						cout << "\nPembayaran dibatalkan";
+						getch();
+					}
 					break;
 				case 2:
 					makeSure();
-					if (result == 1) currentUser->saldo += 24; else cout << "\nPembayaran dibatalkan";
+					if (result == 1) currentUser->saldo += 24;
+					else {
+						cout << "\nPembayaran dibatalkan";
+						getch();
+					}
 					break;
 				case 3:
 					makeSure();
-					if (result == 1) currentUser->saldo += 56; else cout << "\nPembayaran dibatalkan";
+					if (result == 1) currentUser->saldo += 56;
+					else {
+						cout << "\nPembayaran dibatalkan";
+						getch();
+					}
 					break;
 				case 4:
+					system("cls");
+					cout << "HARAP DIPERHATIKAN. TIDAK ADA BONUS KOIN UNTUK PILIHAN INI!\n" << endl;
+					cout << "Masukkan jumlah koin: ";
+					cin >> input;
+
+					makeSure();
+					if (result == 1) currentUser->saldo += input;
+					else {
+						cout << "\nPembayaran dibatalkan";
+						getch();
+					}
 					break;
 				case 5:
 					return;
