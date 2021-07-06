@@ -151,6 +151,7 @@ int c;
 vector<User> daftarUser;
 vector<Film> daftarFilm;
 vector<Pembelian> daftarPembelian;
+User *currentUser;
 Pembelian pembelian;
 
 void pilihKursi(JadwalFilm* pJadwalFilm) {
@@ -282,10 +283,10 @@ void mainMenu() {
 		cout << "==================================================================================================================\n\n";
 		cout << "\t\t\thhhhhhyyhhhhhhh" << endl;
         cout << "\t\t\thhhhy-  `/hhhhh" << endl;
-        cout << "\t\t\thhhh+     yhhhh" << "\t\tSelamat " << getTimeState(hour) << ", " << "username_atau_admin" << endl;
+        cout << "\t\t\thhhh+     yhhhh" << "\t\tSelamat " << getTimeState(hour) << ", " << currentUser->username << endl;
         cout << "\t\t\thhhhs:.../yhhhh" << "\t\tSekarang pukul " << hour << ":" << min << endl;
         cout << "\t\t\thh+.`.-:-.`.+hh" << endl;
-        cout << "\t\t\thy           yh" << "\t\tSaldo kamu " << "class_saldo" << " koin" << endl;
+        cout << "\t\t\thy           yh" << "\t\tSaldo kamu " << currentUser->saldo << " koin" << endl;
         cout << "\t\t\tho           oh" << endl;
         cout << "\t\t\thhhhhhhhhhhhhhh" << endl << endl;
 		cout << "==================================================================================================================\n";
@@ -338,8 +339,8 @@ void signUp() {
 		return;
 	}
 
-	User *it = findUsername(&daftarUser, username);
-	if(it != NULL){
+	currentUser = findUsername(&daftarUser, username);
+	if(currentUser != NULL){
 		cout << "\nUsername sudah terpakai";
 		getch();
 		return;
@@ -361,19 +362,19 @@ void login() {
 	cout << "Password: ";
 	getline(cin, password);
 	
-	User *it = findUsername(&daftarUser, username);
-	if(it == NULL){
+	currentUser = findUsername(&daftarUser, username);
+	if(currentUser == NULL){
 		cout << "Username tidak ditemukan";
 		getch();
 		return;
 	}
-	if (username == it->username && password == it->password){
+	if (username == currentUser->username && password == currentUser->password){
 	    cout << "\nLogin berhasil! Tekan apapun untuk melanjutkan.";
 	    getch();
 	    system("cls");
-		if(it->saldo == -1){
-	    	cout << "\nSelamat datang, " << it->username << ". kamu mendapatkan bonus 10 koin sebagai pengguna baru :) ";
-	    	it->saldo = 10;
+		if(currentUser->saldo == -1){
+	    	cout << "\nSelamat datang, " << currentUser->username << ". kamu mendapatkan bonus 10 koin sebagai pengguna baru :) ";
+	    	currentUser->saldo = 10;
 			getch();
 		}
 		mainMenu();
@@ -424,7 +425,6 @@ int main() {
 
 	int index = 1;
     for (;;){
-        //system("cls");
         system("cls");
         cout << "******************************************************************************************************************************************************" << endl;
         cout << "**************************%@**************************************************************************************************************************" << endl;
