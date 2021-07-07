@@ -305,30 +305,31 @@ void topUpSaldo(){
 	for (;;){
 		system("cls");
 
-		cout << "\t\t\t\t    `  `    `  ``:oshmNNMMMMNmdho/. `  `    `  `    `  `    " << endl;
-		cout << "\t\t\t\t `` `  ` `  ``/hMMMMMdso/.-+symMMMMms. ` `  `  ` `  `  ` `  " << endl;
-		cout << "\t\t\t\t`  `    `  ` hMMMMMMy`  oyhhoydMMMMMMN: `  `    `  `    `  `" << endl;
-		cout << "\t\t\t\t`  `    `  ``NMMMMMMmdshyyo+ `.yMMMMMM+ `  `    `  `    `  `" << endl;
-		cout << "\t\t\t\t    `  `    `:yMMMMMdo///-://+yNMMMMm+.`    `  `    `  `    " << endl;
-		cout << "\t\t\t\t    `  `    `Nh++shmMMMMNdmMMMMNdy+-/h+`    `  `    `  `    " << endl;
-		cout << "\t\t\t\t             :hMMNhyooooooooo/`./oyhhhyo/.                  " << endl;
-		cout << "\t\t\t\t`  `    `  ``Ny+oydNMMMMMMMd/omMMMMh/mMMMMd+`   `  `    `  `" << endl;
-		cout << "\t\t\t\t             :mMMdyooooooo:/NMMMNo-` `:sMMMMm:              " << endl;
-		cout << "\t\t\t\t    `  `    `ms+ohNMMMMMM++MMMMM: `hNh--yMMMMM:`    `  `    " << endl;
-		cout << "\t\t\t\t            `/mMNhsooooo+.MMMMMM/  :shNMMMMMMMm             " << endl;
-		cout << "\t\t\t\t`  `    `  ``m++sdMMMMMMh:MMMMMMMs:. ``-hMMMMMM``  `    `  `" << endl;
-		cout << "\t\t\t\t`  `    `  ` +NMmyoooooo+.MMMMMMmhNMNh. `NMMMMm `  `    `  `" << endl;
-		cout << "\t\t\t\t    `  `    `h++hNMMMMMMN++MMMMN. -sys``-MMMMM:`    `  `    " << endl;
-		cout << "\t\t\t\t    `  `    `oMMdsoooosyyy./NMMMMy/-`:+yMMMMm: `    `  `    " << endl;
-		cout << "\t\t\t\t`  `    `  ` `.odMMMMMNmmmmh/omMMMMh:mMMMMd+`   `  `    `  `" << endl;
-		cout << "\t\t\t\t`  `    `  `    ``-/+syhhhhhy+`.+syhhhyo/. `    `  `    `  `" << endl;
+		cout << "\t\t\t\tMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM" << endl;
+		cout << "\t\t\t\tMMMMM/oooooooooooooooooooooooooooooooooooooooooooooooo/MMMMM" << endl;
+		cout << "\t\t\t\tMMmh/oMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMo/hmMM" << endl;
+		cout << "\t\t\t\tMN hNMMMMMMMMMMMMMMMMMMMms+:-..-:+smMMMMMMMMMMMMMMMMMMMNh NM" << endl;
+		cout << "\t\t\t\tMN`MMMMMMMMMMMMMMMMMMNo.            .oNMMMMMMMMMMMMMMMMMM`NM" << endl;
+		cout << "\t\t\t\tMN`MMMMMMMMMMMMMMMMMh+/////:`         `sMMMMMMMMMMMMMMMMM`NM" << endl;
+		cout << "\t\t\t\tMN`MMMMMMMMMMMMMMMM+:MMsssyMM/          +MMMMMMMMMMMMMMMM`NM" << endl;
+		cout << "\t\t\t\tMN`MMMMMMMMMMMMMMMh :MM`  `dMo sNhddNh:  hMMMMMMMMMMMMMMM`NM" << endl;
+		cout << "\t\t\t\tMN`MMMMMMMMMMMMMMM/ :MMmmmMMh  yMy  .NM. /MMMMMMMMMMMMMMM`NM" << endl;
+		cout << "\t\t\t\tMN`MMMMMMMMMMMMMMM/ :MM`  `mM+ yMs  `NM- /MMMMMMMMMMMMMMM`NM" << endl;
+		cout << "\t\t\t\tMN`MMMMMMMMMMMMMMMh :MM`   sMy yMmhhNm+  hMMMMMMMMMMMMMMM`NM" << endl;
+		cout << "\t\t\t\tMN`MMMMMMMMMMMMMMMM+           yMo ``   +MMMMMMMMMMMMMMMM`NM" << endl;
+		cout << "\t\t\t\tMN`MMMMMMMMMMMMMMMMMs`         :/-    `yMMMMMMMMMMMMMMMMM`NM" << endl;
+		cout << "\t\t\t\tMN`MMMMMMMMMMMMMMMMMMNo.            .oNMMMMMMMMMMMMMMMMMM`NM" << endl;
+		cout << "\t\t\t\tMN hNMMMMMMMMMMMMMMMMMMMmy+:-..-:+ymMMMMMMMMMMMMMMMMMMMNh NM" << endl;
+		cout << "\t\t\t\tMMmh/oMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMo/hmMM" << endl;
+		cout << "\t\t\t\tMMMMM/oooooooooooooooooooooooooooooooooooooooooooooooo/MMMMM" << endl;
+		cout << "\t\t\t\tMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM" << endl;
 		cout << "\n========================================================================================================================\n\n";
-		cout << "\t\t\t\t\t\tTOP UP SALDO\n" << endl; 
-		cout << "\t\t\t\t\t" << (index == 1 ? "[1]" : " 1 ") << " Top Up 10 koin (bonus 2 koin)" << endl;
-		cout << "\t\t\t\t\t" << (index == 2 ? "[2]" : " 2 ") << " Top up 20 koin (bonus 4 koin)" << endl;
-		cout << "\t\t\t\t\t" << (index == 3 ? "[3]" : " 3 ") << " Top up 40 koin (bonus 16 koin)" << endl;
-		cout << "\t\t\t\t\t" << (index == 4 ? "[4]" : " 4 ") << " Pilih manual jumlah koin" << endl << endl;
-		cout << "\t\t\t\t\t" << (index == 5 ? "[5]" : " 5 ") << " Kembali" << endl;
+		cout << "\t\t\t\t\t\t\tTOP UP SALDO\n" << endl; 
+		cout << "\t\t\t\t\t\t" << (index == 1 ? "[1]" : " 1 ") << " Top Up 10 koin (bonus 2 koin)" << endl;
+		cout << "\t\t\t\t\t\t" << (index == 2 ? "[2]" : " 2 ") << " Top up 20 koin (bonus 4 koin)" << endl;
+		cout << "\t\t\t\t\t\t" << (index == 3 ? "[3]" : " 3 ") << " Top up 40 koin (bonus 16 koin)" << endl;
+		cout << "\t\t\t\t\t\t" << (index == 4 ? "[4]" : " 4 ") << " Pilih manual jumlah koin" << endl << endl;
+		cout << "\t\t\t\t\t\t" << (index == 5 ? "[5]" : " 5 ") << " Kembali" << endl;
 
 		switch(c = getch()){
 			case ARROW_UP:
