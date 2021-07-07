@@ -159,8 +159,25 @@ bool confirmMenu(){
 
 	for (;;){
 		system("cls");
-
-		cout << "\n\t\t\t\t\tApakah Anda yakin?\n" << endl;
+		cout << "\t\t\t\t````````````````````````````.++:````````````````````````````" << endl;
+		cout << "\t\t\t\t```````````````````````````oMdhMh.``````````````````````````" << endl;
+		cout << "\t\t\t\t``````````````````````````yMy--oNd.`````````````````````````" << endl;
+		cout << "\t\t\t\t````````````````````````.dMo----+Nm-````````````````````````" << endl;
+		cout << "\t\t\t\t```````````````````````-mN+------/mN/```````````````````````" << endl;
+		cout << "\t\t\t\t``````````````````````:Nm/--/oo+:-:dN+``````````````````````" << endl;
+		cout << "\t\t\t\t`````````````````````+Nd:--oMMMMm--:hMo`````````````````````" << endl;
+		cout << "\t\t\t\t````````````````````sMh:---oMMMMN----yMy.```````````````````" << endl;
+		cout << "\t\t\t\t``````````````````.yMy-----/MMMMd-----sNh.``````````````````" << endl;
+		cout << "\t\t\t\t`````````````````.dNo-------MMMMy------+Nm-`````````````````" << endl;
+		cout << "\t\t\t\t````````````````:mN+--------mMMMs-------/mm:````````````````" << endl;
+		cout << "\t\t\t\t```````````````/Nm/---------hMMM+--------/mN/```````````````" << endl;
+		cout << "\t\t\t\t``````````````oNd:----------/yhs----------:hNo``````````````" << endl;
+		cout << "\t\t\t\t`````````````sMy:-----------+yhy/----------:yMs`````````````" << endl;
+		cout << "\t\t\t\t```````````.hMs------------+MMMMN------------sMh.```````````" << endl;
+		cout << "\t\t\t\t``````````.dNo-------------:ymNdo-------------oNd.``````````" << endl;
+		cout << "\t\t\t\t``````````mM/----------------::----------------+Md``````````" << endl;
+		cout << "\t\t\t\t``````````hMhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdMs``````````" << endl;
+		cout << "\n\t\t\t\t\t\tApakah Anda yakin?\n" << endl;
 		cout << "\t\t\t\t\t" << ( index == 1 ? "[1]" : " 1 " ) << " Ya" << endl;
 		cout << "\t\t\t\t\t" << ( index == 2 ? "[2]" : " 2 " ) << " Tidak" << endl;
 
@@ -325,11 +342,11 @@ void topUpSaldo(){
 		cout << "\t\t\t\tMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM" << endl;
 		cout << "\n========================================================================================================================\n\n";
 		cout << "\t\t\t\t\t\t\tTOP UP SALDO\n" << endl; 
-		cout << "\t\t\t\t\t\t" << (index == 1 ? "[1]" : " 1 ") << " Top Up 10 koin (bonus 2 koin)" << endl;
-		cout << "\t\t\t\t\t\t" << (index == 2 ? "[2]" : " 2 ") << " Top up 20 koin (bonus 4 koin)" << endl;
-		cout << "\t\t\t\t\t\t" << (index == 3 ? "[3]" : " 3 ") << " Top up 40 koin (bonus 16 koin)" << endl;
-		cout << "\t\t\t\t\t\t" << (index == 4 ? "[4]" : " 4 ") << " Pilih manual jumlah koin" << endl << endl;
-		cout << "\t\t\t\t\t\t" << (index == 5 ? "[5]" : " 5 ") << " Kembali" << endl;
+		cout << "\t\t\t\t\t" << (index == 1 ? "[1]" : " 1 ") << " Top Up 10 koin (bonus 2 koin)" << endl;
+		cout << "\t\t\t\t\t" << (index == 2 ? "[2]" : " 2 ") << " Top up 20 koin (bonus 4 koin)" << endl;
+		cout << "\t\t\t\t\t" << (index == 3 ? "[3]" : " 3 ") << " Top up 40 koin (bonus 16 koin)" << endl;
+		cout << "\t\t\t\t\t" << (index == 4 ? "[4]" : " 4 ") << " Pilih manual jumlah koin" << endl << endl;
+		cout << "\t\t\t\t\t" << (index == 5 ? "[5]" : " 5 ") << " Kembali" << endl;
 
 		switch(c = getch()){
 			case ARROW_UP:
