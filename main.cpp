@@ -607,6 +607,8 @@ void setupDummy() {
 		Film film(daftarFilm.size()+1, namaFilm[i], "13+", 120, daftarJadwal);
 		daftarFilm.push_back(film);
 	}
+	User user("1", "1");
+	daftarUser.push_back(user);
 }
 
 int main() {
