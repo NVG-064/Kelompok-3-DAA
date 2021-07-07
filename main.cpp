@@ -410,18 +410,23 @@ void mainMenu() {
 		getch();
 	}
 	int index = 1;
-    time_t timeNow = time(0);
-    tm *tmN = localtime(&timeNow);
-    int hour = tmN->tm_hour;
-    int min = tmN->tm_min;
+    time_t timeNow;
+    tm *tmN;
 	for(;;) {
 		system("cls");
+
+		time(&timeNow);
+        tmN = localtime(&timeNow);
+        int hour = tmN->tm_hour;
+        int min = tmN->tm_min;
+	    int sec = tmN->tm_sec;
+
 		cout << "========================================================================================================================\n";
 		cout << "========================================================================================================================\n\n";
 		cout << "\t\t\t\t\thhhhhhyyhhhhhhh" << endl;
         cout << "\t\t\t\t\thhhhy-  `/hhhhh" << endl;
         cout << "\t\t\t\t\thhhh+     yhhhh" << "\t\tSelamat " << getTimeState(hour) << ", " << currentUser->username << endl;
-        cout << "\t\t\t\t\thhhhs:.../yhhhh" << "\t\tSekarang pukul " << hour << ":" << min << endl;
+        cout << "\t\t\t\t\thhhhs:.../yhhhh" << "\t\tSekarang pukul " << hour << ":" << min << ":" << sec << endl;
         cout << "\t\t\t\t\thh+.`.-:-.`.+hh" << endl;
         cout << "\t\t\t\t\thy           yh" << "\t\tSaldo kamu " << currentUser->saldo << " koin" << endl;
         cout << "\t\t\t\t\tho           oh" << endl;
@@ -461,6 +466,7 @@ void mainMenu() {
 				break;
 		}
 	}
+	system("pause");
 }
 
 void signUp() {
