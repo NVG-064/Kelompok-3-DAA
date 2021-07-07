@@ -380,6 +380,12 @@ void adminMenu(){
 }
 
 void mainMenu() {
+	if(currentUser->saldo == -1){
+		system("cls");
+		cout << "\nSelamat datang, " << currentUser->username << ". kamu mendapatkan bonus 10 koin sebagai pengguna baru :) ";
+		currentUser->saldo = 10;
+		getch();
+	}
 	int index = 1;
     time_t timeNow = time(0);
     tm *tmN = localtime(&timeNow);
@@ -434,110 +440,147 @@ void mainMenu() {
 }
 
 void signUp() {
-    system("cls");
-    string username, password;
+	int index1 = 0;
+	int index2 = 0;
+    string username, password, pwMask;
+	for(;;){
+		system("cls");
 
-	cout << "\t\t\t\t\thhhhhhhhhhhhhhhhhhhhhhhhhhhhhh" << endl;
-	cout << "\t\t\t\t\thhhhhhhhhhhhhhhhhhhhhhhhhhhhhh" << endl;
-	cout << "\t\t\t\t\thhhhhhhhhhy:`   .:yhhhhhhhhhhh" << endl;
-	cout << "\t\t\t\t\thhhhhhhhho         +hhhhhhhhhh" << endl;
-	cout << "\t\t\t\t\thhhhhhhhh`          shhhhhhhhh" << endl;
-	cout << "\t\t\t\t\thhhhhhhhh`          +hhhhhhhhh" << endl;
-	cout << "\t\t\t\t\thhhhhhhhh+         `yhhhhhhhhh" << endl;
-	cout << "\t\t\t\t\thhhhhhhhhho.      -yhhhhhhhhhh" << endl;
-	cout << "\t\t\t\t\thhhhhhyo/:+hyo++oyh+:/oyhhhhhh" << endl;
-	cout << "\t\t\t\t\thhhhh-      -/++/-      -hhhhh" << endl;
-	cout << "\t\t\t\t\thhhh:                    :hhhh" << endl;
-	cout << "\t\t\t\t\thhhh                      hhhh" << endl;
-	cout << "\t\t\t\t\thhho                      ohhh" << endl;
-	cout << "\t\t\t\t\thhh/                      /hhh" << endl;
-	cout << "\t\t\t\t\thhh-                      -hhh" << endl;
-	cout << "\t\t\t\t\thhhhhhhhhhhhhhhhhhhhhhhhhhhhhh" << endl;
-	cout << "\n========================================================================================================================" << endl << endl;
+		pwMask.resize(password.size(), '*');
+		string *s = (!index1 ? &username : &password);
 
-    cout << "\n\t\t\t\t\t\tSIGN UP";
-    cout << "\n\n\t\t\t\t\tMasukkan Username: ";
-    getline(cin, username);
+		cout << "\t\t\t\thhhhhhyyhhhhhhh" << "\t\t\t" << "SIGN UP" << endl;
+        cout << "\t\t\t\thhhhy-  `/hhhhh" << endl;
+        cout << "\t\t\t\thhhh+     yhhhh" << "\t\t" << " Masukkan Username: " << username << (!index1 ? "_" : " ") << endl;
+        cout << "\t\t\t\thhhhs:.../yhhhh" << "\t\t" << " Masukkan Password: " << pwMask << (index1 ? "_" : " ") << endl;
+        cout << "\t\t\t\thh+.`.-:-.`.+hh" << endl;
+        cout << "\t\t\t\thy           yh" << "\t\t" << (!index2 ? "[Register]\t Exit " : " Register \t[Exit]") << endl;
+        cout << "\t\t\t\tho           oh" << "\t\t" << endl;
+        cout << "\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
 
-    cout << "\t\t\t\t\tMasukkan Password: ";
-    getline(cin, password);
-
-	if(username == "admin" || checkString(username) || checkString(password)){
-		cout << "\n\t\t\t\t\tUsername/Password tidak valid";
-		getch();
-		return;
+		c = getch();
+        if (c && c != 224) {
+			switch(c) {
+				case BACKSPACE:
+					if (!s->empty()) 
+        				s->resize(s->size() - 1);
+					break;
+				case ENTER:
+					if(!index1) {
+						index1 = !index1;
+						break;
+					}
+					else if(index2) {
+						return;
+					} else {
+						if(username == "admin" || checkString(username) || checkString(password)) {
+							cout << "\n\t\t\t\t\tUsername/Password tidak valid";
+							getch();
+							break;
+						}
+						currentUser = findUsername(&daftarUser, username);
+						if(currentUser != NULL){
+							cout << "\n\t\t\t\t\tUsername sudah terpakai";
+							getch();
+							break;
+						}
+						User user(username, password);
+						daftarUser.push_back(user);
+    					cout << "\n\t\t\t\t\tRegistrasi berhasil";
+    					getch();
+						return;
+					}
+					break;
+				default:
+					*s += (char)c;
+			}
+        } else {
+            switch(c = getch()) {
+				case ARROW_UP:
+					index1 = !index1;
+					break;
+				case ARROW_DOWN:
+					index1 = !index1;
+					break;
+				case ARROW_LEFT:
+					index2 = !index2;
+					break;
+				case ARROW_RIGHT:
+					index2 = !index2;
+					break;
+            }
+        }
 	}
-
-	currentUser = findUsername(&daftarUser, username);
-	if(currentUser != NULL){
-		cout << "\n\t\t\t\t\tUsername sudah terpakai";
-		getch();
-		return;
-	}
-	User user(username, password);
-	daftarUser.push_back(user);
-    cout << "\n\t\t\t\t\tRegistrasi berhasil";
-    getch();
 }
 
 void login() {
-	system("cls");
-	string username, password;
+	int index1 = 0;
+	int index2 = 0;
+    string username, password, pwMask;
+	for(;;){
+		system("cls");
 
-	cout << "\t\t\t\t\thhhhhhhhhhhhhhhhhhhhhhhhhhhhhh" << endl;
-	cout << "\t\t\t\t\thhhhhhhhhhhhhhhhhhhhhhhhhhhhhh" << endl;
-	cout << "\t\t\t\t\thhhhhhhhhhy:`   .:yhhhhhhhhhhh" << endl;
-	cout << "\t\t\t\t\thhhhhhhhho         +hhhhhhhhhh" << endl;
-	cout << "\t\t\t\t\thhhhhhhhh`          shhhhhhhhh" << endl;
-	cout << "\t\t\t\t\thhhhhhhhh`          +hhhhhhhhh" << endl;
-	cout << "\t\t\t\t\thhhhhhhhh+         `yhhhhhhhhh" << endl;
-	cout << "\t\t\t\t\thhhhhhhhhho.      -yhhhhhhhhhh" << endl;
-	cout << "\t\t\t\t\thhhhhhyo/:+hyo++oyh+:/oyhhhhhh" << endl;
-	cout << "\t\t\t\t\thhhhh-      -/++/-      -hhhhh" << endl;
-	cout << "\t\t\t\t\thhhh:                    :hhhh" << endl;
-	cout << "\t\t\t\t\thhhh                      hhhh" << endl;
-	cout << "\t\t\t\t\thhho                      ohhh" << endl;
-	cout << "\t\t\t\t\thhh/                      /hhh" << endl;
-	cout << "\t\t\t\t\thhh-                      -hhh" << endl;
-	cout << "\t\t\t\t\thhhhhhhhhhhhhhhhhhhhhhhhhhhhhh" << endl;
-	cout << "\n========================================================================================================================" << endl << endl;
+		pwMask.resize(password.size(), '*');
+		string *s = (!index1 ? &username : &password);
 
-	cout << "\n\t\t\t\t\t\tLOGIN";
-	cout << "\n\n\t\t\t\t\tUsername: ";
-	getline(cin, username);
+		cout << "\t\t\t\thhhhhhyyhhhhhhh" << "\t\t\t" << "Login" << endl;
+        cout << "\t\t\t\thhhhy-  `/hhhhh" << endl;
+        cout << "\t\t\t\thhhh+     yhhhh" << "\t\t" << " Username: " << username << (!index1 ? "_" : " ") << endl;
+        cout << "\t\t\t\thhhhs:.../yhhhh" << "\t\t" << " Password: " << pwMask << (index1 ? "_" : " ") << endl;
+        cout << "\t\t\t\thh+.`.-:-.`.+hh" << endl;
+        cout << "\t\t\t\thy           yh" << "\t\t" << (!index2 ? "[Login]\t Exit " : " Login \t[Exit]") << endl;
+        cout << "\t\t\t\tho           oh" << "\t\t" << endl;
+        cout << "\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
 
-	cout << "\t\t\t\t\tPassword: ";
-	getline(cin, password);
-
-	if (username == "admin" && password == "admin"){
-	    system("cls");
-	    cout << "\n\t\t\t\t\tBerhasil login sebagai admin";
-		getch();
-		
-		adminMenu(); 
-		return;
-	}
-
-	currentUser = findUsername(&daftarUser, username);
-	if(currentUser == NULL){
-		cout << "\n\t\t\t\t\tUsername tidak ditemukan";
-		getch();
-		return;
-	}
-
-	if (username == currentUser->username && password == currentUser->password){
-	    cout << "\n\t\t\t\t\tLogin berhasil! Tekan apapun untuk melanjutkan.";
-	    getch();
-	    system("cls");
-		if(currentUser->saldo == -1){
-	    	cout << "\nSelamat datang, " << currentUser->username << ". kamu mendapatkan bonus 10 koin sebagai pengguna baru :) ";
-	    	currentUser->saldo = 10;
-			getch();
-		}
-		mainMenu();
-	} else {
-	    cout << "\n\t\t\t\t\tUsername atau password salah!";
-	    getch();
+		c = getch();
+        if (c && c != 224) {
+			switch(c) {
+				case BACKSPACE:
+					if (!s->empty()) 
+        				s->resize(s->size() - 1);
+					break;
+				case ENTER:
+					if(!index1) {
+						index1 = !index1;
+						break;
+					}
+					else if(index2) {
+						return;
+					} else {
+						if (username == "admin" && password == "admin"){
+							adminMenu(); 
+							return;
+						}
+						currentUser = findUsername(&daftarUser, username);
+						if(currentUser == NULL || username != currentUser->username || password != currentUser->password){
+							cout << "\n\t\t\t\t\tUsername atau password salah!";
+							getch();
+							break;
+						} else {
+							mainMenu();
+							return;
+						}
+					}
+					break;
+				default:
+					*s += (char)c;
+			}
+        } else {
+            switch(c = getch()) {
+				case ARROW_UP:
+					index1 = !index1;
+					break;
+				case ARROW_DOWN:
+					index1 = !index1;
+					break;
+				case ARROW_LEFT:
+					index2 = !index2;
+					break;
+				case ARROW_RIGHT:
+					index2 = !index2;
+					break;
+            }
+        }
 	}
 }
 
