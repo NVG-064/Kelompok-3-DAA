@@ -236,6 +236,7 @@ void pilihKursi(JadwalFilm* pJadwalFilm) {
 
 					daftarPembelian.push_back(pembelian);
 
+					c = !c;
 					cout << "\nPembelian sukses!" << endl;
 					system("pause");
 					return;
@@ -267,6 +268,8 @@ void pilihJadwal(Film* film){
 				pilihKursi(&film->jadwalFilm.at(index));
 				break;
 		}
+		if(!c)
+			return;
 	}
 }
 
@@ -291,6 +294,8 @@ void beliTiket() {
 				pilihJadwal(&daftarFilm.at(index));
 				break;
 		}
+		if(!c)
+			return;
 	}
 }
 
