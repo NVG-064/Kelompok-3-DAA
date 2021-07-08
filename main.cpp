@@ -162,6 +162,26 @@ void printAllFilm(vector<Film> v, int index) {
 }
 
 void printAllPembelian(vector<Pembelian> v) {
+	cout << "\t\t\t\t\t\t           `:oydmNMMMMNmdyo:`           " << endl;
+	cout << "\t\t\t\t\t\t`````   -odMMMMMMMMMMMMMMMMMMds-        " << endl;
+	cout << "\t\t\t\t\t\tMMMMs`+dMMMMMMdyo+/::/+oydMMMMMMd+`     " << endl;
+	cout << "\t\t\t\t\t\tMMMMdmMMMMNy:`    ````    `:yNMMMMm/    " << endl;
+	cout << "\t\t\t\t\t\tMMMMMMMMm+`      /MMMM/      `+mMMMMy`  " << endl;
+	cout << "\t\t\t\t\t\tMMMMMMMy....`    /MMMM/        `sMMMMd. " << endl;
+	cout << "\t\t\t\t\t\tMMMMMMMMMMMMo    /MMMM/          /MMMMh " << endl;
+	cout << "\t\t\t\t\t\tMMMMMMMMMMMMo    /MMMM/           oMMMM/" << endl;
+	cout << "\t\t\t\t\t\t------------.    /MMMM/           `mMMMd" << endl;
+	cout << "\t\t\t\t\t\t....`            /MMMM/            yMMMM" << endl;
+	cout << "\t\t\t\t\t\tMMMMy            /MMMMNh/`         yMMMM" << endl;
+	cout << "\t\t\t\t\t\tdMMMm`           `/hMMMMMNy:`     `mMMMd" << endl;
+	cout << "\t\t\t\t\t\t/MMMMo              `+dMMMMMNy-   oMMMM/" << endl;
+	cout << "\t\t\t\t\t\t hMMMM/                .omMMMy.  /MMMMh " << endl;
+	cout << "\t\t\t\t\t\t `dMMMMs`                 -o:  `sMMMMd` " << endl;
+	cout << "\t\t\t\t\t\t  `yMMMMm+`                  `+mMMMMy`  " << endl;
+	cout << "\t\t\t\t\t\t    /mMMMMNy:`            `:yNMMMMm/    " << endl;
+	cout << "\t\t\t\t\t\t     `/dMMMMMMmyo+/::/+oymMMMMMMd+`     " << endl;
+	cout << "\t\t\t\t\t\t        -sdMMMMMMMMMMMMMMMMMMds-        " << endl;
+	cout << "\t\t\t\t\t\t           `:oydmNMMMMNmdyo:`           " << endl << endl;
 	for (int i = 0; i < v.size(); i++) {
 		v.at(i).print();
 		cout << endl;
