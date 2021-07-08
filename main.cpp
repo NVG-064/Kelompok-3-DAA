@@ -35,6 +35,25 @@ string getTimeState(int hour){
 	return timeState;
 }
 
+string formatNumber(long value) {
+	if (value < 1)
+		return "0";
+	string s = "";
+	char c;
+	int i = 2;
+	while(value != 0){
+		c = value%10+'0';
+		s += c;
+		value /= 10;
+		if(value && !i--){
+			s+=',';
+			i = 2;
+		}
+	}
+	reverse(s.begin(), s.end());
+	return s;
+}
+
 string getSeatNumber(int index1, int index2, bool flag){
 	if(flag) return "XX";
 	char a = index1+'A';
@@ -46,7 +65,7 @@ class User {
 	public:
 	string username;
 	string password;
-	int saldo;
+	long saldo;
 	User(){}
 	User(string username, string password) {
 		this->username = username;
@@ -118,7 +137,7 @@ class Pembelian {
 	string namaFilm;
 	string jamTayang;
 	string kursiDibeli;
-	int totalHarga;
+	long totalHarga;
 	Pembelian(){}
 	print(){
 		cout << "ID Pembelian: " << this->id << endl;
@@ -151,6 +170,7 @@ void printAllPembelian(vector<Pembelian> v) {
 
 
 
+const int HARGA = 35000;
 int c;
 vector<User> daftarUser;
 vector<Film> daftarFilm;
@@ -260,7 +280,7 @@ void pilihKursi(JadwalFilm* pJadwalFilm) {
 		cout << ( index1 == jadwalFilm.kursi.size() ? "[Buy]" : " Buy " ) << endl << endl;
 
 		cout << " Kursi: " << kursiDibeli << endl;
-		cout << " Total: Rp. " << totalHarga << endl;
+		cout << " Total: Rp. " << formatNumber(totalHarga) << endl;
 		
 		if(navigate(&index1, &index2, 0, jadwalFilm.kursi.size(), 0, jadwalFilm.kursi.at(0).size()-1))
 			continue;
@@ -273,7 +293,7 @@ void pilihKursi(JadwalFilm* pJadwalFilm) {
 					if(!jadwalFilm.kursi[index1][index2]){
 						kursiDibeli += getSeatNumber(index1, index2, false) + " ";
 						jadwalFilm.kursi.at(index1).at(index2) = true;
-						totalHarga += 25000;
+						totalHarga += HARGA;
 					}
 				}
 				else if (index1 == jadwalFilm.kursi.size()){
@@ -364,10 +384,10 @@ void topUpSaldo(){
 		cout << "\t\t\t\tMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM" << endl;
 		cout << "\n========================================================================================================================\n\n";
 		cout << "\t\t\t\t\t\t\tTOP UP SALDO\n" << endl; 
-		cout << "\t\t\t\t\t" << (index == 1 ? "[1]" : " 1 ") << " Top Up 10 koin (bonus 2 koin)" << endl;
-		cout << "\t\t\t\t\t" << (index == 2 ? "[2]" : " 2 ") << " Top up 20 koin (bonus 4 koin)" << endl;
-		cout << "\t\t\t\t\t" << (index == 3 ? "[3]" : " 3 ") << " Top up 40 koin (bonus 16 koin)" << endl;
-		cout << "\t\t\t\t\t" << (index == 4 ? "[4]" : " 4 ") << " Pilih manual jumlah koin" << endl << endl;
+		cout << "\t\t\t\t\t" << (index == 1 ? "[1]" : " 1 ") << " Top Up Rp. 10,000 (bonus Rp. 2,000)" << endl;
+		cout << "\t\t\t\t\t" << (index == 2 ? "[2]" : " 2 ") << " Top up Rp. 20,000 (bonus Rp. 4,000)" << endl;
+		cout << "\t\t\t\t\t" << (index == 3 ? "[3]" : " 3 ") << " Top up Rp. 40,000 (bonus Rp. 16,000)" << endl;
+		cout << "\t\t\t\t\t" << (index == 4 ? "[4]" : " 4 ") << " Masukkan nominal sendiri" << endl << endl;
 		cout << "\t\t\t\t\t" << (index == 5 ? "[5]" : " 5 ") << " Kembali" << endl;
 
 		if(navigate(&index, 1, 5))
@@ -378,21 +398,21 @@ void topUpSaldo(){
 				if(index < 4  && confirmMenu()) {
 					switch(index){
 						case 1:
-							currentUser->saldo += 12;
+							currentUser->saldo += 12000;
 							break;
 						case 2:
-							currentUser->saldo += 24;
+							currentUser->saldo += 24000;
 							break;
 						case 3:
-							currentUser->saldo += 56;
+							currentUser->saldo += 56000;
 							break;
 					}
 				} else {
 					switch(index){
 						case 4:
 							system("cls");
-							cout << "HARAP DIPERHATIKAN. TIDAK ADA BONUS KOIN UNTUK PILIHAN INI!\n" << endl;
-							cout << "Masukkan jumlah koin: ";
+							cout << "HARAP DIPERHATIKAN. TIDAK ADA BONUS UNTUK PILIHAN INI!\n" << endl;
+							cout << "Masukkan jumlah top up: ";
 							cin >> input;
 
 							currentUser->saldo += input;
@@ -413,8 +433,8 @@ void adminMenu(){
 void mainMenu() {
 	if(currentUser->saldo == -1){
 		system("cls");
-		cout << "\nSelamat datang, " << currentUser->username << ". kamu mendapatkan bonus 10 koin sebagai pengguna baru :) ";
-		currentUser->saldo = 10;
+		cout << "\nSelamat datang, " << currentUser->username << ". kamu mendapatkan bonus Rp. 10,000 sebagai pengguna baru :) ";
+		currentUser->saldo = 10000;
 		getch();
 	}
 	int index = 1;
@@ -436,7 +456,7 @@ void mainMenu() {
 		cout << "\t\t\t\t\thhhh+     yhhhh" << "\t\tSelamat " << getTimeState(hour) << ", " << currentUser->username << endl;
 		cout << "\t\t\t\t\thhhhs:.../yhhhh" << "\t\tSekarang pukul " << hour << ":" << min << ":" << sec << endl;
 		cout << "\t\t\t\t\thh+.`.-:-.`.+hh" << endl;
-		cout << "\t\t\t\t\thy           yh" << "\t\tSaldo kamu " << currentUser->saldo << " koin" << endl;
+		cout << "\t\t\t\t\thy           yh" << "\t\tSaldo kamu Rp. " << fixed << formatNumber(currentUser->saldo) << endl;
 		cout << "\t\t\t\t\tho           oh" << endl;
 		cout << "\t\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
 		cout << "========================================================================================================================\n";
