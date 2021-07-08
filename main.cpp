@@ -373,7 +373,16 @@ void beliTiket() {
 	int index = 0;
 	for(;;){
 		system("cls");
-		cout << "Pilih Film" << endl << endl;
+		cout << "\t\t\t\t\t\t+hhhhhhhhhhhhhhhhhh+" << endl;
+		cout << "\t\t\t\t\t\t.sMd:hMs:NM/+Mm:yMy." << endl;
+		cout << "\t\t\t\t\t\tyMhyyyNMhyyhMNyyyhMy" << endl;
+		cout << "\t\t\t\t\t\thM`   dN    Nd   `Mh" << endl;
+		cout << "\t\t\t\t\t\thM`   dN    Nd   `Mh" << endl;
+		cout << "\t\t\t\t\t\thM`   dN    Nd   `Mh" << endl;
+		cout << "\t\t\t\t\t\tyMhhhhNMhhhhMNhhhhMy" << endl;
+		cout << "\t\t\t\t\t\t.sMd:hMs:NM/+Mm:yMy." << endl;
+		cout << "\t\t\t\t\t\t+hhhyhhhyhhyhhhyhhh+" << endl << endl;
+		cout << "\t\t\t\t\t\t     Pilih Film" << endl << endl;
 		printAllFilm(daftarFilm, index);
 
 		if(navigate(&index, 0, daftarFilm.size()-1))
