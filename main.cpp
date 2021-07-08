@@ -154,13 +154,48 @@ vector<Pembelian> daftarPembelian;
 User *currentUser;
 Pembelian pembelian;
 
-
-void warn(){//under construction
-
+bool navigate(int *index, int min, int max){
+	c = getch();
+    if (!c || c == 224) {
+        switch(c = getch()) {
+			case ARROW_UP:
+				if((*index)-- == min)
+					*index = max;
+				break;
+			case ARROW_DOWN:
+				if((*index)++ == max)
+					*index = min;
+				break;
+        }
+		return true;
+    }
+	return false;
 }
 
-void success(){//under construction
-
+bool navigate(int *index1, int *index2, int min1, int max1, int min2, int max2){
+	c = getch();
+    if (!c || c == 224) {
+        switch(c = getch()) {
+			case ARROW_UP:
+				if((*index1)-- == min1)
+					*index1 = max1;
+				break;
+			case ARROW_DOWN:
+				if((*index1)++ == max1)
+					*index1 = min1;
+				break;
+			case ARROW_LEFT:
+				if((*index2)-- == min2)
+					*index2 = max2;
+				break;
+			case ARROW_RIGHT:
+				if((*index2)++ == max2)
+					*index2 = min2;
+				break;
+        }
+		return true;
+    }
+	return false;
 }
 
 bool confirmMenu(){
@@ -190,15 +225,12 @@ bool confirmMenu(){
 		cout << "\t\t\t\t\t" << ( index == 1 ? "[1]" : " 1 " ) << " Ya" << endl;
 		cout << "\t\t\t\t\t" << ( index == 2 ? "[2]" : " 2 " ) << " Tidak" << endl;
 
-		switch(c = getch()){
-			case ARROW_UP:
-				if(index-- == 1)
-					index = 2;
-				break;
-			case ARROW_DOWN:
-				if(index++ == 2)
-					index = 1;
-				break;
+		if(navigate(&index, 1, 2))
+			continue;
+		
+		switch(c) {
+			case BACKSPACE:
+				return false;
 			case ENTER:
 				return index == 1;
 				break;
@@ -226,23 +258,10 @@ void pilihKursi(JadwalFilm* pJadwalFilm) {
 		cout << " Kursi: " << kursiDibeli << endl;
 		cout << " Total: Rp. " << totalHarga << endl;
 		
-		switch(c = getch()){
-			case ARROW_UP:
-				if(index1-- == 0)
-					index1 = jadwalFilm.kursi.size();
-				break;
-			case ARROW_DOWN:
-				if(index1++ == jadwalFilm.kursi.size())
-					index1 = 0;
-				break;
-			case ARROW_LEFT:
-				if(index2-- == 0)
-					index2 = jadwalFilm.kursi.at(0).size()-1;
-				break;
-			case ARROW_RIGHT:
-				if(index2++ == jadwalFilm.kursi.at(0).size()-1)
-					index2 = 0;
-				break;
+		if(navigate(&index1, &index2, 0, jadwalFilm.kursi.size(), 0, jadwalFilm.kursi.at(0).size()-1))
+			continue;
+
+		switch(c){
 			case BACKSPACE:
 				return;
 			case ENTER:
@@ -255,13 +274,11 @@ void pilihKursi(JadwalFilm* pJadwalFilm) {
 				}
 				else if (index1 == jadwalFilm.kursi.size()){
 					pJadwalFilm->kursi = jadwalFilm.kursi;
-
 					pembelian.id = daftarPembelian.size()+1;
 					pembelian.kursiDibeli = kursiDibeli;
 					pembelian.totalHarga = totalHarga;
-
 					daftarPembelian.push_back(pembelian);
-
+					
 					c = !c;
 					cout << "\nPembelian sukses!" << endl;
 					system("pause");
@@ -279,15 +296,11 @@ void pilihJadwal(Film* film){
 		system("cls");
 		cout << "Pilih Jadwal Film" << endl << endl;
 		film->printJadwal(index);
-		switch(c = getch()){
-			case ARROW_UP:
-				if(index-- == 0)
-					index = film->jadwalFilm.size()-1;
-				break;
-			case ARROW_DOWN:
-				if(index++ == film->jadwalFilm.size()-1)
-					index = 0;
-				break;
+
+		if(navigate(&index, 0, film->jadwalFilm.size()-1))
+			continue;
+
+		switch(c){
 			case BACKSPACE:
 				return;
 			case ENTER:
@@ -305,15 +318,11 @@ void beliTiket() {
 		system("cls");
 		cout << "Pilih Film" << endl << endl;
 		printAllFilm(daftarFilm, index);
-		switch(c = getch()){
-			case ARROW_UP:
-				if(index-- == 0)
-					index = daftarFilm.size()-1;
-				break;
-			case ARROW_DOWN:
-				if(index++ == daftarFilm.size()-1)
-					index = 0;
-				break;
+
+		if(navigate(&index, 0, daftarFilm.size()-1))
+			continue;
+
+		switch(c){
 			case BACKSPACE:
 				return;
 			case ENTER:
@@ -357,15 +366,10 @@ void topUpSaldo(){
 		cout << "\t\t\t\t\t" << (index == 4 ? "[4]" : " 4 ") << " Pilih manual jumlah koin" << endl << endl;
 		cout << "\t\t\t\t\t" << (index == 5 ? "[5]" : " 5 ") << " Kembali" << endl;
 
-		switch(c = getch()){
-			case ARROW_UP:
-				if(index-- == 1)
-					index = 5;
-				break;
-			case ARROW_DOWN:
-				if(index++ == 5)
-					index = 1;
-				break;
+		if(navigate(&index, 1, 5))
+			continue;
+		
+		switch(c){
 			case ENTER:
 				if(index < 4  && confirmMenu()) {
 					switch(index){
@@ -438,15 +442,11 @@ void mainMenu() {
 		cout << "\t\t\t\t\t\t" << ( index == 2 ? "[2]" : " 2 " ) << "Riwayat Pembelian" << endl;
 		cout << "\t\t\t\t\t\t" << ( index == 3 ? "[3]" : " 3 " ) << "Top Up Saldo" << endl << endl;
 		cout << "\t\t\t\t\t\t" << ( index == 4 ? "[4]" : " 4 " ) << "Logout" << endl;
-		switch(c = getch()){
-			case ARROW_UP:
-				if(index-- == 1)
-					index = 4;
-				break;
-			case ARROW_DOWN:
-				if(index++ == 4)
-					index = 1;
-				break;
+		
+		if(navigate(&index, 1, 4))
+			continue;
+		
+		switch(c){
 			case ENTER:
 				switch(index) {
 					case 1:
@@ -488,58 +488,43 @@ void signUp() {
         cout << "\t\t\t\tho           oh" << "\t\t" << endl;
         cout << "\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
 
-		c = getch();
-        if (c && c != 224) {
-			switch(c) {
-				case BACKSPACE:
-					if (!s->empty()) 
-        				s->resize(s->size() - 1);
+		if(navigate(&index1, &index2, 0, 1, 0, 1))
+			continue;
+
+		switch(c) {
+			case BACKSPACE:
+				if (!s->empty()) 
+        			s->resize(s->size() - 1);
+				break;
+			case ENTER:
+				if(!index1) {
+					index1 = !index1;
 					break;
-				case ENTER:
-					if(!index1) {
-						index1 = !index1;
+				}
+				else if(index2) {
+					return;
+				} else {
+					if(username == "admin" || checkString(username) || checkString(password)) {
+						cout << "\n\t\t\t\t\tUsername/Password tidak valid";
+						getch();
 						break;
 					}
-					else if(index2) {
-						return;
-					} else {
-						if(username == "admin" || checkString(username) || checkString(password)) {
-							cout << "\n\t\t\t\t\tUsername/Password tidak valid";
-							getch();
-							break;
-						}
-						currentUser = findUsername(&daftarUser, username);
-						if(currentUser != NULL){
-							cout << "\n\t\t\t\t\tUsername sudah terpakai";
-							getch();
-							break;
-						}
-						User user(username, password);
-						daftarUser.push_back(user);
-    					cout << "\n\t\t\t\t\tRegistrasi berhasil";
-    					getch();
-						return;
+					currentUser = findUsername(&daftarUser, username);
+					if(currentUser != NULL){
+						cout << "\n\t\t\t\t\tUsername sudah terpakai";
+						getch();
+						break;
 					}
-					break;
-				default:
-					*s += (char)c;
-			}
-        } else {
-            switch(c = getch()) {
-				case ARROW_UP:
-					index1 = !index1;
-					break;
-				case ARROW_DOWN:
-					index1 = !index1;
-					break;
-				case ARROW_LEFT:
-					index2 = !index2;
-					break;
-				case ARROW_RIGHT:
-					index2 = !index2;
-					break;
-            }
-        }
+					User user(username, password);
+					daftarUser.push_back(user);
+    				cout << "\n\t\t\t\t\tRegistrasi berhasil";
+    				getch();
+					return;
+				}
+				break;
+			default:
+				*s += (char)c;
+		}
 	}
 }
 
@@ -562,55 +547,40 @@ void login() {
         cout << "\t\t\t\t\t\tho           oh" << "\t\t" << (!index2 ? "[Login]\t Exit " : " Login \t[Exit]") << endl;
         cout << "\t\t\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
 
-		c = getch();
-        if (c && c != 224) {
-			switch(c) {
-				case BACKSPACE:
-					if (!s->empty()) 
-        				s->resize(s->size() - 1);
+		if(navigate(&index1, &index2, 0, 1, 0, 1))
+			continue;
+			
+		switch(c) {
+			case BACKSPACE:
+				if (!s->empty()) 
+        			s->resize(s->size() - 1);
+				break;
+			case ENTER:
+				if(!index1) {
+					index1 = !index1;
 					break;
-				case ENTER:
-					if(!index1) {
-						index1 = !index1;
-						break;
-					}
-					else if(index2) {
+				}
+				else if(index2) {
+					return;
+				} else {
+					if (username == "admin" && password == "admin"){
+						adminMenu(); 
 						return;
-					} else {
-						if (username == "admin" && password == "admin"){
-							adminMenu(); 
-							return;
-						}
-						currentUser = findUsername(&daftarUser, username);
-						if(currentUser == NULL || username != currentUser->username || password != currentUser->password){
-							cout << "\n\t\t\t\t\tUsername atau password salah!";
-							getch();
-							break;
-						} else {
-							mainMenu();
-							return;
-						}
 					}
-					break;
-				default:
-					*s += (char)c;
-			}
-        } else {
-            switch(c = getch()) {
-				case ARROW_UP:
-					index1 = !index1;
-					break;
-				case ARROW_DOWN:
-					index1 = !index1;
-					break;
-				case ARROW_LEFT:
-					index2 = !index2;
-					break;
-				case ARROW_RIGHT:
-					index2 = !index2;
-					break;
-            }
-        }
+					currentUser = findUsername(&daftarUser, username);
+					if(currentUser == NULL || username != currentUser->username || password != currentUser->password){
+						cout << "\n\t\t\t\t\tUsername atau password salah!";
+						getch();
+						break;
+					} else {
+						mainMenu();
+						return;
+					}
+				}
+				break;
+			default:
+				*s += (char)c;
+		}
 	}
 }
 
@@ -666,15 +636,11 @@ int main() {
         cout << "\t\t\t\t\t\thy           yh" << "\t\t" << (index == 3 ? "[3]" : " 3 ") << " Exit" << endl;
         cout << "\t\t\t\t\t\tho           oh" << endl;
         cout << "\t\t\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
-        switch (c = getch()){
-            case ARROW_UP:
-            	if (index-- == 1)
-            	    index = 3;
-            	break;
-            case ARROW_DOWN:
-	            if (index++ == 3)
-	                index = 1;
-            	break;
+        
+		if(navigate(&index, 1, 3))
+			continue;
+		
+		switch (c){
             case ENTER:
                 switch (index){
                     case 1:
