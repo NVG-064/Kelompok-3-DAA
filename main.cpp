@@ -311,7 +311,7 @@ void pilihKursi(JadwalFilm* pJadwalFilm) {
 					daftarPembelian.push_back(pembelian);
 					
 					currentUser->saldo -= totalHarga;
-					
+
 					c = !c;
 					cout << "\nPembelian sukses!" << endl;
 					system("pause");
@@ -442,8 +442,8 @@ void adminMenu(){
 void mainMenu() {
 	if(currentUser->saldo == -1){
 		system("cls");
-		cout << "\nSelamat datang, " << currentUser->username << ". kamu mendapatkan bonus Rp. 10,000 sebagai pengguna baru :) ";
-		currentUser->saldo = 10000;
+		cout << "\nSelamat datang, " << currentUser->username << ". kamu mendapatkan bonus Rp. 35,000 sebagai pengguna baru :) ";
+		currentUser->saldo = 35000;
 		getch();
 	}
 	int index = 1;
