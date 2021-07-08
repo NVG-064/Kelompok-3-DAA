@@ -292,16 +292,25 @@ void pilihKursi(JadwalFilm* pJadwalFilm) {
 				if(index1 != jadwalFilm.kursi.size()){
 					if(!jadwalFilm.kursi[index1][index2]){
 						kursiDibeli += getSeatNumber(index1, index2, false) + " ";
-						jadwalFilm.kursi.at(index1).at(index2) = true;
+						jadwalFilm.kursi[index1][index2] = true;
 						totalHarga += HARGA;
 					}
-				}
-				else if (index1 == jadwalFilm.kursi.size()){
+				} else {
+					if(currentUser->saldo < totalHarga){
+						cout << "Saldo tidak mencukupi" << endl;
+						system("pause");
+						break;
+					}
+					if(!confirmMenu())
+						break;
+					
 					pJadwalFilm->kursi = jadwalFilm.kursi;
 					pembelian.id = daftarPembelian.size()+1;
 					pembelian.kursiDibeli = kursiDibeli;
 					pembelian.totalHarga = totalHarga;
 					daftarPembelian.push_back(pembelian);
+					
+					currentUser->saldo -= totalHarga;
 					
 					c = !c;
 					cout << "\nPembelian sukses!" << endl;
