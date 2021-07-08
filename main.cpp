@@ -182,10 +182,14 @@ void printAllPembelian(vector<Pembelian> v) {
 	cout << "\t\t\t\t\t\t     `/dMMMMMMmyo+/::/+oymMMMMMMd+`     " << endl;
 	cout << "\t\t\t\t\t\t        -sdMMMMMMMMMMMMMMMMMMds-        " << endl;
 	cout << "\t\t\t\t\t\t           `:oydmNMMMMNmdyo:`           " << endl << endl;
-	for (int i = 0; i < v.size(); i++) {
-		v.at(i).print();
-		cout << endl;
+
+	if (v.empty() == false){
+		for (int i = 0; i < v.size(); i++) {
+			v.at(i).print();
+			cout << endl;
+		}
 	}
+	else cout << "Tidak ada riwayat pembelian\n" << endl;
 }
 
 
