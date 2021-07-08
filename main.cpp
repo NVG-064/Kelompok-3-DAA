@@ -539,6 +539,7 @@ void signUp() {
 		pwMask.resize(password.size(), '*');
 		string *s = (!index1 ? &username : &password);
 
+		cout << "\n\n\n\n\n\n\n\n\n\n";
 		cout << "\t\t\t\thhhhhhyyhhhhhhh" << "\t\t\t" << "SIGN UP" << endl;
 		cout << "\t\t\t\thhhhy-  `/hhhhh" << endl;
 		cout << "\t\t\t\thhhh+     yhhhh" << "\t\t" << " Masukkan Username: " << username << (!index1 ? "_" : " ") << endl;
@@ -598,14 +599,15 @@ void login() {
 		pwMask.resize(password.size(), '*');
 		string *s = (!index1 ? &username : &password);
 
-		cout << "\t\t\t\t\t\thhhhhhyyhhhhhhh" << endl;
-		cout << "\t\t\t\t\t\thhhhy-  `/hhhhh" << "\t\t\t" << "Login" << endl;
-		cout << "\t\t\t\t\t\thhhh+     yhhhh" << endl;
-		cout << "\t\t\t\t\t\thhhhs:.../yhhhh" << "\t\t" << " Username: " << username << (!index1 ? "_" : " ") << endl;
-		cout << "\t\t\t\t\t\thh+.`.-:-.`.+hh" << "\t\t" << " Password: " << pwMask << (index1 ? "_" : " ") << endl;
-		cout << "\t\t\t\t\t\thy           yh" << endl;
-		cout << "\t\t\t\t\t\tho           oh" << "\t\t" << (!index2 ? "[Login]\t Exit " : " Login \t[Exit]") << endl;
-		cout << "\t\t\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
+		cout << "\n\n\n\n\n\n\n\n\n\n";
+		cout << "\t\t\t\thhhhhhyyhhhhhhh" << endl;
+		cout << "\t\t\t\thhhhy-  `/hhhhh" << "\t\t\t" << "LOGIN" << endl;
+		cout << "\t\t\t\thhhh+     yhhhh" << endl;
+		cout << "\t\t\t\thhhhs:.../yhhhh" << "\t\t" << " Username: " << username << (!index1 ? "_" : " ") << endl;
+		cout << "\t\t\t\thh+.`.-:-.`.+hh" << "\t\t" << " Password: " << pwMask << (index1 ? "_" : " ") << endl;
+		cout << "\t\t\t\thy           yh" << endl;
+		cout << "\t\t\t\tho           oh" << "\t\t" << (!index2 ? "[Login]\t Exit " : " Login \t[Exit]") << endl;
+		cout << "\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
 
 		if(navigate(&index1, &index2, 0, 1, 0, 1))
 			continue;
@@ -677,8 +679,7 @@ int main() {
 	int index = 1;
 	for (;;){
 		system("cls");
-		cout << "========================================================================================================================\n" << endl;
-		cout << "...------...........+:...................................-........--------.............--..............................." << endl;
+		cout << "========================================================================================================================" << endl;
 		cout << "..odysyh:....---....Ms...----.......--...---.....---....:h:.......:Nhssyys:-...----...-y+.....---.......---.....---....." << endl;
 		cout << "..mm:-....-/sssyo-..Ms..ossyyo-.-y+osys:+syy:../sssys:.+yMys+...../Mo...-sN+.-sssyy/.:sMdso.:sssyy/../y/osyo-.-/sssyyo-." << endl;
 		cout << "../ydhs/-./No::/my..Ms../:::oM/.-Nh:-:Nd/--dm..::::/Nh.-+M+--...../Mo....-Nh.-/:::hN--:Ny--.-/:::dm..oMo--:Ms.:Mo--yN-.." << endl;
@@ -686,16 +687,17 @@ int main() {
 		cout << ".-o///+Nh./No:-:/:..Ms./Ms-:sM+.-Ns...mh...yN.-dd::/md..:Mo--...../My//+smy-.sM/-/hN-.-mh::.yN/-/dN..oM:..-Ny./Nysso/-.." << endl;
 		cout << ".-+ssss/-.-:ossoo:..o/.-+sso/o:.-o/...++.../o..:oso+++..-+ss/.....-ooooo/:-..-oss+/o-../ss+.-oss+/o..:s-..-o/.oN+///dh.." << endl;
 		cout << "..............................................................................................................+dyssyd+.." << endl;
-		cout << "..............................................................................................................-------..." << endl;
-		cout << "\n========================================================================================================================\n" << endl;
-		cout << "\t\t\t\t\t\thhhhhhyyhhhhhhh" << endl;
-		cout << "\t\t\t\t\t\thhhhy-  `/hhhhh" << endl;
-		cout << "\t\t\t\t\t\thhhh+     yhhhh" << "\t\t" << (index == 1 ? "[1]" : " 1 ") << " Login" << endl;
-		cout << "\t\t\t\t\t\thhhhs:.../yhhhh" << "\t\t" << (index == 2 ? "[2]" : " 2 ") << " Sign Up" << endl;
-		cout << "\t\t\t\t\t\thh+.`.-:-.`.+hh" << endl;
-		cout << "\t\t\t\t\t\thy           yh" << "\t\t" << (index == 3 ? "[3]" : " 3 ") << " Exit" << endl;
-		cout << "\t\t\t\t\t\tho           oh" << endl;
-		cout << "\t\t\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
+		cout << "========================================================================================================================" << endl;
+		cout << endl;
+
+		cout << "\t\t\t\thhhhhhyyhhhhhhh" << endl;
+		cout << "\t\t\t\thhhhy-  `/hhhhh" << endl;
+		cout << "\t\t\t\thhhh+     yhhhh" << "\t\t" << (index == 1 ? "[1]" : " 1 ") << " Login" << endl;
+		cout << "\t\t\t\thhhhs:.../yhhhh" << "\t\t" << (index == 2 ? "[2]" : " 2 ") << " Sign Up" << endl;
+		cout << "\t\t\t\thh+.`.-:-.`.+hh" << endl;
+		cout << "\t\t\t\thy           yh" << "\t\t" << (index == 3 ? "[3]" : " 3 ") << " Exit" << endl;
+		cout << "\t\t\t\tho           oh" << endl;
+		cout << "\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
 		
 		if(navigate(&index, 1, 3))
 			continue;
@@ -717,3 +719,4 @@ int main() {
 	}
 	return 0;
 }
+
