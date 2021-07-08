@@ -119,10 +119,10 @@ class Film {
 		this->jadwalFilm = jadwalFilm;
 	}
 	print(){
-		cout << "ID: " << this->id << endl;
-		cout << "Nama Film: " << this->namaFilm << endl;
-		cout << "Rating Usia: " << this->ratingUsia << endl;
-		cout << "Durasi: " << this->durasi << endl;
+		cout << "\t\t\t\t\tID: " << this->id << endl;
+		cout << "\t\t\t\t\tNama Film: " << this->namaFilm << endl;
+		cout << "\t\t\t\t\tRating Usia: " << this->ratingUsia << endl;
+		cout << "\t\t\t\t\tDurasi: " << this->durasi << endl;
 	}
 	printJadwal(int index) {
 		for (int i = 0; i < jadwalFilm.size(); i++) {
@@ -153,9 +153,9 @@ void printAllFilm(vector<Film> v, int index) {
 		if(i < 0 || i == v.size()){
 			cout<<"\n\n\n\n\n\n";
 		} else {
-			cout << ( index == i ? "= = = = = = = = = = = = = = = = = = = =" : "" ) << endl;
+			cout << ( index == i ? "\t\t\t\t\t= = = = = = = = = = = = = = = = = = = =" : "" ) << endl;
 			v.at(i).print();
-			cout << ( index == i ? "= = = = = = = = = = = = = = = = = = = =" : "" ) << endl;
+			cout << ( index == i ? "\t\t\t\t\t= = = = = = = = = = = = = = = = = = = =" : "" ) << endl;
 		}
 	}
 	cout << '\n';
