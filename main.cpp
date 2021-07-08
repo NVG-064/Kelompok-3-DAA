@@ -416,6 +416,7 @@ void topUpSaldo(){
 							currentUser->saldo += 56000;
 							break;
 					}
+					return;
 				} else {
 					switch(index){
 						case 4:
@@ -423,8 +424,10 @@ void topUpSaldo(){
 							cout << "HARAP DIPERHATIKAN. TIDAK ADA BONUS UNTUK PILIHAN INI!\n" << endl;
 							cout << "Masukkan jumlah top up: ";
 							cin >> input;
-
-							currentUser->saldo += input;
+							if(confirmMenu()){
+								currentUser->saldo += input;
+								return;
+							}
 							break;
 						case 5:
 							return;
