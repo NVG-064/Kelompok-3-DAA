@@ -16,23 +16,23 @@ bool checkString(string s){
 }
 
 string getTimeState(int hour){
-    string timeState;
-    if ((hour >= 0) && (hour < 3)){
-        timeState = "dini hari";
-    }
-    else if ((hour >= 3) && (hour < 12)){
-        timeState = "pagi";
-    }
-    else if ((hour >= 12) && (hour < 15)){
-        timeState = "siang";
-    }
-    else if ((hour >= 15) && (hour < 18)){
-        timeState = "sore";
-    }
-    else if ((hour >= 18) && (hour < 24)){
-        timeState = "malam";
-    }
-    return timeState;
+	string timeState;
+	if ((hour >= 0) && (hour < 3)){
+		timeState = "dini hari";
+	}
+	else if ((hour >= 3) && (hour < 12)){
+		timeState = "pagi";
+	}
+	else if ((hour >= 12) && (hour < 15)){
+		timeState = "siang";
+	}
+	else if ((hour >= 15) && (hour < 18)){
+		timeState = "sore";
+	}
+	else if ((hour >= 18) && (hour < 24)){
+		timeState = "malam";
+	}
+	return timeState;
 }
 
 string getSeatNumber(int index1, int index2, bool flag){
@@ -73,14 +73,14 @@ class JadwalFilm {
 	JadwalFilm(string jamTayang) : kursi(5, vector<bool> (5, false)){
 		this->jamTayang = jamTayang;
 	}
-    printKursi(int index1, int index2){
-        for(int i = 0; i < 5; i++){
+	printKursi(int index1, int index2){
+		for(int i = 0; i < 5; i++){
 			for(int j = 0; j < 5; j++){
 				cout << ( i == index1 && j == index2 ? "[" : " ") << getSeatNumber(i, j, this->kursi[i][j]) << ( i == index1 && j == index2 ? "]" : " ");
 			}
-            cout << endl;
+			cout << endl;
 		}
-    }
+	}
 };
 
 class Film {
@@ -93,21 +93,21 @@ class Film {
 
 	Film(){}
 	Film(int id, string namaFilm, string ratingUsia, int durasi, vector<JadwalFilm> jadwalFilm) {
-        this->id = id;
+		this->id = id;
 		this->namaFilm = namaFilm;
 		this->ratingUsia = ratingUsia;
-        this->durasi = durasi;
+		this->durasi = durasi;
 		this->jadwalFilm = jadwalFilm;
 	}
 	print(){
 		cout << "ID: " << this->id << endl;
-        cout << "Nama Film: " << this->namaFilm << endl;
+		cout << "Nama Film: " << this->namaFilm << endl;
 		cout << "Rating Usia: " << this->ratingUsia << endl;
-        cout << "Durasi: " << this->durasi << endl;
+		cout << "Durasi: " << this->durasi << endl;
 	}
 	printJadwal(int index) {
 		for (int i = 0; i < jadwalFilm.size(); i++) {
-        	cout << ( index == i ? "[" : " " ) << i+1 << ( index == i ? "]" : " " ) << jadwalFilm.at(i).jamTayang << endl	;
+			cout << ( index == i ? "[" : " " ) << i+1 << ( index == i ? "]" : " " ) << jadwalFilm.at(i).jamTayang << endl	;
 		}
 	}
 };
@@ -122,27 +122,27 @@ class Pembelian {
 	Pembelian(){}
 	print(){
 		cout << "ID Pembelian: " << this->id << endl;
-        cout << "Nama Film: " << this->namaFilm << endl;
+		cout << "Nama Film: " << this->namaFilm << endl;
 		cout << "Jam Tayang: " << this->jamTayang << endl;
 		cout << "Kursi: " << this->kursiDibeli << endl;
-        cout << "Total: Rp. " << this->totalHarga << endl;
+		cout << "Total: Rp. " << this->totalHarga << endl;
 	}
 };
 
 void printAllFilm(vector<Film> v, int index) {
-    for (int i = 0; i < v.size(); i++) {
-        cout << ( index == i ? "= = = = = = = = = = = = = = = = = = = =" : "" ) << endl;
-        v.at(i).print();
-        cout << ( index == i ? "= = = = = = = = = = = = = = = = = = = =" : "" ) << endl;
-    }
-    cout << '\n';
+	for (int i = 0; i < v.size(); i++) {
+		cout << ( index == i ? "= = = = = = = = = = = = = = = = = = = =" : "" ) << endl;
+		v.at(i).print();
+		cout << ( index == i ? "= = = = = = = = = = = = = = = = = = = =" : "" ) << endl;
+	}
+	cout << '\n';
 }
 
 void printAllPembelian(vector<Pembelian> v) {
-    for (int i = 0; i < v.size(); i++) {
-        v.at(i).print();
-        cout << endl;
-    }
+	for (int i = 0; i < v.size(); i++) {
+		v.at(i).print();
+		cout << endl;
+	}
 }
 
 
@@ -156,8 +156,8 @@ Pembelian pembelian;
 
 bool navigate(int *index, int min, int max){
 	c = getch();
-    if (!c || c == 224) {
-        switch(c = getch()) {
+	if (!c || c == 224) {
+		switch(c = getch()) {
 			case ARROW_UP:
 				if((*index)-- == min)
 					*index = max;
@@ -166,16 +166,16 @@ bool navigate(int *index, int min, int max){
 				if((*index)++ == max)
 					*index = min;
 				break;
-        }
+		}
 		return true;
-    }
+	}
 	return false;
 }
 
 bool navigate(int *index1, int *index2, int min1, int max1, int min2, int max2){
 	c = getch();
-    if (!c || c == 224) {
-        switch(c = getch()) {
+	if (!c || c == 224) {
+		switch(c = getch()) {
 			case ARROW_UP:
 				if((*index1)-- == min1)
 					*index1 = max1;
@@ -192,9 +192,9 @@ bool navigate(int *index1, int *index2, int min1, int max1, int min2, int max2){
 				if((*index2)++ == max2)
 					*index2 = min2;
 				break;
-        }
+		}
 		return true;
-    }
+	}
 	return false;
 }
 
@@ -414,29 +414,29 @@ void mainMenu() {
 		getch();
 	}
 	int index = 1;
-    time_t timeNow;
-    tm *tmN;
+	time_t timeNow;
+	tm *tmN;
 	for(;;) {
 		system("cls");
 
 		time(&timeNow);
-        tmN = localtime(&timeNow);
-        int hour = tmN->tm_hour;
-        int min = tmN->tm_min;
-	    int sec = tmN->tm_sec;
+		tmN = localtime(&timeNow);
+		int hour = tmN->tm_hour;
+		int min = tmN->tm_min;
+		int sec = tmN->tm_sec;
 
 		cout << "========================================================================================================================\n";
 		cout << "========================================================================================================================\n\n";
 		cout << "\t\t\t\t\thhhhhhyyhhhhhhh" << endl;
-        cout << "\t\t\t\t\thhhhy-  `/hhhhh" << endl;
-        cout << "\t\t\t\t\thhhh+     yhhhh" << "\t\tSelamat " << getTimeState(hour) << ", " << currentUser->username << endl;
-        cout << "\t\t\t\t\thhhhs:.../yhhhh" << "\t\tSekarang pukul " << hour << ":" << min << ":" << sec << endl;
-        cout << "\t\t\t\t\thh+.`.-:-.`.+hh" << endl;
-        cout << "\t\t\t\t\thy           yh" << "\t\tSaldo kamu " << currentUser->saldo << " koin" << endl;
-        cout << "\t\t\t\t\tho           oh" << endl;
-        cout << "\t\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
+		cout << "\t\t\t\t\thhhhy-  `/hhhhh" << endl;
+		cout << "\t\t\t\t\thhhh+     yhhhh" << "\t\tSelamat " << getTimeState(hour) << ", " << currentUser->username << endl;
+		cout << "\t\t\t\t\thhhhs:.../yhhhh" << "\t\tSekarang pukul " << hour << ":" << min << ":" << sec << endl;
+		cout << "\t\t\t\t\thh+.`.-:-.`.+hh" << endl;
+		cout << "\t\t\t\t\thy           yh" << "\t\tSaldo kamu " << currentUser->saldo << " koin" << endl;
+		cout << "\t\t\t\t\tho           oh" << endl;
+		cout << "\t\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
 		cout << "========================================================================================================================\n";
-        cout << "========================================================================================================================\n\n";
+		cout << "========================================================================================================================\n\n";
 		cout << "\t\t\t\t\t\t\tMAIN MENU\n" << endl;
 		cout << "\t\t\t\t\t\t" << ( index == 1 ? "[1]" : " 1 " ) << "Beli Tiket Film" << endl;
 		cout << "\t\t\t\t\t\t" << ( index == 2 ? "[2]" : " 2 " ) << "Riwayat Pembelian" << endl;
@@ -472,7 +472,7 @@ void mainMenu() {
 void signUp() {
 	int index1 = 0;
 	int index2 = 0;
-    string username, password, pwMask;
+	string username, password, pwMask;
 	for(;;){
 		system("cls");
 
@@ -480,13 +480,13 @@ void signUp() {
 		string *s = (!index1 ? &username : &password);
 
 		cout << "\t\t\t\thhhhhhyyhhhhhhh" << "\t\t\t" << "SIGN UP" << endl;
-        cout << "\t\t\t\thhhhy-  `/hhhhh" << endl;
-        cout << "\t\t\t\thhhh+     yhhhh" << "\t\t" << " Masukkan Username: " << username << (!index1 ? "_" : " ") << endl;
-        cout << "\t\t\t\thhhhs:.../yhhhh" << "\t\t" << " Masukkan Password: " << pwMask << (index1 ? "_" : " ") << endl;
-        cout << "\t\t\t\thh+.`.-:-.`.+hh" << endl;
-        cout << "\t\t\t\thy           yh" << "\t\t" << (!index2 ? "[Register]\t Exit " : " Register \t[Exit]") << endl;
-        cout << "\t\t\t\tho           oh" << "\t\t" << endl;
-        cout << "\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
+		cout << "\t\t\t\thhhhy-  `/hhhhh" << endl;
+		cout << "\t\t\t\thhhh+     yhhhh" << "\t\t" << " Masukkan Username: " << username << (!index1 ? "_" : " ") << endl;
+		cout << "\t\t\t\thhhhs:.../yhhhh" << "\t\t" << " Masukkan Password: " << pwMask << (index1 ? "_" : " ") << endl;
+		cout << "\t\t\t\thh+.`.-:-.`.+hh" << endl;
+		cout << "\t\t\t\thy           yh" << "\t\t" << (!index2 ? "[Register]\t Exit " : " Register \t[Exit]") << endl;
+		cout << "\t\t\t\tho           oh" << "\t\t" << endl;
+		cout << "\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
 
 		if(navigate(&index1, &index2, 0, 1, 0, 1))
 			continue;
@@ -494,7 +494,7 @@ void signUp() {
 		switch(c) {
 			case BACKSPACE:
 				if (!s->empty()) 
-        			s->resize(s->size() - 1);
+					s->resize(s->size() - 1);
 				break;
 			case ENTER:
 				if(!index1) {
@@ -517,8 +517,8 @@ void signUp() {
 					}
 					User user(username, password);
 					daftarUser.push_back(user);
-    				cout << "\n\t\t\t\t\tRegistrasi berhasil";
-    				getch();
+					cout << "\n\t\t\t\t\tRegistrasi berhasil";
+					getch();
 					return;
 				}
 				break;
@@ -531,7 +531,7 @@ void signUp() {
 void login() {
 	int index1 = 0;
 	int index2 = 0;
-    string username, password, pwMask;
+	string username, password, pwMask;
 	for(;;){
 		system("cls");
 
@@ -539,13 +539,13 @@ void login() {
 		string *s = (!index1 ? &username : &password);
 
 		cout << "\t\t\t\t\t\thhhhhhyyhhhhhhh" << endl;
-        cout << "\t\t\t\t\t\thhhhy-  `/hhhhh" << "\t\t\t" << "Login" << endl;
-        cout << "\t\t\t\t\t\thhhh+     yhhhh" << endl;
-        cout << "\t\t\t\t\t\thhhhs:.../yhhhh" << "\t\t" << " Username: " << username << (!index1 ? "_" : " ") << endl;
-        cout << "\t\t\t\t\t\thh+.`.-:-.`.+hh" << "\t\t" << " Password: " << pwMask << (index1 ? "_" : " ") << endl;
-        cout << "\t\t\t\t\t\thy           yh" << endl;
-        cout << "\t\t\t\t\t\tho           oh" << "\t\t" << (!index2 ? "[Login]\t Exit " : " Login \t[Exit]") << endl;
-        cout << "\t\t\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
+		cout << "\t\t\t\t\t\thhhhy-  `/hhhhh" << "\t\t\t" << "Login" << endl;
+		cout << "\t\t\t\t\t\thhhh+     yhhhh" << endl;
+		cout << "\t\t\t\t\t\thhhhs:.../yhhhh" << "\t\t" << " Username: " << username << (!index1 ? "_" : " ") << endl;
+		cout << "\t\t\t\t\t\thh+.`.-:-.`.+hh" << "\t\t" << " Password: " << pwMask << (index1 ? "_" : " ") << endl;
+		cout << "\t\t\t\t\t\thy           yh" << endl;
+		cout << "\t\t\t\t\t\tho           oh" << "\t\t" << (!index2 ? "[Login]\t Exit " : " Login \t[Exit]") << endl;
+		cout << "\t\t\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
 
 		if(navigate(&index1, &index2, 0, 1, 0, 1))
 			continue;
@@ -553,7 +553,7 @@ void login() {
 		switch(c) {
 			case BACKSPACE:
 				if (!s->empty()) 
-        			s->resize(s->size() - 1);
+					s->resize(s->size() - 1);
 				break;
 			case ENTER:
 				if(!index1) {
@@ -615,10 +615,10 @@ int main() {
 	setupDummy();
 
 	int index = 1;
-    for (;;){
-        system("cls");
+	for (;;){
+		system("cls");
 		cout << "========================================================================================================================\n" << endl;
-        cout << "...------...........+:...................................-........--------.............--..............................." << endl;
+		cout << "...------...........+:...................................-........--------.............--..............................." << endl;
 		cout << "..odysyh:....---....Ms...----.......--...---.....---....:h:.......:Nhssyys:-...----...-y+.....---.......---.....---....." << endl;
 		cout << "..mm:-....-/sssyo-..Ms..ossyyo-.-y+osys:+syy:../sssys:.+yMys+...../Mo...-sN+.-sssyy/.:sMdso.:sssyy/../y/osyo-.-/sssyyo-." << endl;
 		cout << "../ydhs/-./No::/my..Ms../:::oM/.-Nh:-:Nd/--dm..::::/Nh.-+M+--...../Mo....-Nh.-/:::hN--:Ny--.-/:::dm..oMo--:Ms.:Mo--yN-.." << endl;
@@ -628,32 +628,32 @@ int main() {
 		cout << "..............................................................................................................+dyssyd+.." << endl;
 		cout << "..............................................................................................................-------..." << endl;
 		cout << "\n========================================================================================================================\n" << endl;
-        cout << "\t\t\t\t\t\thhhhhhyyhhhhhhh" << endl;
-        cout << "\t\t\t\t\t\thhhhy-  `/hhhhh" << endl;
-        cout << "\t\t\t\t\t\thhhh+     yhhhh" << "\t\t" << (index == 1 ? "[1]" : " 1 ") << " Login" << endl;
-        cout << "\t\t\t\t\t\thhhhs:.../yhhhh" << "\t\t" << (index == 2 ? "[2]" : " 2 ") << " Sign Up" << endl;
-        cout << "\t\t\t\t\t\thh+.`.-:-.`.+hh" << endl;
-        cout << "\t\t\t\t\t\thy           yh" << "\t\t" << (index == 3 ? "[3]" : " 3 ") << " Exit" << endl;
-        cout << "\t\t\t\t\t\tho           oh" << endl;
-        cout << "\t\t\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
-        
+		cout << "\t\t\t\t\t\thhhhhhyyhhhhhhh" << endl;
+		cout << "\t\t\t\t\t\thhhhy-  `/hhhhh" << endl;
+		cout << "\t\t\t\t\t\thhhh+     yhhhh" << "\t\t" << (index == 1 ? "[1]" : " 1 ") << " Login" << endl;
+		cout << "\t\t\t\t\t\thhhhs:.../yhhhh" << "\t\t" << (index == 2 ? "[2]" : " 2 ") << " Sign Up" << endl;
+		cout << "\t\t\t\t\t\thh+.`.-:-.`.+hh" << endl;
+		cout << "\t\t\t\t\t\thy           yh" << "\t\t" << (index == 3 ? "[3]" : " 3 ") << " Exit" << endl;
+		cout << "\t\t\t\t\t\tho           oh" << endl;
+		cout << "\t\t\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
+		
 		if(navigate(&index, 1, 3))
 			continue;
 		
 		switch (c){
-            case ENTER:
-                switch (index){
-                    case 1:
+			case ENTER:
+				switch (index){
+					case 1:
 						login();
 						break;
-                    case 2:
-                    	signUp();
-                    	break;
-                    case 3:
-                    	return 0;
+					case 2:
+						signUp();
+						break;
+					case 3:
+						return 0;
 				}
 				break;
-        }
-    }
+		}
+	}
 	return 0;
 }
