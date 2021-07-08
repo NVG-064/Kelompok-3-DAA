@@ -130,10 +130,14 @@ class Pembelian {
 };
 
 void printAllFilm(vector<Film> v, int index) {
-	for (int i = 0; i < v.size(); i++) {
-		cout << ( index == i ? "= = = = = = = = = = = = = = = = = = = =" : "" ) << endl;
-		v.at(i).print();
-		cout << ( index == i ? "= = = = = = = = = = = = = = = = = = = =" : "" ) << endl;
+	for(int i = index - 1; i <= index+1; i++){
+		if(i < 0 || i == v.size()){
+			cout<<"\n\n\n\n\n\n";
+		} else {
+			cout << ( index == i ? "= = = = = = = = = = = = = = = = = = = =" : "" ) << endl;
+			v.at(i).print();
+			cout << ( index == i ? "= = = = = = = = = = = = = = = = = = = =" : "" ) << endl;
+		}
 	}
 	cout << '\n';
 }
