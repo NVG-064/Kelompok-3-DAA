@@ -487,14 +487,14 @@ void mainMenu() {
 
 		cout << "========================================================================================================================\n";
 		cout << "========================================================================================================================\n\n";
-		cout << "\t\t\t\t\thhhhhhyyhhhhhhh" << endl;
-		cout << "\t\t\t\t\thhhhy-  `/hhhhh" << endl;
-		cout << "\t\t\t\t\thhhh+     yhhhh" << "\t\tSelamat " << getTimeState(hour) << ", " << currentUser->username << endl;
-		cout << "\t\t\t\t\thhhhs:.../yhhhh" << "\t\tSekarang pukul " << hour << ":" << min << ":" << sec << endl;
-		cout << "\t\t\t\t\thh+.`.-:-.`.+hh" << endl;
-		cout << "\t\t\t\t\thy           yh" << "\t\tSaldo kamu Rp. " << fixed << formatNumber(currentUser->saldo) << endl;
-		cout << "\t\t\t\t\tho           oh" << endl;
-		cout << "\t\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
+		cout << "\t\t\t\thhhhhhyyhhhhhhh" << endl;
+		cout << "\t\t\t\thhhhy-  `/hhhhh" << endl;
+		cout << "\t\t\t\thhhh+     yhhhh" << "\t\tSelamat " << getTimeState(hour) << ", " << currentUser->username << endl;
+		cout << "\t\t\t\thhhhs:.../yhhhh" << "\t\tSekarang pukul " << hour << ":" << min << ":" << sec << endl;
+		cout << "\t\t\t\thh+.`.-:-.`.+hh" << endl;
+		cout << "\t\t\t\thy           yh" << "\t\tSaldo kamu Rp. " << fixed << formatNumber(currentUser->saldo) << endl;
+		cout << "\t\t\t\tho           oh" << endl;
+		cout << "\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
 		cout << "========================================================================================================================\n";
 		cout << "========================================================================================================================\n\n";
 		cout << "\t\t\t\t\t\t\tMAIN MENU\n" << endl;
