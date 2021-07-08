@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include <conio.h>
 #include <ctime>
+#include <unistd.h>
 
 #define ARROW_UP 72
 #define ARROW_DOWN 80
@@ -162,26 +163,16 @@ void printAllFilm(vector<Film> v, int index) {
 }
 
 void printAllPembelian(vector<Pembelian> v) {
-	cout << "\t\t\t\t\t\t           `:oydmNMMMMNmdyo:`           " << endl;
-	cout << "\t\t\t\t\t\t`````   -odMMMMMMMMMMMMMMMMMMds-        " << endl;
-	cout << "\t\t\t\t\t\tMMMMs`+dMMMMMMdyo+/::/+oydMMMMMMd+`     " << endl;
-	cout << "\t\t\t\t\t\tMMMMdmMMMMNy:`    ````    `:yNMMMMm/    " << endl;
-	cout << "\t\t\t\t\t\tMMMMMMMMm+`      /MMMM/      `+mMMMMy`  " << endl;
-	cout << "\t\t\t\t\t\tMMMMMMMy....`    /MMMM/        `sMMMMd. " << endl;
-	cout << "\t\t\t\t\t\tMMMMMMMMMMMMo    /MMMM/          /MMMMh " << endl;
-	cout << "\t\t\t\t\t\tMMMMMMMMMMMMo    /MMMM/           oMMMM/" << endl;
-	cout << "\t\t\t\t\t\t------------.    /MMMM/           `mMMMd" << endl;
-	cout << "\t\t\t\t\t\t....`            /MMMM/            yMMMM" << endl;
-	cout << "\t\t\t\t\t\tMMMMy            /MMMMNh/`         yMMMM" << endl;
-	cout << "\t\t\t\t\t\tdMMMm`           `/hMMMMMNy:`     `mMMMd" << endl;
-	cout << "\t\t\t\t\t\t/MMMMo              `+dMMMMMNy-   oMMMM/" << endl;
-	cout << "\t\t\t\t\t\t hMMMM/                .omMMMy.  /MMMMh " << endl;
-	cout << "\t\t\t\t\t\t `dMMMMs`                 -o:  `sMMMMd` " << endl;
-	cout << "\t\t\t\t\t\t  `yMMMMm+`                  `+mMMMMy`  " << endl;
-	cout << "\t\t\t\t\t\t    /mMMMMNy:`            `:yNMMMMm/    " << endl;
-	cout << "\t\t\t\t\t\t     `/dMMMMMMmyo+/::/+oymMMMMMMd+`     " << endl;
-	cout << "\t\t\t\t\t\t        -sdMMMMMMMMMMMMMMMMMMds-        " << endl;
-	cout << "\t\t\t\t\t\t           `:oydmNMMMMNmdyo:`           " << endl << endl;
+	cout << "\t\t\t\t\t\t``  -ohmNMMNmho-    " << endl;
+	cout << "\t\t\t\t\t\tMMsdMms/----/smMd:  " << endl;
+	cout << "\t\t\t\t\t\tMMMN/`  .MM.   /mMy " << endl;
+	cout << "\t\t\t\t\t\tMMMMMM- .MM.    `mMs" << endl;
+	cout << "\t\t\t\t\t\t--....  .MM-     +MN" << endl;
+	cout << "\t\t\t\t\t\tNM+     `dMNs-   +MN" << endl;
+	cout << "\t\t\t\t\t\tsMm`      .omMd``mMs" << endl;
+	cout << "\t\t\t\t\t\t yMm/        .`/mMy " << endl;
+	cout << "\t\t\t\t\t\t  :dMms/-..-/smMd:  " << endl;
+	cout << "\t\t\t\t\t\t    -ohmNMMNmho-    " << endl << endl;
 
 	if (v.empty() == false){
 		for (int i = 0; i < v.size(); i++) {
@@ -246,6 +237,31 @@ bool navigate(int *index1, int *index2, int min1, int max1, int min2, int max2){
 	return false;
 }
 
+void berhasil(){
+	system("cls");
+	cout << "\t\t\t\t\t\t                 ```.`                  " << endl;
+	cout << "\t\t\t\t\t\t           `:oydmNNNNNNmdyo/`       ..  " << endl;
+	cout << "\t\t\t\t\t\t        .odNNNmhso++++oshmNNN/    -oss/ " << endl;
+	cout << "\t\t\t\t\t\t      -hNNNy/.            ./:   -osss/  " << endl;
+	cout << "\t\t\t\t\t\t    `yNNm+`                   -ossso.   " << endl;
+	cout << "\t\t\t\t\t\t   -mNNs`                   -ossss:     " << endl;
+	cout << "\t\t\t\t\t\t  -mNN/                   -ossss+`      " << endl;
+	cout << "\t\t\t\t\t\t  dNN+                  -osssso-   sds  " << endl;
+	cout << "\t\t\t\t\t\t :NNm  .//-`          -osssss/`    dNN/ " << endl;
+	cout << "\t\t\t\t\t\t oNNs  .oooo+:.     -ossssso.      sNNs " << endl;
+	cout << "\t\t\t\t\t\t oNNs   `/oooooo/-:ossssss:        sNNs " << endl;
+	cout << "\t\t\t\t\t\t :NNm     .+ooosssssssss+`         dNN/ " << endl;
+	cout << "\t\t\t\t\t\t  dNN+      :oossssssso-          /NNd  " << endl;
+	cout << "\t\t\t\t\t\t  -mNN/      `+ssssss/`          :NNN-  " << endl;
+	cout << "\t\t\t\t\t\t   -mNNo`      -osso.          `oNNm:   " << endl;
+	cout << "\t\t\t\t\t\t    .yNNm+`      ``          `+mNNh.    " << endl;
+	cout << "\t\t\t\t\t\t      :hNNmy/.            `/ymNNh:      " << endl;
+	cout << "\t\t\t\t\t\t        -odNNNmhso+//+oshmNNNds-        " << endl;
+	cout << "\t\t\t\t\t\t           ./ohdNNNNNNNNdhs/.           " << endl;
+	cout << "\t\t\t\t\t\t                 `....`                 " << endl << endl;
+	sleep(5);
+}
+
 bool confirmMenu(){
 	int index = 1;
 
@@ -269,7 +285,7 @@ bool confirmMenu(){
 		cout << "\t\t\t\t``````````.dNo-------------:ymNdo-------------oNd.``````````" << endl;
 		cout << "\t\t\t\t``````````mM/----------------::----------------+Md``````````" << endl;
 		cout << "\t\t\t\t``````````hMhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdMs``````````" << endl;
-		cout << "\n\t\t\t\t\t\tApakah Anda yakin?\n" << endl;
+		cout << "\n\t\t\t\t\t\t     Apakah Anda yakin?\n" << endl;
 		cout << "\t\t\t\t\t" << ( index == 1 ? "[1]" : " 1 " ) << " Ya" << endl;
 		cout << "\t\t\t\t\t" << ( index == 2 ? "[2]" : " 2 " ) << " Tidak" << endl;
 
@@ -337,8 +353,9 @@ void pilihKursi(JadwalFilm* pJadwalFilm) {
 					currentUser->saldo -= totalHarga;
 
 					c = !c;
-					cout << "\nPembelian sukses!" << endl;
-					system("pause");
+					berhasil();
+					//cout << "\nPembelian sukses!" << endl;
+					//system("pause");
 					return;
 				}
 				break;
@@ -351,7 +368,17 @@ void pilihJadwal(Film* film){
 	int index = 0;
 	for(;;){
 		system("cls");
-		cout << "Pilih Jadwal Film" << endl << endl;
+		cout << "\t\t\t\t\t\t     ohmNMMNmho     " << endl;
+		cout << "\t\t\t\t\t\t   dMms .MM. smMd:  " << endl;
+		cout << "\t\t\t\t\t\t yMm/   .MM.   /mMy " << endl;
+		cout << "\t\t\t\t\t\tsMm`    .MM.    `mMs" << endl;
+		cout << "\t\t\t\t\t\tNM+     .MM-     +MN" << endl;
+		cout << "\t\t\t\t\t\tNM+     `dMNs-   +MN" << endl;
+		cout << "\t\t\t\t\t\tsMm`      .omMd``mMs" << endl;
+		cout << "\t\t\t\t\t\t yMm/         `/mMy " << endl;
+		cout << "\t\t\t\t\t\t  :dMms/-..-/smMd:  " << endl;
+		cout << "\t\t\t\t\t\t     ohmNMMNmho     " << endl << endl;
+		cout << "\t\t\t\t\t\t Pilih Jadwal Film" << endl << endl;
 		film->printJadwal(index);
 
 		if(navigate(&index, 0, film->jadwalFilm.size()-1))
@@ -441,11 +468,14 @@ void topUpSaldo(){
 					switch(index){
 						case 1:
 							currentUser->saldo += 12000;
+							berhasil();
 							break;
 						case 2:
 							currentUser->saldo += 24000;
+							berhasil();
 							break;
 						case 3:
+							berhasil();
 							currentUser->saldo += 56000;
 							break;
 					}
@@ -459,6 +489,7 @@ void topUpSaldo(){
 							cin >> input;
 							if(confirmMenu()){
 								currentUser->saldo += input;
+								berhasil();
 								return;
 							}
 							break;
