@@ -313,22 +313,19 @@ void pilihKursi(JadwalFilm* pJadwalFilm) {
 	string kursiDibeli = "";
 	for(;;){
 		system("cls");
-		cout << "        .://///-`        " << endl;
-		cout << "      .s:.    `.+o       " << endl;
-		cout << "      s-`//` ./: +/      " << endl;
-		cout << "      y..so- +os +/      " << endl;
-		cout << "      y.         +/      " << endl;
-		cout << " `....y.`//` -/: ++....  " << endl;
-		cout << " y:::/m..oo- /+o +d:::+o " << endl;
-		cout << " :/+yod:.........oyoy//- " << endl;
-		cout << "   .h-:----------:::d    " << endl;
-		cout << "   `s+//:::::::::+//s    " << endl;
-		cout << "    `d/o`````````d:s     " << endl;
-		cout << "     d:o         h:o     " << endl;
-		cout << "     d/o         h/o     " << endl;
-		cout << "     --.         --.     " << endl << endl;
+		cout << "\t\t\t\t\t\t      -::::::.      " << endl;
+		cout << "\t\t\t\t\t\t     o-``  ``:/     " << endl;
+		cout << "\t\t\t\t\t\t     y ss`-o+ y     " << endl;
+		cout << "\t\t\t\t\t\t     y ``  `  y     " << endl;
+		cout << "\t\t\t\t\t\t ----y +o`.+/ y---- " << endl;
+		cout << "\t\t\t\t\t\t`o:/+y -- `-. d//:o " << endl;
+		cout << "\t\t\t\t\t\t ``h/+::::::::+/y`  " << endl;
+		cout << "\t\t\t\t\t\t   o//:------:/+/   " << endl;
+		cout << "\t\t\t\t\t\t    ys```````:+s    " << endl;
+		cout << "\t\t\t\t\t\t    ys       :+s    " << endl;
+		cout << "\t\t\t\t\t\t    :/       `/-    " << endl << endl;
                                    
-		cout << "Pilih Kursi" << endl << endl;
+		cout << "\t\t\t\t\t\t    Pilih Kursi" << endl << endl;
 		jadwalFilm.printKursi(index1, index2);
 		cout << endl;
 		
@@ -352,8 +349,28 @@ void pilihKursi(JadwalFilm* pJadwalFilm) {
 					}
 				} else {
 					if(currentUser->saldo < totalHarga){
-						cout << "Saldo tidak mencukupi" << endl;
-						system("pause");
+						system("cls");
+						cout << "\t\t\t\t````````````````````````````.++:````````````````````````````" << endl;
+						cout << "\t\t\t\t```````````````````````````oMdhMh.``````````````````````````" << endl;
+						cout << "\t\t\t\t``````````````````````````yMy--oNd.`````````````````````````" << endl;
+						cout << "\t\t\t\t````````````````````````.dMo----+Nm-````````````````````````" << endl;
+						cout << "\t\t\t\t```````````````````````-mN+------/mN/```````````````````````" << endl;
+						cout << "\t\t\t\t``````````````````````:Nm/--/oo+:-:dN+``````````````````````" << endl;
+						cout << "\t\t\t\t`````````````````````+Nd:--oMMMMm--:hMo`````````````````````" << endl;
+						cout << "\t\t\t\t````````````````````sMh:---oMMMMN----yMy.```````````````````" << endl;
+						cout << "\t\t\t\t``````````````````.yMy-----/MMMMd-----sNh.``````````````````" << endl;
+						cout << "\t\t\t\t`````````````````.dNo-------MMMMy------+Nm-`````````````````" << endl;
+						cout << "\t\t\t\t````````````````:mN+--------mMMMs-------/mm:````````````````" << endl;
+						cout << "\t\t\t\t```````````````/Nm/---------hMMM+--------/mN/```````````````" << endl;
+						cout << "\t\t\t\t``````````````oNd:----------/yhs----------:hNo``````````````" << endl;
+						cout << "\t\t\t\t`````````````sMy:-----------+yhy/----------:yMs`````````````" << endl;
+						cout << "\t\t\t\t```````````.hMs------------+MMMMN------------sMh.```````````" << endl;
+						cout << "\t\t\t\t``````````.dNo-------------:ymNdo-------------oNd.``````````" << endl;
+						cout << "\t\t\t\t``````````mM/----------------::----------------+Md``````````" << endl;
+						cout << "\t\t\t\t``````````hMhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdMs``````````" << endl << endl;
+						cout << "\t\t\t\t                   Saldo tidak mencukupi" << endl;
+						//system("pause");
+						sleep(3);
 						break;
 					}
 					if(!confirmMenu())
