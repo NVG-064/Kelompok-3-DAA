@@ -173,6 +173,7 @@ void printAllPembelian(vector<Pembelian> v) {
 	cout << "\t\t\t\t\t\t yMm/        .`/mMy " << endl;
 	cout << "\t\t\t\t\t\t  :dMms/-..-/smMd:  " << endl;
 	cout << "\t\t\t\t\t\t    -ohmNMMNmho-    " << endl << endl;
+	cout << "\t\t\t\t\t\t Riwayat Pembelian" << endl << endl;
 
 	if (v.empty() == false){
 		for (int i = 0; i < v.size(); i++) {
@@ -719,13 +720,13 @@ int main() {
 	for (;;){
 		system("cls");
 		cout << "========================================================================================================================" << endl;
-		cout << "..odysyh:....---....Ms...----.......--...---.....---....:h:.......:Nhssyys:-...----...-y+.....---.......---.....---....." << endl;
-		cout << "..mm:-....-/sssyo-..Ms..ossyyo-.-y+osys:+syy:../sssys:.+yMys+...../Mo...-sN+.-sssyy/.:sMdso.:sssyy/../y/osyo-.-/sssyyo-." << endl;
-		cout << "../ydhs/-./No::/my..Ms../:::oM/.-Nh:-:Nd/--dm..::::/Nh.-+M+--...../Mo....-Nh.-/:::hN--:Ny--.-/:::dm..oMo--:Ms.:Mo--yN-.." << endl;
-		cout << "....-:oNh.yMsoooso..Ms.-shssyM+.-Ns...mh...yN.-+hssoNd../M+......./Mo..../My.:hysohN-.-Ny.../hysodN..oM:..-Ny.-Nhoohy-.." << endl;
-		cout << ".-o///+Nh./No:-:/:..Ms./Ms-:sM+.-Ns...mh...yN.-dd::/md..:Mo--...../My//+smy-.sM/-/hN-.-mh::.yN/-/dN..oM:..-Ny./Nysso/-.." << endl;
-		cout << ".-+ssss/-.-:ossoo:..o/.-+sso/o:.-o/...++.../o..:oso+++..-+ss/.....-ooooo/:-..-oss+/o-../ss+.-oss+/o..:s-..-o/.oN+///dh.." << endl;
-		cout << "..............................................................................................................+dyssyd+.." << endl;
+		cout << "   sssss            Ms                                   hh        nhssyys             yy                               " << endl;
+		cout << "  mm        sssyo   Ms  ossyyo    yosysyysyy    sssyso  OMysO      Mo    sN   sssyyo  OMdsO  sssyyo   ysosyo    osso    " << endl;
+		cout << "   ydhs    No   my  Ms      oM   Nh   Nd   dm       Nh   Ms        Mo     Nh      hN   Ny        dm  oM    Ms  oo  yo   " << endl;
+		cout << "      oN   Msoooso  Ms   hssyM   Ns   mh   yN   hssoNd   Ms        Mo     My  hysohN   Ny    hysodN  oM    Ns  os  so   " << endl;
+		cout << "       Nh  No       Ms  Ms  sM   Ns   mh   yN  dd   md   Mo        My    my  Ms   hN   mh   Ms   dN  oM    Ns   ossso   " << endl;
+		cout << "   sssss    ossoo   Ms   ssoso   Ns   mh   yN   ososoo    sss      oooooo     osssso    sss  osssoo  os    os      oo   " << endl;
+		cout << "                                                                                                                osso    " << endl;
 		cout << "========================================================================================================================" << endl;
 		cout << endl;
 
