@@ -74,7 +74,7 @@ void success(){
 	cout << "\t\t\t\t\t\t        -odNNNmhso+//+oshmNNNds-        " << endl;
 	cout << "\t\t\t\t\t\t           ./ohdNNNNNNNNdhs/.           " << endl;
 	cout << "\t\t\t\t\t\t                 `....`                 " << endl;
-	cout << "\n\t\t\t\t\t\t\t     Pembelian Berhasil\n" << endl;
+	cout << "\n\t\t\t\t\t\t\t   Pembelian Berhasil\n" << endl;
 	system("pause");
 }
 
