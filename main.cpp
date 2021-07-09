@@ -313,7 +313,21 @@ void pilihKursi(JadwalFilm* pJadwalFilm) {
 	string kursiDibeli = "";
 	for(;;){
 		system("cls");
-		
+		cout << "        .://///-`        " << endl;
+		cout << "      .s:.    `.+o       " << endl;
+		cout << "      s-`//` ./: +/      " << endl;
+		cout << "      y..so- +os +/      " << endl;
+		cout << "      y.         +/      " << endl;
+		cout << " `....y.`//` -/: ++....  " << endl;
+		cout << " y:::/m..oo- /+o +d:::+o " << endl;
+		cout << " :/+yod:.........oyoy//- " << endl;
+		cout << "   .h-:----------:::d    " << endl;
+		cout << "   `s+//:::::::::+//s    " << endl;
+		cout << "    `d/o`````````d:s     " << endl;
+		cout << "     d:o         h:o     " << endl;
+		cout << "     d/o         h/o     " << endl;
+		cout << "     --.         --.     " << endl << endl;
+                                   
 		cout << "Pilih Kursi" << endl << endl;
 		jadwalFilm.printKursi(index1, index2);
 		cout << endl;
