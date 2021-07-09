@@ -242,6 +242,33 @@ void pilihJadwal(Film* film){
 	}
 }
 
+void daftarPembelianMenu(){
+	int index = 0;
+	for(;;){
+		system("cls");
+		cout << "\t\t\t\t\t\t``  -ohmNMMNmho-    " << endl;
+		cout << "\t\t\t\t\t\tMMsdMms/----/smMd:  " << endl;
+		cout << "\t\t\t\t\t\tMMMN/`  .MM.   /mMy " << endl;
+		cout << "\t\t\t\t\t\tMMMMMM- .MM.    `mMs" << endl;
+		cout << "\t\t\t\t\t\t--....  .MM-     +MN" << endl;
+		cout << "\t\t\t\t\t\tNM+     `dMNs-   +MN" << endl;
+		cout << "\t\t\t\t\t\tsMm`      .omMd``mMs" << endl;
+		cout << "\t\t\t\t\t\t yMm/        .`/mMy " << endl;
+		cout << "\t\t\t\t\t\t  :dMms/-..-/smMd:  " << endl;
+		cout << "\t\t\t\t\t\t    -ohmNMMNmho-    " << endl << endl;
+		cout << "\t\t\t\t\t\t Riwayat Pembelian" << endl << endl;
+		printAll(daftarPembelian, index);
+
+		if(navigate(&index, 0, daftarPembelian.size()-1))
+			continue;
+
+		switch(c){
+			case BACKSPACE:
+				return;
+		}
+	}
+}
+
 void beliTiket() {
 	int index = 0;
 	for(;;){
@@ -256,7 +283,7 @@ void beliTiket() {
 		cout << "\t\t\t\t\t\t.sMd:hMs:NM/+Mm:yMy." << endl;
 		cout << "\t\t\t\t\t\t+hhhyhhhyhhyhhhyhhh+" << endl << endl;
 		cout << "\t\t\t\t\t\t     Pilih Film" << endl << endl;
-		printAllFilm(daftarFilm, index);
+		printAll(daftarFilm, index);
 
 		if(navigate(&index, 0, daftarFilm.size()-1))
 			continue;
@@ -353,7 +380,7 @@ void manageFilm(){
 	
 	for(;;){
 		system("cls");
-		printAllFilm(daftarFilm, index1);
+		printAll(daftarFilm, index1);
 		
 		
 		cout<<"\n\n"<<s<<"\n\n\t\t\t\t\t";
@@ -463,9 +490,7 @@ void mainMenu() {
 						beliTiket();
 						break;
 					case 2:
-						system("cls");
-						printAllPembelian(daftarPembelian);
-						system("pause");
+						daftarPembelianMenu();
 						break;
 					case 3:
 						topUpSaldo();						

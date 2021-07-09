@@ -151,7 +151,12 @@ string formatNumber(long value) {
 	return s;
 }
 
-void printAllFilm(vector<Film> v, int index) {
+template <typename T>
+void printAll(vector<T> v, int index) {
+	if (v.empty()) {
+		cout << "Daftar Kosong\n" << endl;
+		return;
+	}
 	for(int i = index - 1; i <= index+1; i++){
 		if(i < 0 || i == v.size()){
 			cout<<"\n\n\n\n\n\n";
@@ -162,28 +167,6 @@ void printAllFilm(vector<Film> v, int index) {
 		}
 	}
 	cout << '\n';
-}
-
-void printAllPembelian(vector<Pembelian> v) {
-	cout << "\t\t\t\t\t\t``  -ohmNMMNmho-    " << endl;
-	cout << "\t\t\t\t\t\tMMsdMms/----/smMd:  " << endl;
-	cout << "\t\t\t\t\t\tMMMN/`  .MM.   /mMy " << endl;
-	cout << "\t\t\t\t\t\tMMMMMM- .MM.    `mMs" << endl;
-	cout << "\t\t\t\t\t\t--....  .MM-     +MN" << endl;
-	cout << "\t\t\t\t\t\tNM+     `dMNs-   +MN" << endl;
-	cout << "\t\t\t\t\t\tsMm`      .omMd``mMs" << endl;
-	cout << "\t\t\t\t\t\t yMm/        .`/mMy " << endl;
-	cout << "\t\t\t\t\t\t  :dMms/-..-/smMd:  " << endl;
-	cout << "\t\t\t\t\t\t    -ohmNMMNmho-    " << endl << endl;
-	cout << "\t\t\t\t\t\t Riwayat Pembelian" << endl << endl;
-
-	if (v.empty() == false){
-		for (int i = 0; i < v.size(); i++) {
-			v.at(i).print();
-			cout << endl;
-		}
-	}
-	else cout << "Tidak ada riwayat pembelian\n" << endl;
 }
 
 #endif // HEADER_H_INCLUDED
