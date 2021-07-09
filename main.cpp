@@ -344,8 +344,57 @@ void topUpSaldo(){
 	}
 }
 
+void manageFilm(){
+	int index1 = 0;
+	int index2 = 0;
+	
+	string s;
+	s.resize(120, '=');
+	
+	for(;;){
+		system("cls");
+		printAllFilm(daftarFilm, index1);
+		
+		
+		cout<<"\n\n"<<s<<"\n\n\t\t\t\t\t";
+		cout << (index2 == 0 ? "[Insert]" : " Insert ") << "\t"<< (index2 == 1 ? "[Update]" : " Update ") << "\t" << (index2 == 2 ? "[Delete]" : " Delete ") << endl;
+		
+		if(navigate(&index1, &index2, 0, daftarFilm.size()-1, 0, 2))
+			continue;
+
+		switch(c){
+			case BACKSPACE:
+				return;
+				break;
+			case ENTER:
+				break;
+		}
+	}
+}
+
 void adminMenu(){
-	//code here
+	int index = 1;
+	for(;;){
+		system("cls");
+		cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+		cout << "\t\t\t\t\t\t\tADMIN MENU\n" << endl;
+		cout << "\t\t\t\t\t\t" << ( index == 1 ? "[1]" : " 1 " ) << "Manage Film" << endl;
+		cout << "\t\t\t\t\t\t" << ( index == 2 ? "[2]" : " 2 " ) << "Logout" << endl;
+
+		if(navigate(&index, 1, 3))
+			continue;
+
+		switch(c){
+			case ENTER:
+				switch(index){
+					case 1:
+						manageFilm();
+						break;
+					case 2:
+						return;
+				}
+		}
+	}
 }
 
 void mainMenu() {
