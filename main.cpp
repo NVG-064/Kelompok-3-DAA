@@ -381,7 +381,7 @@ void adminMenu(){
 		cout << "\t\t\t\t\t\t" << ( index == 1 ? "[1]" : " 1 " ) << "Manage Film" << endl;
 		cout << "\t\t\t\t\t\t" << ( index == 2 ? "[2]" : " 2 " ) << "Logout" << endl;
 
-		if(navigate(&index, 1, 3))
+		if(navigate(&index, 1, 2))
 			continue;
 
 		switch(c){
