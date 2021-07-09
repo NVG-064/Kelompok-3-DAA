@@ -190,7 +190,7 @@ void pilihKursi(JadwalFilm* pJadwalFilm) {
 						system("pause");
 						break;
 					}
-					if(!confirmMenu())
+					if(checkString(kursiDibeli) || !confirmMenu())
 						break;
 					
 					pJadwalFilm->kursi = jadwalFilm.kursi;
