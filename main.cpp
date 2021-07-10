@@ -781,23 +781,11 @@ void setupDummy() {
 		"Joker",
 		"Up"
 	};
-	string jadwalFilm[] = {
-		"10:00",
-		"13:00",
-		"15:00",
-		"20:00"
-	};
 	for(int i = 0; i < sizeof(namaFilm)/sizeof(namaFilm[0]); i++){
-		vector<JadwalFilm> daftarJadwal;
-		for(int j = 0; j < sizeof(jadwalFilm)/sizeof(jadwalFilm[0]); j++){
-			JadwalFilm jf(jadwalFilm[j]);
-			daftarJadwal.push_back(jf);
-		}
-		Film film(namaFilm[i], "13+", "120", daftarJadwal);
+		Film film(namaFilm[i], "13+", "120");
 		daftarFilm.push_back(film);
 	}
-	User user("1", "1");
-	daftarUser.push_back(user);
+	daftarUser.push_back(User("1", "1"));
 }
 
 int main() {
@@ -806,4 +794,5 @@ int main() {
 	startMenu();
 	return 0;
 }
+
 

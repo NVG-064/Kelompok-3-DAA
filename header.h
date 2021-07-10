@@ -71,11 +71,15 @@ class Film {
 	vector<JadwalFilm> jadwalFilm;
 
 	Film(){}
-	Film(string namaFilm, string ratingUsia, string durasi, vector<JadwalFilm> jadwalFilm) {
+	Film(string namaFilm, string ratingUsia, string durasi) {
 		this->namaFilm = namaFilm;
 		this->ratingUsia = ratingUsia;
 		this->durasi = durasi;
-		this->jadwalFilm = jadwalFilm;
+		this->jadwalFilm.push_back(JadwalFilm("08:00"));
+		this->jadwalFilm.push_back(JadwalFilm("10:15"));
+		this->jadwalFilm.push_back(JadwalFilm("12:30"));
+		this->jadwalFilm.push_back(JadwalFilm("15:45"));
+		this->jadwalFilm.push_back(JadwalFilm("18:00"));
 	}
 	print(){
 		cout << "\t\t\t\t\tNama Film: " << this->namaFilm << endl;
