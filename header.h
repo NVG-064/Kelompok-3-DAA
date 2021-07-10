@@ -156,13 +156,15 @@ string formatNumber(long value) {
 
 template <typename T>
 void printAll(vector<T> v, int index) {
+	string s;
+	s.resize(typeid(T).name() == typeid(Pembelian).name() ? 7 : 5, '\n');
 	if (v.empty()) {
 		cout << "Daftar Kosong\n" << endl;
 		return;
 	}
 	for(int i = index - 1; i <= index+1; i++){
 		if(i < 0 || i == v.size()){
-			cout<<"\n\n\n\n\n\n";
+			cout << s;
 		} else {
 			cout << ( index == i ? "\t\t\t\t\t= = = = = = = = = = = = = = = = = = = =" : "" ) << endl;
 			v.at(i).print();
