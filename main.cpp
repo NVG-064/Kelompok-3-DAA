@@ -265,6 +265,8 @@ void daftarPembelianMenu(){
 		switch(c){
 			case BACKSPACE:
 				return;
+			case ENTER:
+				return;
 		}
 	}
 }
@@ -388,7 +390,6 @@ void manageFilm(){
 		switch(c){
 			case BACKSPACE:
 				return;
-				break;
 			case ENTER:
 				break;
 		}
@@ -617,36 +618,7 @@ void login() {
 	}
 }
 
-void setupDummy() {
-	string namaFilm[] = {
-		"The Lord of the Rings",
-		"Inception",
-		"Interstellar",
-		"Joker",
-		"Up"
-	};
-	string jadwalFilm[] = {
-		"10:00",
-		"13:00",
-		"15:00",
-		"20:00"
-	};
-	for(int i = 0; i < sizeof(namaFilm)/sizeof(namaFilm[0]); i++){
-		vector<JadwalFilm> daftarJadwal;
-		for(int j = 0; j < sizeof(jadwalFilm)/sizeof(jadwalFilm[0]); j++){
-			JadwalFilm jf(jadwalFilm[j]);
-			daftarJadwal.push_back(jf);
-		}
-		Film film(daftarFilm.size()+1, namaFilm[i], "13+", 120, daftarJadwal);
-		daftarFilm.push_back(film);
-	}
-	User user("1", "1");
-	daftarUser.push_back(user);
-}
-
-int main() {
-	setupDummy();
-
+void startMenu() {
 	int index = 1;
 	for (;;){
 		system("cls");
@@ -683,11 +655,44 @@ int main() {
 						signUp();
 						break;
 					case 3:
-						return 0;
+						return;
 				}
 				break;
 		}
 	}
+}
+
+void setupDummy() {
+	string namaFilm[] = {
+		"The Lord of the Rings",
+		"Inception",
+		"Interstellar",
+		"Joker",
+		"Up"
+	};
+	string jadwalFilm[] = {
+		"10:00",
+		"13:00",
+		"15:00",
+		"20:00"
+	};
+	for(int i = 0; i < sizeof(namaFilm)/sizeof(namaFilm[0]); i++){
+		vector<JadwalFilm> daftarJadwal;
+		for(int j = 0; j < sizeof(jadwalFilm)/sizeof(jadwalFilm[0]); j++){
+			JadwalFilm jf(jadwalFilm[j]);
+			daftarJadwal.push_back(jf);
+		}
+		Film film(daftarFilm.size()+1, namaFilm[i], "13+", 120, daftarJadwal);
+		daftarFilm.push_back(film);
+	}
+	User user("1", "1");
+	daftarUser.push_back(user);
+}
+
+int main() {
+	setupDummy();
+
+	startMenu();
 	return 0;
 }
 
