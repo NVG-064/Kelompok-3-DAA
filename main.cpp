@@ -112,11 +112,11 @@ bool confirmMenu() {
 			case BACKSPACE:
 				return false;
 			case ENTER:
-				if(index){
+				if(index == 1){
 					success();
 					return true;
 				}
-				break;
+				return false;
 		}
 	}
 	return false;
