@@ -89,7 +89,7 @@ class Film {
 	}
 	printJadwal(int index) {
 		for (int i = 0; i < jadwalFilm.size(); i++) {
-			cout << ( index == i ? "[" : " " ) << i+1 << ( index == i ? "]" : " " ) << jadwalFilm.at(i).jamTayang << endl	;
+			cout << "\t\t\t\t\t\t" << ( index == i ? "[" : " " ) << i+1 << ( index == i ? "]" : " " ) << jadwalFilm.at(i).jamTayang << endl	;
 		}
 	}
 };
