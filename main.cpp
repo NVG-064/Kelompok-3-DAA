@@ -373,6 +373,53 @@ void topUpSaldo() {
 	}
 }
 
+void updateFilm(Film *pFilm) {
+	int index1 = 0;
+	int index2 = 0;
+	string *s;
+	
+	Film film = *pFilm;
+	for(;;){
+		system("cls");
+		s = (index1 == 0 ? &film.namaFilm : index1 == 1 ? &film.ratingUsia : &film.durasi);
+
+		cout << "\n\n\n\n\n\n\n\n";
+		film.print(index1);
+		cout << "\n\n========================================================================================================================\n\n\n\n\t\t\t\t\t";
+		cout << (index2 == 0 ? "[Update]" : " Update ") << "\t\t" << (index2 == 1 ? "[Cancel]" : " Cancel ") << endl;
+
+		if(navigate(&index1, &index2, 0, 2, 0, 1))
+			continue;
+		
+		switch(c) {
+			case BACKSPACE:
+				if (!s->empty()) 
+					s->resize(s->size() - 1);
+				break;
+			case ENTER:
+				if(index2) {
+					return;
+				} else if(index1 != 2) {
+					index1++;
+					break;
+				} else {
+					if(checkString(film.namaFilm) || checkString(film.ratingUsia) || checkString(film.durasi)){
+						cout << "Semua form harus di isi!" << endl;
+						system("pause");
+						break;
+					}
+					*pFilm = film;
+					cout << "Berhasil update film" << endl;
+					system("pause");
+					return;
+				}
+				break;
+			default:
+				*s += (char)c;
+		}
+	}
+}
+
 void insertFilm() {
 	int index1 = 0;
 	int index2 = 0;
@@ -442,6 +489,8 @@ void manageFilm() {
 					case 0:
 						insertFilm();
 						break;
+					case 1:
+						updateFilm(&daftarFilm.at(index1));
 				}
 				break;
 		}
