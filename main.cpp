@@ -403,8 +403,28 @@ void adminMenu(){
 	int index = 1;
 	for(;;){
 		system("cls");
-		cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-		cout << "\t\t\t\t\t\t\tADMIN MENU\n" << endl;
+		//cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+		cout << "\t\t\t\t\t\t               :+syys+:`                " << endl;
+		cout << "\t\t\t\t\t\t            `+hddddddddh/.              " << endl;
+		cout << "\t\t\t\t\t\t           `hddddddddddddd.             " << endl;
+		cout << "\t\t\t\t\t\t           odddddddddddddd+             " << endl;
+		cout << "\t\t\t\t\t\t           odddddddddddddd/             " << endl;
+		cout << "\t\t\t\t\t\t          `ydddddddddddddds             " << endl;
+		cout << "\t\t\t\t\t\t          `dddddddddddddddy             " << endl;
+		cout << "\t\t\t\t\t\t           :hddddddddddddh.             " << endl;
+		cout << "\t\t\t\t\t\t            -dddddddddddh`              " << endl;
+		cout << "\t\t\t\t\t\t             sdddddddddd+     ```       " << endl;
+		cout << "\t\t\t\t\t\t            `ydddddddddd-  -ohdddds:    " << endl;
+		cout << "\t\t\t\t\t\t         .+yddddddddddd:  odddysydddy`  " << endl;
+		cout << "\t\t\t\t\t\t      -ohdddddddddddddh  -ddd/   .ddd+  " << endl;
+		cout << "\t\t\t\t\t\t   `+hddddddddddddddddh` .dddo` `/ddd:  " << endl;
+		cout << "\t\t\t\t\t\t  -dddddddddddddddddds.  :hddddddddd+   " << endl;
+		cout << "\t\t\t\t\t\t  +dddddddddddddddds.  :ydddooyyys/`    " << endl;
+		cout << "\t\t\t\t\t\t  +ddddddddddddddy.  :ydddd+            " << endl;
+		cout << "\t\t\t\t\t\t  `:++++++++++++/  .ydddosdh.           " << endl;
+		cout << "\t\t\t\t\t\t                   .yddh: `             " << endl;
+		cout << "\t\t\t\t\t\t                     -sy:               " << endl << endl;
+		cout << "\t\t\t\t\t\t\t     ADMIN MENU\n" << endl;
 		cout << "\t\t\t\t\t\t" << ( index == 1 ? "[1]" : " 1 " ) << "Manage Film" << endl;
 		cout << "\t\t\t\t\t\t" << ( index == 2 ? "[2]" : " 2 " ) << "Logout" << endl;
 
