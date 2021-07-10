@@ -49,12 +49,13 @@ class JadwalFilm {
 	vector< vector<bool> > kursi;
 
 	JadwalFilm(){}
-	JadwalFilm(string jamTayang) : kursi(5, vector<bool> (5, false)){
+	JadwalFilm(string jamTayang) : kursi(9, vector<bool> (9, false)){
 		this->jamTayang = jamTayang;
 	}
 	printKursi(int index1, int index2){
-		for(int i = 0; i < 5; i++){
-			for(int j = 0; j < 5; j++){
+		for(int i = 0; i < kursi.size(); i++){
+			cout << "\t\t\t\t\t";
+			for(int j = 0; j < kursi.at(0).size(); j++){
 				cout << ( i == index1 && j == index2 ? "[" : " ") << getSeatNumber(i, j, this->kursi[i][j]) << ( i == index1 && j == index2 ? "]" : " ");
 			}
 			cout << endl;
@@ -100,11 +101,11 @@ class Pembelian {
 	long totalHarga;
 	Pembelian(){}
 	print(){
-		cout << "ID Pembelian: " << this->id << endl;
-		cout << "Nama Film: " << this->namaFilm << endl;
-		cout << "Jam Tayang: " << this->jamTayang << endl;
-		cout << "Kursi: " << this->kursiDibeli << endl;
-		cout << "Total: Rp. " << this->totalHarga << endl;
+		cout << "\t\t\t\t\tID Pembelian: " << this->id << endl;
+		cout << "\t\t\t\t\tNama Film: " << this->namaFilm << endl;
+		cout << "\t\t\t\t\tJam Tayang: " << this->jamTayang << endl;
+		cout << "\t\t\t\t\tKursi: " << this->kursiDibeli << endl;
+		cout << "\t\t\t\t\tTotal: Rp. " << this->totalHarga << endl;
 	}
 };
 

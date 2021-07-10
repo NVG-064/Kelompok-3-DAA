@@ -147,7 +147,7 @@ void pilihKursi(JadwalFilm* pJadwalFilm) {
 		jadwalFilm.printKursi(index1, index2);
 		cout << endl;
 
-		cout << ( index1 == jadwalFilm.kursi.size() ? "[Buy]" : " Buy " ) << endl << endl;
+		cout << "\t\t\t\t\t" << ( index1 == jadwalFilm.kursi.size() ? "[Buy]" : " Buy " ) << endl << endl;
 
 		cout << " Kursi: " << kursiDibeli << endl;
 		cout << " Total: Rp. " << formatNumber(totalHarga) << endl;
