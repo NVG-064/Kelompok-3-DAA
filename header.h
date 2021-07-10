@@ -65,28 +65,24 @@ class JadwalFilm {
 
 class Film {
 	public:
-	int id;
 	string namaFilm;
 	string ratingUsia;
 	string durasi;
 	vector<JadwalFilm> jadwalFilm;
 
 	Film(){}
-	Film(int id, string namaFilm, string ratingUsia, string durasi, vector<JadwalFilm> jadwalFilm) {
-		this->id = id;
+	Film(string namaFilm, string ratingUsia, string durasi, vector<JadwalFilm> jadwalFilm) {
 		this->namaFilm = namaFilm;
 		this->ratingUsia = ratingUsia;
 		this->durasi = durasi;
 		this->jadwalFilm = jadwalFilm;
 	}
 	print(){
-		cout << "\t\t\t\t\tID: " << this->id << endl;
 		cout << "\t\t\t\t\tNama Film: " << this->namaFilm << endl;
 		cout << "\t\t\t\t\tRating Usia: " << this->ratingUsia << endl;
 		cout << "\t\t\t\t\tDurasi: " << this->durasi << endl;
 	}
 	print(int index1){
-		cout << "\t\t\t\t\tID: " << this->id << endl;
 		cout << "\t\t\t\t\tNama Film: " << this->namaFilm << (index1 == 0 ? "_" : " ") << endl;
 		cout << "\t\t\t\t\tRating Usia: " << this->ratingUsia << (index1 == 1 ? "_" : " ") << endl;
 		cout << "\t\t\t\t\tDurasi: " << this->durasi << (index1 == 2 ? "_" : " ") <<endl;

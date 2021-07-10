@@ -74,7 +74,7 @@ void success() {
 	cout << "\t\t\t\t\t\t        -odNNNmhso+//+oshmNNNds-        " << endl;
 	cout << "\t\t\t\t\t\t           ./ohdNNNNNNNNdhs/.           " << endl;
 	cout << "\t\t\t\t\t\t                 `....`                 " << endl;
-	cout << "\n\t\t\t\t\t\t\t   Pembelian Berhasil\n" << endl;
+	cout << "\n\t\t\t\t\t\t\t\tSuccess\n" << endl;
 	system("pause");
 }
 
@@ -373,6 +373,13 @@ void topUpSaldo() {
 	}
 }
 
+void deleteFilm(int *index) {
+	if(!confirmMenu())
+		return;
+	daftarFilm.erase(daftarFilm.begin()+*index);
+	*index = 0;
+}
+
 void updateFilm(Film *pFilm) {
 	int index1 = 0;
 	int index2 = 0;
@@ -424,7 +431,7 @@ void insertFilm() {
 	int index1 = 0;
 	int index2 = 0;
 	Film film;
-	film.id = daftarFilm.size()+1;
+	
 	string *s;
 	for(;;){
 		system("cls");
@@ -491,6 +498,10 @@ void manageFilm() {
 						break;
 					case 1:
 						updateFilm(&daftarFilm.at(index1));
+						break;
+					case 2:
+						deleteFilm(&index1);
+						break;
 				}
 				break;
 		}
@@ -782,7 +793,7 @@ void setupDummy() {
 			JadwalFilm jf(jadwalFilm[j]);
 			daftarJadwal.push_back(jf);
 		}
-		Film film(daftarFilm.size()+1, namaFilm[i], "13+", "120", daftarJadwal);
+		Film film(namaFilm[i], "13+", "120", daftarJadwal);
 		daftarFilm.push_back(film);
 	}
 	User user("1", "1");
