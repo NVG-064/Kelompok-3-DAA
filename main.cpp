@@ -8,7 +8,7 @@ vector<Pembelian> daftarPembelian;
 User *currentUser;
 Pembelian pembelian;
 
-bool navigate(int *index, int min, int max){
+bool navigate(int *index, int min, int max) {
 	c = getch();
 	if (!c || c == 224) {
 		switch(c = getch()) {
@@ -26,7 +26,7 @@ bool navigate(int *index, int min, int max){
 	return false;
 }
 
-bool navigate(int *index1, int *index2, int min1, int max1, int min2, int max2){
+bool navigate(int *index1, int *index2, int min1, int max1, int min2, int max2) {
 	c = getch();
 	if (!c || c == 224) {
 		switch(c = getch()) {
@@ -52,7 +52,7 @@ bool navigate(int *index1, int *index2, int min1, int max1, int min2, int max2){
 	return false;
 }
 
-void success(){
+void success() {
 	system("cls");
 	cout << "\t\t\t\t\t\t                 ```.`                  " << endl;
 	cout << "\t\t\t\t\t\t           `:oydmNNNNNNmdyo/`       ..  " << endl;
@@ -78,7 +78,7 @@ void success(){
 	system("pause");
 }
 
-bool confirmMenu(){
+bool confirmMenu() {
 	int index = 1;
 
 	for (;;){
@@ -209,7 +209,7 @@ void pilihKursi(JadwalFilm* pJadwalFilm) {
 	}
 }
 
-void pilihJadwal(Film* film){
+void pilihJadwal(Film* film) {
 	pembelian.namaFilm = film->namaFilm;
 	int index = 0;
 	for(;;){
@@ -242,7 +242,7 @@ void pilihJadwal(Film* film){
 	}
 }
 
-void daftarPembelianMenu(){
+void daftarPembelianMenu() {
 	int index = 0;
 	for(;;){
 		system("cls");
@@ -302,7 +302,7 @@ void beliTiket() {
 	}
 }
 
-void topUpSaldo(){
+void topUpSaldo() {
 	int input;
 	int index = 1;
 	for (;;){
@@ -373,7 +373,54 @@ void topUpSaldo(){
 	}
 }
 
-void manageFilm(){
+void insertFilm() {
+	int index1 = 0;
+	int index2 = 0;
+	Film film;
+	film.id = daftarFilm.size()+1;
+	string *s;
+	for(;;){
+		system("cls");
+		s = (index1 == 0 ? &film.namaFilm : index1 == 1 ? &film.ratingUsia : &film.durasi);
+
+		cout << "\n\n\n\n\n\n\n\n";
+		film.print(index1);
+		cout << "\n\n========================================================================================================================\n\n\n\n\t\t\t\t\t";
+		cout << (index2 == 0 ? "[Insert]" : " Insert ") << "\t\t" << (index2 == 1 ? "[Cancel]" : " Cancel ") << endl;
+		
+		if(navigate(&index1, &index2, 0, 2, 0, 1))
+			continue;
+
+		switch(c) {
+			case BACKSPACE:
+				if (!s->empty()) 
+					s->resize(s->size() - 1);
+				break;
+			case ENTER:
+				if(index2) {
+					return;
+				} else if(index1 != 2) {
+					index1++;
+					break;
+				} else {
+					if(checkString(film.namaFilm) || checkString(film.ratingUsia) || checkString(film.durasi)){
+						cout << "Semua form harus di isi!" << endl;
+						system("pause");
+						break;
+					}
+					daftarFilm.push_back(film);
+					cout << "Berhasil menambahkan film" << endl;
+					system("pause");
+					return;
+				}
+				break;
+			default:
+				*s += (char)c;
+		}
+	}
+}
+
+void manageFilm() {
 	int index1 = 0;
 	int index2 = 0;
 	
@@ -387,16 +434,21 @@ void manageFilm(){
 		if(navigate(&index1, &index2, 0, daftarFilm.size()-1, 0, 2))
 			continue;
 
-		switch(c){
+		switch(c) {
 			case BACKSPACE:
 				return;
 			case ENTER:
+				switch(index2) {
+					case 0:
+						insertFilm();
+						break;
+				}
 				break;
 		}
 	}
 }
 
-void adminMenu(){
+void adminMenu() {
 	int index = 1;
 	for(;;){
 		system("cls");
@@ -505,11 +557,12 @@ void signUp() {
 	int index1 = 0;
 	int index2 = 0;
 	string username, password, pwMask;
+	string *s;
 	for(;;){
 		system("cls");
 
 		pwMask.resize(password.size(), '*');
-		string *s = (!index1 ? &username : &password);
+		s = (!index1 ? &username : &password);
 
 		cout << "\n\n\n\n\n\n\n\n\n\n";
 		cout << "\t\t\t\thhhhhhyyhhhhhhh" << "\t\t\t" << "SIGN UP" << endl;
@@ -530,12 +583,11 @@ void signUp() {
 					s->resize(s->size() - 1);
 				break;
 			case ENTER:
-				if(!index1) {
+				if(index2) {
+					return;
+				} else if(!index1) {
 					index1 = !index1;
 					break;
-				}
-				else if(index2) {
-					return;
 				} else {
 					if(username == "admin" || checkString(username) || checkString(password)) {
 						cout << "\n\t\t\t\t\tUsername/Password tidak valid";
@@ -590,12 +642,11 @@ void login() {
 					s->resize(s->size() - 1);
 				break;
 			case ENTER:
-				if(!index1) {
+				if(index2) {
+					return;
+				} else if(!index1) {
 					index1 = !index1;
 					break;
-				}
-				else if(index2) {
-					return;
 				} else {
 					if (username == "admin" && password == "admin"){
 						adminMenu(); 
@@ -682,7 +733,7 @@ void setupDummy() {
 			JadwalFilm jf(jadwalFilm[j]);
 			daftarJadwal.push_back(jf);
 		}
-		Film film(daftarFilm.size()+1, namaFilm[i], "13+", 120, daftarJadwal);
+		Film film(daftarFilm.size()+1, namaFilm[i], "13+", "120", daftarJadwal);
 		daftarFilm.push_back(film);
 	}
 	User user("1", "1");
