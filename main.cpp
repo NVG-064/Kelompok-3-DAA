@@ -779,10 +779,21 @@ void setupDummy() {
 		"Inception",
 		"Interstellar",
 		"Joker",
-		"Up"
+		"Up",
+		"Train To Busan 2",
+		"Final Destination 5",
+		"Tenet",
+		"Act of Valor",
+		"Merah Putih Memanggil",
+		"Foxtrot Six",
+		"It (Chapter Two)",
+		"Redcon-1",
+		"Resident Evil 2 - Apocalypse",
+		"Bloodshot",
+		"Seal Team Eight - Behind Enemy Lines"
 	};
 	for(int i = 0; i < sizeof(namaFilm)/sizeof(namaFilm[0]); i++){
-		Film film(namaFilm[i], "13+", "120");
+		Film film(namaFilm[i], "13+ tahun", "120 menit");
 		daftarFilm.push_back(film);
 	}
 	daftarUser.push_back(User("1", "1"));

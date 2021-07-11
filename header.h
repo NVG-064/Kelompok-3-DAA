@@ -170,9 +170,9 @@ void printAll(vector<T> v, int index) {
 		if(i < 0 || i == v.size()){
 			cout << s;
 		} else {
-			cout << ( index == i ? "\t\t\t\t\t= = = = = = = = = = = = = = = = = = = =" : "" ) << endl;
+			cout << ( index == i ? "\t\t\t\t\t= = = = = = = = = = = = = = = = = = = = = = = =" : "" ) << endl;
 			v.at(i).print();
-			cout << ( index == i ? "\t\t\t\t\t= = = = = = = = = = = = = = = = = = = =" : "" ) << endl;
+			cout << ( index == i ? "\t\t\t\t\t= = = = = = = = = = = = = = = = = = = = = = = =" : "" ) << endl;
 		}
 	}
 	cout << '\n';
