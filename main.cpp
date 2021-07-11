@@ -122,7 +122,7 @@ bool confirmMenu() {
 	return false;
 }
 
-void pilihKursi(JadwalFilm* pJadwalFilm) {
+void pilihKursi(JadwalFilm *pJadwalFilm) {
 	JadwalFilm jadwalFilm = *pJadwalFilm;
 	pembelian.jamTayang = jadwalFilm.jamTayang;
 	int index1 = 0;
@@ -209,7 +209,7 @@ void pilihKursi(JadwalFilm* pJadwalFilm) {
 	}
 }
 
-void pilihJadwal(Film* film) {
+void pilihJadwal(Film *film) {
 	pembelian.namaFilm = film->namaFilm;
 	int index = 0;
 	for(;;){
