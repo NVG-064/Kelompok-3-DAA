@@ -122,6 +122,7 @@ bool confirmMenu() {
 	return false;
 }
 
+// User Begin
 void pilihKursi(JadwalFilm *pJadwalFilm) {
 	JadwalFilm jadwalFilm = *pJadwalFilm;
 	pembelian.jamTayang = jadwalFilm.jamTayang;
@@ -432,7 +433,9 @@ void mainMenu() {
 	}
 	system("pause");
 }
+// User End
 
+// Admin Begin
 void deleteFilm(int *index) {
 	if(!confirmMenu())
 		return;
@@ -612,7 +615,9 @@ void adminMenu() {
 		}
 	}
 }
+// Admin End
 
+// StartScreen Begin
 void signUp() {
 	int index1 = 0;
 	int index2 = 0;
@@ -772,6 +777,8 @@ void startMenu() {
 		}
 	}
 }
+// StartScreen End
+
 
 void setupDummy() {
 	string namaFilm[] = {
