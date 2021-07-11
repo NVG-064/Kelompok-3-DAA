@@ -229,27 +229,27 @@ bool navigate(int *index1, int *index2, int min1, int max1, int min2, int max2) 
 
 void success() {
 	system("cls");
-	cout << "\t\t\t\t\t\t                 ```.`                  " << endl;
-	cout << "\t\t\t\t\t\t           `:oydmNNNNNNmdyo/`       ..  " << endl;
-	cout << "\t\t\t\t\t\t        .odNNNmhso++++oshmNNN/    -oss/ " << endl;
-	cout << "\t\t\t\t\t\t      -hNNNy/.            ./:   -osss/  " << endl;
-	cout << "\t\t\t\t\t\t    `yNNm+`                   -ossso.   " << endl;
-	cout << "\t\t\t\t\t\t   -mNNs`                   -ossss:     " << endl;
-	cout << "\t\t\t\t\t\t  -mNN/                   -ossss+`      " << endl;
-	cout << "\t\t\t\t\t\t  dNN+                  -osssso-   sds  " << endl;
-	cout << "\t\t\t\t\t\t :NNm  .//-`          -osssss/`    dNN/ " << endl;
-	cout << "\t\t\t\t\t\t oNNs  .oooo+:.     -ossssso.      sNNs " << endl;
-	cout << "\t\t\t\t\t\t oNNs   `/oooooo/-:ossssss:        sNNs " << endl;
-	cout << "\t\t\t\t\t\t :NNm     .+ooosssssssss+`         dNN/ " << endl;
-	cout << "\t\t\t\t\t\t  dNN+      :oossssssso-          /NNd  " << endl;
-	cout << "\t\t\t\t\t\t  -mNN/      `+ssssss/`          :NNN-  " << endl;
-	cout << "\t\t\t\t\t\t   -mNNo`      -osso.          `oNNm:   " << endl;
-	cout << "\t\t\t\t\t\t    .yNNm+`      ``          `+mNNh.    " << endl;
-	cout << "\t\t\t\t\t\t      :hNNmy/.            `/ymNNh:      " << endl;
-	cout << "\t\t\t\t\t\t        -odNNNmhso+//+oshmNNNds-        " << endl;
-	cout << "\t\t\t\t\t\t           ./ohdNNNNNNNNdhs/.           " << endl;
-	cout << "\t\t\t\t\t\t                 `....`                 " << endl;
-	cout << "\n\t\t\t\t\t\t\t\tSuccess\n" << endl;
+	cout << "\t\t\t\t\t                 ```.`                  " << endl;
+	cout << "\t\t\t\t\t           `:oydmNNNNNNmdyo/`       ..  " << endl;
+	cout << "\t\t\t\t\t        .odNNNmhso++++oshmNNN/    -oss/ " << endl;
+	cout << "\t\t\t\t\t      -hNNNy/.            ./:   -osss/  " << endl;
+	cout << "\t\t\t\t\t    `yNNm+`                   -ossso.   " << endl;
+	cout << "\t\t\t\t\t   -mNNs`                   -ossss:     " << endl;
+	cout << "\t\t\t\t\t  -mNN/                   -ossss+`      " << endl;
+	cout << "\t\t\t\t\t  dNN+                  -osssso-   sds  " << endl;
+	cout << "\t\t\t\t\t :NNm  .//-`          -osssss/`    dNN/ " << endl;
+	cout << "\t\t\t\t\t oNNs  .oooo+:.     -ossssso.      sNNs " << endl;
+	cout << "\t\t\t\t\t oNNs   `/oooooo/-:ossssss:        sNNs " << endl;
+	cout << "\t\t\t\t\t :NNm     .+ooosssssssss+`         dNN/ " << endl;
+	cout << "\t\t\t\t\t  dNN+      :oossssssso-          /NNd  " << endl;
+	cout << "\t\t\t\t\t  -mNN/      `+ssssss/`          :NNN-  " << endl;
+	cout << "\t\t\t\t\t   -mNNo`      -osso.          `oNNm:   " << endl;
+	cout << "\t\t\t\t\t    .yNNm+`      ``          `+mNNh.    " << endl;
+	cout << "\t\t\t\t\t      :hNNmy/.            `/ymNNh:      " << endl;
+	cout << "\t\t\t\t\t        -odNNNmhso+//+oshmNNNds-        " << endl;
+	cout << "\t\t\t\t\t           ./ohdNNNNNNNNdhs/.           " << endl;
+	cout << "\t\t\t\t\t                 `....`                 " << endl;
+	cout << "\n\t\t\t\t\t\t\tSuccess\n" << endl;
 	system("pause");
 }
 
@@ -867,7 +867,7 @@ void login() {
 		cout << "\t\t\t\thhhhs:.../yhhhh" << "\t\t" << " Username: " << username << (!index1 ? "_" : " ") << endl;
 		cout << "\t\t\t\thh+.`.-:-.`.+hh" << "\t\t" << " Password: " << pwMask << (index1 ? "_" : " ") << endl;
 		cout << "\t\t\t\thy           yh" << endl;
-		cout << "\t\t\t\tho           oh" << "\t\t" << (!index2 ? "[Login]\t Exit " : " Login \t[Exit]") << endl;
+		cout << "\t\t\t\tho           oh" << "\t\t" << (!index2 ? "[Login]\t\t Exit " : " Login \t\t[Exit]") << endl;
 		cout << "\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
 
 		if(navigate(&index1, &index2, 0, 1, 0, 1))
