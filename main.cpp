@@ -377,7 +377,9 @@ void topUpSaldo() {
 void mainMenu() {
 	if(currentUser->saldo == -1){
 		system("cls");
-		cout << "\nSelamat datang, " << currentUser->username << ". kamu mendapatkan bonus Rp. 35,000 sebagai pengguna baru :) ";
+		cout << "\n\n\n\n\n\n\n\n\n\n\n\n";
+		cout << "\t\t\t\tSelamat datang, " << currentUser->username << ".\n";
+		cout << "\t\t\t\tKamu mendapatkan bonus Rp. 35,000 sebagai pengguna baru :) ";
 		currentUser->saldo = 35000;
 		getch();
 	}
@@ -812,5 +814,3 @@ int main() {
 	startMenu();
 	return 0;
 }
-
-
