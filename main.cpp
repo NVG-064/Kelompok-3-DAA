@@ -18,6 +18,25 @@ string getSeatNumber(int index1, int index2, bool flag){
 	return string() + a + b;
 }
 
+string formatNumber(long value) {
+	if (value < 1)
+		return "0";
+	string s = "";
+	char c;
+	int i = 2;
+	while(value != 0){
+		c = value%10+'0';
+		s += c;
+		value /= 10;
+		if(value && !i--){
+			s+=',';
+			i = 2;
+		}
+	}
+	reverse(s.begin(), s.end());
+	return s;
+}
+
 class User {
 	public:
 	string username;
@@ -108,7 +127,7 @@ class Pembelian {
 		cout << "\t\t\t\t\tNama Film: " << this->namaFilm << endl;
 		cout << "\t\t\t\t\tJam Tayang: " << this->jamTayang << endl;
 		cout << "\t\t\t\t\tKursi: " << this->kursiDibeli << endl;
-		cout << "\t\t\t\t\tTotal: Rp. " << this->totalHarga << endl;
+		cout << "\t\t\t\t\tTotal: Rp. " << formatNumber(this->totalHarga) << endl;
 	}
 };
 
@@ -134,25 +153,6 @@ string getTimeState(int hour){
 		timeState = "malam";
 	}
 	return timeState;
-}
-
-string formatNumber(long value) {
-	if (value < 1)
-		return "0";
-	string s = "";
-	char c;
-	int i = 2;
-	while(value != 0){
-		c = value%10+'0';
-		s += c;
-		value /= 10;
-		if(value && !i--){
-			s+=',';
-			i = 2;
-		}
-	}
-	reverse(s.begin(), s.end());
-	return s;
 }
 
 template <typename T>
