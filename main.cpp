@@ -242,36 +242,7 @@ void pilihJadwal(Film* film) {
 	}
 }
 
-void daftarPembelianMenu() {
-	int index = 0;
-	for(;;){
-		system("cls");
-		cout << "\t\t\t\t\t\t``  -ohmNMMNmho-    " << endl;
-		cout << "\t\t\t\t\t\tMMsdMms/----/smMd:  " << endl;
-		cout << "\t\t\t\t\t\tMMMN/`  .MM.   /mMy " << endl;
-		cout << "\t\t\t\t\t\tMMMMMM- .MM.    `mMs" << endl;
-		cout << "\t\t\t\t\t\t--....  .MM-     +MN" << endl;
-		cout << "\t\t\t\t\t\tNM+     `dMNs-   +MN" << endl;
-		cout << "\t\t\t\t\t\tsMm`      .omMd``mMs" << endl;
-		cout << "\t\t\t\t\t\t yMm/        .`/mMy " << endl;
-		cout << "\t\t\t\t\t\t  :dMms/-..-/smMd:  " << endl;
-		cout << "\t\t\t\t\t\t    -ohmNMMNmho-    " << endl << endl;
-		cout << "\t\t\t\t\t\t Riwayat Pembelian" << endl << endl;
-		printAll(daftarPembelian, index);
-
-		if(navigate(&index, 0, daftarPembelian.size()-1))
-			continue;
-
-		switch(c){
-			case BACKSPACE:
-				return;
-			case ENTER:
-				return;
-		}
-	}
-}
-
-void beliTiket() {
+void pilihFilm() {
 	int index = 0;
 	for(;;){
 		system("cls");
@@ -299,6 +270,35 @@ void beliTiket() {
 		}
 		if(!c)
 			return;
+	}
+}
+
+void daftarPembelianMenu() {
+	int index = 0;
+	for(;;){
+		system("cls");
+		cout << "\t\t\t\t\t\t``  -ohmNMMNmho-    " << endl;
+		cout << "\t\t\t\t\t\tMMsdMms/----/smMd:  " << endl;
+		cout << "\t\t\t\t\t\tMMMN/`  .MM.   /mMy " << endl;
+		cout << "\t\t\t\t\t\tMMMMMM- .MM.    `mMs" << endl;
+		cout << "\t\t\t\t\t\t--....  .MM-     +MN" << endl;
+		cout << "\t\t\t\t\t\tNM+     `dMNs-   +MN" << endl;
+		cout << "\t\t\t\t\t\tsMm`      .omMd``mMs" << endl;
+		cout << "\t\t\t\t\t\t yMm/        .`/mMy " << endl;
+		cout << "\t\t\t\t\t\t  :dMms/-..-/smMd:  " << endl;
+		cout << "\t\t\t\t\t\t    -ohmNMMNmho-    " << endl << endl;
+		cout << "\t\t\t\t\t\t Riwayat Pembelian" << endl << endl;
+		printAll(daftarPembelian, index);
+
+		if(navigate(&index, 0, daftarPembelian.size()-1))
+			continue;
+
+		switch(c){
+			case BACKSPACE:
+				return;
+			case ENTER:
+				return;
+		}
 	}
 }
 
@@ -371,6 +371,66 @@ void topUpSaldo() {
 				break;
 		}
 	}
+}
+
+void mainMenu() {
+	if(currentUser->saldo == -1){
+		system("cls");
+		cout << "\nSelamat datang, " << currentUser->username << ". kamu mendapatkan bonus Rp. 35,000 sebagai pengguna baru :) ";
+		currentUser->saldo = 35000;
+		getch();
+	}
+	int index = 1;
+	time_t timeNow;
+	tm *tmN;
+	for(;;) {
+		system("cls");
+
+		time(&timeNow);
+		tmN = localtime(&timeNow);
+		int hour = tmN->tm_hour;
+		int min = tmN->tm_min;
+
+		cout << "========================================================================================================================\n";
+		cout << "========================================================================================================================\n\n";
+		cout << "\t\t\t\thhhhhhyyhhhhhhh" << endl;
+		cout << "\t\t\t\thhhhy-  `/hhhhh" << endl;
+		cout << "\t\t\t\thhhh+     yhhhh" << "\t\tSelamat " << getTimeState(hour) << ", " << currentUser->username << endl;
+		cout << "\t\t\t\thhhhs:.../yhhhh" << "\t\tSekarang pukul " << hour << ":" << min << endl;
+		cout << "\t\t\t\thh+.`.-:-.`.+hh" << endl;
+		cout << "\t\t\t\thy           yh" << "\t\tSaldo kamu Rp. " << fixed << formatNumber(currentUser->saldo) << endl;
+		cout << "\t\t\t\tho           oh" << endl;
+		cout << "\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
+		cout << "========================================================================================================================\n";
+		cout << "========================================================================================================================\n\n";
+		cout << "\t\t\t\t\t\t\tMAIN MENU\n" << endl;
+		cout << "\t\t\t\t\t\t" << ( index == 1 ? "[1]" : " 1 " ) << "Beli Tiket Film" << endl;
+		cout << "\t\t\t\t\t\t" << ( index == 2 ? "[2]" : " 2 " ) << "Riwayat Pembelian" << endl;
+		cout << "\t\t\t\t\t\t" << ( index == 3 ? "[3]" : " 3 " ) << "Top Up Saldo" << endl << endl;
+		cout << "\t\t\t\t\t\t" << ( index == 4 ? "[4]" : " 4 " ) << "Logout" << endl;
+		
+		if(navigate(&index, 1, 4))
+			continue;
+		
+		switch(c){
+			case ENTER:
+				switch(index) {
+					case 1:
+						pilihFilm();
+						break;
+					case 2:
+						daftarPembelianMenu();
+						break;
+					case 3:
+						topUpSaldo();						
+						break;
+					case 4:
+						return;
+				}
+				break;
+		}
+	}
+	system("pause");
 }
 
 void deleteFilm(int *index) {
@@ -551,66 +611,6 @@ void adminMenu() {
 				}
 		}
 	}
-}
-
-void mainMenu() {
-	if(currentUser->saldo == -1){
-		system("cls");
-		cout << "\nSelamat datang, " << currentUser->username << ". kamu mendapatkan bonus Rp. 35,000 sebagai pengguna baru :) ";
-		currentUser->saldo = 35000;
-		getch();
-	}
-	int index = 1;
-	time_t timeNow;
-	tm *tmN;
-	for(;;) {
-		system("cls");
-
-		time(&timeNow);
-		tmN = localtime(&timeNow);
-		int hour = tmN->tm_hour;
-		int min = tmN->tm_min;
-
-		cout << "========================================================================================================================\n";
-		cout << "========================================================================================================================\n\n";
-		cout << "\t\t\t\thhhhhhyyhhhhhhh" << endl;
-		cout << "\t\t\t\thhhhy-  `/hhhhh" << endl;
-		cout << "\t\t\t\thhhh+     yhhhh" << "\t\tSelamat " << getTimeState(hour) << ", " << currentUser->username << endl;
-		cout << "\t\t\t\thhhhs:.../yhhhh" << "\t\tSekarang pukul " << hour << ":" << min << endl;
-		cout << "\t\t\t\thh+.`.-:-.`.+hh" << endl;
-		cout << "\t\t\t\thy           yh" << "\t\tSaldo kamu Rp. " << fixed << formatNumber(currentUser->saldo) << endl;
-		cout << "\t\t\t\tho           oh" << endl;
-		cout << "\t\t\t\thhhhhhhhhhhhhhh" << endl << endl;
-		cout << "========================================================================================================================\n";
-		cout << "========================================================================================================================\n\n";
-		cout << "\t\t\t\t\t\t\tMAIN MENU\n" << endl;
-		cout << "\t\t\t\t\t\t" << ( index == 1 ? "[1]" : " 1 " ) << "Beli Tiket Film" << endl;
-		cout << "\t\t\t\t\t\t" << ( index == 2 ? "[2]" : " 2 " ) << "Riwayat Pembelian" << endl;
-		cout << "\t\t\t\t\t\t" << ( index == 3 ? "[3]" : " 3 " ) << "Top Up Saldo" << endl << endl;
-		cout << "\t\t\t\t\t\t" << ( index == 4 ? "[4]" : " 4 " ) << "Logout" << endl;
-		
-		if(navigate(&index, 1, 4))
-			continue;
-		
-		switch(c){
-			case ENTER:
-				switch(index) {
-					case 1:
-						beliTiket();
-						break;
-					case 2:
-						daftarPembelianMenu();
-						break;
-					case 3:
-						topUpSaldo();						
-						break;
-					case 4:
-						return;
-				}
-				break;
-		}
-	}
-	system("pause");
 }
 
 void signUp() {
