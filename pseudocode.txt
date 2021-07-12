@@ -5,7 +5,7 @@ function getSeatNumber(index1, index2)
 	return s
 end function
 
-function confirmMenu
+function confirmMenu()
 	print "Apakah anda yakin?"
 	print "1. Ya 2. Tidak"
 	input n
