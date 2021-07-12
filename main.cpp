@@ -717,6 +717,8 @@ void manageFilm() {
 	
 	for(;;){
 		system("cls");
+		cout << "\n\n\n\n\n\n\n\n\n\n";
+		cout << "\t\t\t\t\t\t     Pilih Film" << endl << endl;
 		printAll(daftarFilm, index1);
 
 		cout << "\n\n========================================================================================================================\n\n\t\t\t\t\t";
