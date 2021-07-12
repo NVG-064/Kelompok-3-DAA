@@ -1,0 +1,282 @@
+function getSeatNumber(index1, index2)
+	string s = ""
+	s += (char)index1+'A'
+	s += (char)index2'1'
+	return s
+end function
+
+function confirmMenu
+	print "Apakah anda yakin?"
+	print "1. Ya 2. Tidak"
+	input n
+	if n == 1
+		return true
+	else
+		return false
+end function
+
+class User
+	string username
+	string password
+	long saldo
+end class
+
+class JadwalFilm
+	string jamTayang
+	boolean[][] kursi
+	
+	method printKursi()
+		for each i in kursi
+			for each j in i
+				print getSeatNumber(j)
+			end for
+		end for
+	end method
+end class
+
+class Film
+	string namaFilm
+	string ratingUsia
+	string durasi
+	JadwalFilm[] jadwalFilm
+	
+	method print()
+		print this.namaFilm
+		print this.ratingUsia
+		print this.durasi
+	end method
+
+	method printJadwal()
+		for each jadwal in jadwalFilm
+			print jadwal.tamTayang
+		end for
+	end method
+end class
+
+class Pembelian
+	int id
+	string namaFilm
+	string jamTayang
+	string kursiDibeli
+	long totalHarga
+	
+	method print()
+		print this.id
+		print this.namaFilm
+		print this.jamTayang
+		print this.kursiDibeli
+		print this.totalHarga
+	end method
+end class
+
+function findUsername(string username)
+	for each user in daftarUser
+		if user.username == username
+			return user
+		end if
+	end for
+	return null
+end function
+
+function printAll(any[])
+	for each i in any
+		i.print()
+	end for
+end function
+
+const int harga = 35000
+int pil
+User[] daftarUser
+Film[] daftarFilm
+Pembelian[] daftarPembelian
+User currentUser
+
+function startMenu()
+    print "1. Login"
+    print "2. Sign up"
+    print "3. Exit"
+
+    input pil
+
+    if pil == 1
+        login()
+    else if pil == 2
+        signUp()
+    else 
+        return
+    end if
+end function
+
+function login()
+    print "Username: "
+    input username
+    print "Password "
+    input password
+
+    if username == "admin" and password == "admin"
+        adminMenu()
+        return
+    end if
+    User user = findUsername(username)
+    if user == null or user.password != password
+        print "Username atau Password salah"
+    else
+        mainMenu
+        return
+    end if
+end function
+
+function signUp()
+    print "Username: "
+    input username
+    
+    if findUsername(username) != NULL
+        print "Username sudah terpakai"
+        return
+    end if
+
+    print "Password "
+    input password
+
+    daftarUser.push(User(username, password))
+end function
+
+function adminMenu()
+    print "1. Insert Film"
+    print "2. Update Film"
+    print "3. Delete Film"
+    print "4. Logout"
+    input pil
+
+    if pil == 1
+        insertFilm()
+    else if pil == 2
+        updateFilm()
+    else if pil == 3
+        deleteFilm()
+    else
+        return
+    end if
+end function
+
+function insertFilm()
+    print "Nama Film: "
+    input namaFilm
+    print "Rating Usia: "
+    input ratingUsia
+    print "Durasi: "
+    input durasi
+
+    daftarFilm.push(Film(namaFilm, ratingUsia, durasi))
+end function
+
+function updateFilm()
+    printAll(daftarFilm)
+    input pil
+    Film film = daftarFilm[pil]
+    print "Nama Film: "
+    input film.namaFilm
+    print "Rating Usia: "
+    input film.ratingUsia
+    print "Durasi: "
+    input film.durasi
+end function
+
+function deleteFilm()
+    printAll(daftarFilm)
+    input pil
+    if confirmMenu() == true
+        daftarFilm.erase(pil)
+    else
+        print "Penghapusan dibatalkan"
+    end if
+end function
+
+function mainMenu()
+    print "1. Beli tiket film"
+    print "2. Riwayat pembelian"
+    print "3. Top up saldo"
+    print "4. Logout"
+    input pil
+
+    if pil == 1
+        pilihFilm()
+    else if pil == 2
+        printAll(daftarPembelian)
+    else if pil == 3
+        topUpSaldo()
+    else
+        return
+    end if
+end function
+
+function pilihFilm()
+    printAll(daftarFilm)
+    input pil
+
+    pilihJadwal(daftarFilm[pil])
+end function
+
+function pilihJadwal(Film film)
+    film.printJadwal()
+    input pil
+
+    pilihKursi(film.jadwalFilm[pil])
+end function
+
+function pilihKursi(JadwalFilm jadwalFilm)
+    jadwalFilm.printKursi()
+
+    input pilKursi
+
+    totalHarga = pilKursi.size * HARGA
+
+    if confirmMenu() == true
+        if totalHarga <= currentUser.saldo
+            jadwalFilm.kursi[pilKursi] = true
+            currentUser.saldo -= totalHarga
+
+            daftarPembelian.push(Pembelian(id, namaFilm, jamTayang, kursi, totalHarga))
+            print "Pembelian berhasil"
+        else
+            print "Saldo tidak cukup"
+        end if
+    else
+        print "Pembelian dibatalkan"
+    end if
+end function
+
+function topUpSaldo()
+    print "1. Rp. 10,000 (bonus Rp. 2,000)"
+    print "1. Rp. 20,000 (bonus Rp. 4,000)"
+    print "1. Rp. 40,000 (bonus Rp. 16,000)"
+    print "4. Masukkan nominal sendiri"
+    print "5. Exit"
+
+    input pil
+
+    if pil < 4
+        if confirmMenu()
+            if pil == 1
+                currentUser.saldo += 12000
+            else if pil == 2
+                currentUser.saldo += 24000
+            else
+                currentUser.saldo += 56000
+            end if
+        else
+            print "Transaksi dibatalkan"
+        end if
+    else
+        if pil == 4
+            input jumlah
+            if confirmMenu()
+                currentUser.saldo += jumlah
+            else
+                print "Transaksi dibatalkan"
+            end if
+        else
+            return
+        end if
+    end if
+end function
