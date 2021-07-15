@@ -68,7 +68,7 @@ class JadwalFilm {
 	JadwalFilm(string jamTayang) : kursi(9, vector<bool> (9, false)){
 		this->jamTayang = jamTayang;
 	}
-	printKursi(int index1, int index2){
+	void printKursi(int index1, int index2){
 		for(int i = 0; i < kursi.size(); i++){
 			cout << "\t\t\t\t\t";
 			for(int j = 0; j < kursi.at(0).size(); j++){
@@ -97,17 +97,17 @@ class Film {
 		this->jadwalFilm.push_back(JadwalFilm("15:45"));
 		this->jadwalFilm.push_back(JadwalFilm("18:00"));
 	}
-	print(){
+	void print(){
 		cout << "\t\t\t\t\tNama Film: " << this->namaFilm << endl;
 		cout << "\t\t\t\t\tRating Usia: " << this->ratingUsia << endl;
 		cout << "\t\t\t\t\tDurasi: " << this->durasi << endl;
 	}
-	print(int index1){
+	void print(int index1){
 		cout << "\t\t\t\t\tNama Film: " << this->namaFilm << (index1 == 0 ? "_" : " ") << endl;
 		cout << "\t\t\t\t\tRating Usia: " << this->ratingUsia << (index1 == 1 ? "_" : " ") << endl;
 		cout << "\t\t\t\t\tDurasi: " << this->durasi << (index1 == 2 ? "_" : " ") <<endl;
 	}
-	printJadwal(int index) {
+	void printJadwal(int index) {
 		for (int i = 0; i < jadwalFilm.size(); i++) {
 			cout << "\t\t\t\t\t\t" << ( index == i ? "[" : " " ) << i+1 << ( index == i ? "]" : " " ) << jadwalFilm.at(i).jamTayang << endl	;
 		}
@@ -122,7 +122,7 @@ class Pembelian {
 	string kursiDibeli;
 	long totalHarga;
 	Pembelian(){}
-	print(){
+	void print(){
 		cout << "\t\t\t\t\tID Pembelian: " << this->id << endl;
 		cout << "\t\t\t\t\tNama Film: " << this->namaFilm << endl;
 		cout << "\t\t\t\t\tJam Tayang: " << this->jamTayang << endl;
